@@ -1,0 +1,25 @@
+<div class="dark-background">
+    <div class="darker-background mat-elevation-z20">
+
+        <img src="../../../assets/imgs/logo.jpg" alt="Logistic Management logo" class="logo-login">
+        
+        <div>
+            <h2>Login</h2>
+        </div>
+
+        <form [formGroup]="loginForm" (onSubmit)="onSubmit()">       
+                <mat-form-field>
+                    <mat-label>Enter User ID</mat-label>
+                    <input matInput formControlName="id" placeholder="Ex:W1234" type="text">
+                    <mat-error *ngIf="loginForm.get('id')?.hasError('required')">Please enter a ID</mat-error>
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-label>Enter password</mat-label>
+                    <input matInput formControlName="password" [type]="isPassword">
+                    <mat-error *ngIf="loginForm.get('password')?.hasError('required')">Please enter a password</mat-error>
+                    <mat-error *ngIf="loginForm.get('password')?.hasError('minlength')">A password mst contain at least 4 characters</mat-error>
+                </mat-form-field>
+                <button mat-raised-button [color]="color" (mouseover)="color='white'" (mouseout)="color='dark'">Sign In</button>
+            </form>
+    </div>  
+</div>
