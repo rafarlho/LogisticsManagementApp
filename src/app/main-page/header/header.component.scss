@@ -7,6 +7,7 @@ $darker-blue:#0F1035;
     background-color: $darker-blue;
     height: 10%;
     color: white;
+    justify-content: center;
     align-items: center;
     display: flex;
 
@@ -19,20 +20,23 @@ $darker-blue:#0F1035;
     }
     div {
         font-size: medium;
+        p {
+            text-align: center;
+        }
     }
         
     .mat-mdc-raised-button.mat-white {
-        width: 10%;
+        width: 8%;
         font-size: medium;
-        margin-right: 5px;
+        margin-right: 10px;
         background-color: $light-blue;
         color: white;
         border: 2px white solid !important;
      
     }
     .mat-mdc-raised-button.mat-dark {
-        margin-right: 5px;
-        width: 10%;
+        margin-right: 10px;
+        width: 8%;
         font-size: medium;
         background-color: $darker-blue;
         color: white;

@@ -12,20 +12,17 @@ $darker-blue:#0F1035;
     .side-content {
         position: absolute;
         width: 100%;
+        text-align: center;
         .navigation {
             width: 90%;
             margin: 5%;
             color: white;
-            
-            .mat-mdc-raised-button {
-                margin-top: 10%;
-                background-color: $dark-blue;
-                color: white;
-                width: 100%;
-                border: 2px solid white;
-                :active {
-                    background-color: $darker-blue;
-                }
+            .mat-mdc-fab {
+                margin-top: 20%;
+                margin-bottom: 20%;
+                background-color: $darker-blue;
+                color: $light-blue;
+                border: 2px solid $light-blue;
             }
         }
     }

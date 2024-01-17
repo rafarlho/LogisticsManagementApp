@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import {MatCardModule} from '@angular/material/card';
 import {MatExpansionModule} from '@angular/material/expansion';
+import { MatIconModule } from '@angular/material/icon';
 
 @Component({
   selector: 'app-side-nav',
@@ -10,6 +11,7 @@ import {MatExpansionModule} from '@angular/material/expansion';
     MatCardModule, 
     MatExpansionModule,
     MatButtonModule,
+    MatIconModule,
   ],
   templateUrl: './side-nav.component.html',
   styleUrl: './side-nav.component.scss'
