@@ -1,0 +1,17 @@
+$light-blue: #7fc7d9;
+$dark-blue:#365486;
+$darker-blue:#0F1035;
+
+.main-div {
+    background-color: black;
+    height: 90%;
+    width: 100%;
+    display: flex;     
+
+    .side-nav {
+        width: 10%;
+    }
+    .dashboard {
+        width: 90%;
+    }
+}
