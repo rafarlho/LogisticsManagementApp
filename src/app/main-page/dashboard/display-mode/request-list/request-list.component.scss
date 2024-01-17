@@ -1,0 +1,31 @@
+$lighter-blue: #DCF2F1;
+$light-blue: #7fc7d9;
+$dark-blue:#365486;
+$darker-blue:#0F1035;
+
+
+.table-class {
+    margin: 20px;
+    mat-table{
+        border-radius: 10px; 
+        overflow: hidden;
+        width: auto;
+        td, th {
+            background-color: $dark-blue;
+            color: $lighter-blue;
+            text-align: center !important;
+            vertical-align: middle !important;
+            border-bottom: 1px solid $darker-blue;
+            border-right: 2px solid $darker-blue;
+            width: 10% !important;
+        }
+
+        th {
+            font-size: larger;
+            border-bottom: 3px solid$darker-blue;
+        }
+        .mat-sort-header-container {
+            justify-content: center !important;
+        }
+    }
+}

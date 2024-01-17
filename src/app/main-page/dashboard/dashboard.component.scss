@@ -7,4 +7,13 @@ $darker-blue:#0F1035;
     background-color: $lighter-blue;
     height: 100%;
     width: 100%;
+    mat-mdc-tab-body-wrapper {
+        height: 100%;
+    }
+    .tab-group {
+        height: 100%;
+        .request-list {
+            height: 100%;
+        }
+    }
 }
