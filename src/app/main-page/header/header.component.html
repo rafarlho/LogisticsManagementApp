@@ -1,0 +1,21 @@
+<mat-toolbar class="tool-bar">
+    <mat-toolbar-row>
+        <img src="../../../assets/imgs/logo_optimized.jpg" alt="Logistic Management logo" class="logo-header">
+        <span  class="example-spacer"></span>
+        <div>
+            <p>{{time| date:"EEEE, MMM dd, yyyy"}}</p>
+            <p>{{time| date:"hh:mm:ss"}}</p>
+        </div>
+        <span  class="example-spacer"></span>
+        
+            <button mat-raised-button [color]="colorHelp" (mouseover)="colorHelp='white'" (mouseout)="colorHelp='dark'"><mat-icon>support_agent</mat-icon>Help Desk</button>
+            <button mat-raised-button [matMenuTriggerFor]="menu" [color]="colorProfile" (mouseover)="colorProfile='white'" (mouseout)="colorProfile='dark'">
+                Options
+                <mat-icon>arrow_drop_down</mat-icon>
+            </button>
+            <mat-menu #menu>
+                <button mat-menu-item>Logout</button>
+            </mat-menu>
+        
+    </mat-toolbar-row>
+</mat-toolbar>

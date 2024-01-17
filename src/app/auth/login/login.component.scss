@@ -32,7 +32,6 @@ $darker-blue:#0F1035;
             color: white;
             mat-form-field{
                 width: 100%;
-                margin-bottom: 3%;
             }
             .mat-mdc-raised-button.mat-white {
                 margin-top: 5%;
@@ -52,6 +51,17 @@ $darker-blue:#0F1035;
                 color: white;
                 border: 2px white solid !important;
             }
+
+            /*Forgot password button*/
+            .mat-mdc-button.mat-forgot-password {
+                margin-top: 2.5%;
+                margin-left: 25%;
+                width: 50%;
+                font-size: small;
+                color: white;
+                background-color: $darker-blue;
+            }
+
            
         }
 }

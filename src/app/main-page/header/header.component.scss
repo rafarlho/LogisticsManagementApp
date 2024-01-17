@@ -1,0 +1,44 @@
+$light-blue: #7fc7d9;
+$dark-blue:#365486;
+$darker-blue:#0F1035;
+
+/*Toolbar contents*/
+.tool-bar {
+    background-color: $darker-blue;
+    height: 10%;
+    color: white;
+    align-items: center;
+    display: flex;
+
+    .example-spacer {
+        flex: 1;
+    }
+
+    .logo-header {
+        height: 50%;
+    }
+    div {
+        font-size: medium;
+    }
+        
+    .mat-mdc-raised-button.mat-white {
+        width: 10%;
+        font-size: medium;
+        margin-right: 5px;
+        background-color: $light-blue;
+        color: white;
+        border: 2px white solid !important;
+     
+    }
+    .mat-mdc-raised-button.mat-dark {
+        margin-right: 5px;
+        width: 10%;
+        font-size: medium;
+        background-color: $darker-blue;
+        color: white;
+        border: 2px white solid !important;
+       
+    }
+}
+
+

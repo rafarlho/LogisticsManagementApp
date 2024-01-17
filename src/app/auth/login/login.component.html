@@ -20,6 +20,7 @@
                     <mat-error *ngIf="loginForm.get('password')?.hasError('minlength')">A password mst contain at least 4 characters</mat-error>
                 </mat-form-field>
                 <button mat-raised-button [color]="color" (mouseover)="color='white'" (mouseout)="color='dark'">Sign In</button>
+                <button mat-button color="forgot-password" >Forgot your password? Click here!</button>
             </form>
     </div>  
 </div>
