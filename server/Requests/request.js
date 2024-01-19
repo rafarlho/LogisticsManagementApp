@@ -8,7 +8,7 @@ var requestSchema = new Schema({
     status:Number,
     emitter:String,
     handler:String,
-    lastestUpdate:Date,
+    latestUpdate:String,
 })
 
 module.exports = mongoose.model("Request",requestSchema)

@@ -42,14 +42,14 @@ async function createRequests() {
             status:0,
             emitter:faker.helpers.arrayElement(usersType1),
             handler:'',
-            lastestUpdate: faker.date.anytime()
+            latestUpdate: faker.date.anytime(),
         })
         try {
             await r.save()
-            console.log('Succesfuly generated ',r.id + " " + r.lastestUpdate.getDate() + " " + i)
+            console.log('Succesfuly generated ',r.id + " " + r.latestUpdate + " " + i)
                 
         } catch (error) {
-            console.log('Error generating user: ',err)
+            console.log('Error generating user: ',error)
         }
     }
     for(let i = 0 ; i < 20 ; i++) {
@@ -64,14 +64,14 @@ async function createRequests() {
             status:faker.number.int({min:1,max:3}),
             emitter:faker.helpers.arrayElement(usersType1),
             handler:faker.helpers.arrayElement(usersType2),
-            lastestUpdate: faker.date.anytime()
+            latestUpdate: faker.date.anytime()
         })
         try {
             await r.save()
-            console.log('Succesfuly generated ',r.id + " " + r.lastestUpdate.getDate() + " " + i)
+            console.log('Succesfuly generated ',r.id + " " + r.latestUpdate + " " + i)
                 
         } catch (error) {
-            console.log('Error generating user: ',err)
+            console.log('Error generating user: ',error)
         }
     }
 }
