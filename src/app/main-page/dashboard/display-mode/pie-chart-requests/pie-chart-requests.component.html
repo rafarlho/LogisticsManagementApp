@@ -1,0 +1,44 @@
+<div class="pie-charts">
+    <div class="chart">
+        <h2>All requests by status</h2>
+        <mat-progress-bar *ngIf="enableProgressBar" mode="indeterminate"></mat-progress-bar>
+        <ng-container  *ngIf="enableStatus;else nothingToShow" >
+            <canvas baseChart 
+                [type]="pieChartType"
+                [data]="pieChartData"
+                [options]="pieChartOptions"
+                [plugins]="pieChartPlugins">
+            </canvas>
+        </ng-container>
+    </div>
+    <div class="chart">
+        <h2>Top 10 requested goods</h2>
+        <mat-progress-bar *ngIf="enableProgressBar" mode="indeterminate"></mat-progress-bar>
+        <ng-container *ngIf="enableGoods;else nothingToShow">
+            <canvas baseChart 
+                [type]="pieChartType"
+                [data]="goodsChartData"
+                [options]="pieChartOptions"
+                [plugins]="pieChartPlugins">
+            </canvas>
+        </ng-container>
+    </div>
+    <div class="chart" >
+        <h2>Requests today</h2>
+        <mat-progress-bar *ngIf="enableProgressBar" mode="indeterminate"></mat-progress-bar>
+        <ng-container *ngIf="enableToday;else nothingToShow">
+            <canvas baseChart 
+                [type]="pieChartType"
+                [data]="todayReqChartData"
+                [options]="pieChartOptions"
+                [plugins]="pieChartPlugins">
+            </canvas>
+        </ng-container>
+    </div>
+
+    <ng-template #nothingToShow>
+        <div *ngIf="!enableProgressBar">
+            <p>It seems that there is no data to show...</p>
+        </div>
+    </ng-template>
+</div>

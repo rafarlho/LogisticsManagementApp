@@ -2,29 +2,28 @@
     <div class="navigator">
         
         <mat-form-field>
-            <input matInput (input)="applyFilter($event)" placeholder="Search" >
+            <mat-label>Seacrh</mat-label>
+            <input matInput (input)="applyFilter($event)" placeholder="Search by ids" >
             <mat-icon matSuffix>search</mat-icon>
         </mat-form-field>
 
         <div class="sorter">
             <div>
                 <mat-slide-toggle [(ngModel)]="status" [disabled]="date" (change)="disableFilter($any($event))" color="primary"><p>Sort by Status</p></mat-slide-toggle>   
-                <mat-slide-toggle [(ngModel)]="date" [disabled]="status" color="primary"><p>Sort by Status</p></mat-slide-toggle>
+                <mat-slide-toggle [(ngModel)]="date" [disabled]="status" (change)="disableFilter($any($event))" color="primary"><p>Sort by Date</p></mat-slide-toggle>
             </div>
             <div>
                 <mat-radio-group aria-label="Select an option" *ngIf="status" >
-                    <mat-radio-button *ngFor="let s of statusList,let i = index" [value]="i" (change)="handleStatusChange($any($event))"><p>{{s}}</p></mat-radio-button>
+                    <mat-radio-button color="primary" *ngFor="let s of statusList,let i = index" [value]="i" (change)="handleStatusChange($any($event))"><p>{{s}}</p></mat-radio-button>
                 </mat-radio-group>
                 <mat-radio-group aria-label="Select an option" *ngIf="date" >
-                    <mat-radio-button *ngFor="let d of dateList,let i = index" [value]="i" (change)="handleDateChange($any($event))"><p>{{d}}</p></mat-radio-button>
+                    <mat-radio-button color="primary" *ngFor="let d of dateList,let i = index" [value]="i" (change)="handleDateChange($any($event))"><p>{{d}}</p></mat-radio-button>
                 </mat-radio-group>
             </div> 
         </div>
     </div>
 
-    <mat-table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
-    
-        
+    <mat-table mat-table [dataSource]="dataSource" class="mat-elevation-z8" matSort>
         <ng-container matColumnDef="id">
             <th mat-header-cell *matHeaderCellDef>ID</th>
             <td mat-cell *matCellDef="let request">{{request.id}}</td>
@@ -37,23 +36,23 @@
         
         <ng-container matColumnDef="handler">
             <th mat-header-cell *matHeaderCellDef>Handled by</th>
-            <td mat-cell *matCellDef="let request">{{request.handler}}</td>
+            <td mat-cell *matCellDef="let request">{{handleRequester(request.handler)}} </td>
         </ng-container>
         
         <ng-container matColumnDef="status">
             <th mat-header-cell *matHeaderCellDef>Status</th>
-            <td mat-cell *matCellDef="let request">{{request.status}}</td>
+            <td mat-cell *matCellDef="let request">{{numberToStatus(request.status)}}</td>
         </ng-container>
 
         <ng-container matColumnDef="latestUpdate">
-            <th mat-header-cell *matHeaderCellDef>Last update</th>
-            <td mat-cell *matCellDef="let request">{{request.latestUpdate}}</td>
+            <th mat-header-cell *matHeaderCellDef>Lastest update</th>
+            <td mat-cell *matCellDef="let request"> {{request?.latestUpdate | date:'medium'}}</td>
         </ng-container>
         
         <ng-container matColumnDef="options">
             <th mat-header-cell *matHeaderCellDef>Detais</th>
             <td mat-cell *matCellDef="let request">
-                <button mat-button>Get detailed information</button>
+                <button mat-raised-button color="white" (click)="openDialog(request)"><mat-icon>info_outlined</mat-icon>Get detailed information</button>
             </td>
         </ng-container>
         
@@ -61,5 +60,7 @@
         <tr mat-row *matRowDef="let row;columns:displayedColumns"></tr>
 
     </mat-table>
+    
     <mat-paginator [pageSizeOptions]="[10]"></mat-paginator>
+
 </div>

@@ -1,0 +1,23 @@
+<div class="dialog">    
+    <h2>Request ID: {{request.id}}</h2>
+    <mat-divider></mat-divider>
+    <span mat-subheader><b>Goods list:</b></span>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Quantity</th>
+        </tr>
+        <tr *ngFor="let good of request.goodsId">
+            <td>{{good.id}}</td>
+            <td>{{good.quantity}}</td>
+        </tr>
+    </table>
+    <mat-divider></mat-divider>
+    <span><b>Latest update:</b> {{request.latestUpdate}}</span>
+    <mat-divider></mat-divider>
+    <span><b>Emmited by:</b> {{request.emitter}}</span>
+    <mat-divider></mat-divider>
+    <span><b>Handled by:</b> {{handled}}</span>
+    <mat-divider></mat-divider>
+    <span><b>Status:</b> {{numberToStatus(request.status)}}</span>
+</div>

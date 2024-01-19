@@ -1,0 +1,14 @@
+
+
+
+.graph-background {
+    margin: 20px;
+    display: flex;
+    flex-direction: column;
+    .graph {
+        text-align: center;
+        box-sizing: border-box; display: block; 
+        height: 70%; width:70%;
+        margin-left: 15%;
+    }
+}

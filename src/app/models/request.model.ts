@@ -5,9 +5,9 @@ export enum Status {
 
 export interface Request {
     id:number
-    goods:{id:string ,quantity:number}[]
+    goodsId:{id:string ,quantity:number}[]
     status:Status
     emitter:string
     handler?:string
-    latestUpdate:Date
+    latestUpdate:string
 }

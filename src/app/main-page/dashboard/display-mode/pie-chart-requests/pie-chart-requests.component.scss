@@ -1,0 +1,17 @@
+$lighter-blue: #DCF2F1;
+$light-blue: #7fc7d9;
+$dark-blue:#365486;
+$darker-blue:#0F1035;
+
+
+.pie-charts {
+    margin:20px;
+    display: flex;
+    justify-content: space-between;
+    .chart {
+        text-align: center;
+        color: $darker-blue;
+        box-sizing: border-box; display: block; 
+        height: 30%; width:30%;
+    }
+}

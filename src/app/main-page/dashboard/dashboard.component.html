@@ -1,9 +1,9 @@
 <div class="dashboard">
     <mat-tab-group>
         <mat-tab label="Table">
-                <app-request-list class="request-list"></app-request-list>
+                <app-request-list ></app-request-list>
         </mat-tab>
-        <mat-tab label="Graph"> Content 2 </mat-tab>
-        <mat-tab label="Chart"> Content 3 </mat-tab>
+        <mat-tab label="Pie Charts"> <app-pie-chart-requests [requests]="requests"></app-pie-chart-requests></mat-tab>
+        <mat-tab label="Line Graphs"><app-line-chart [requests]="requests"></app-line-chart></mat-tab>
       </mat-tab-group>
 </div>
