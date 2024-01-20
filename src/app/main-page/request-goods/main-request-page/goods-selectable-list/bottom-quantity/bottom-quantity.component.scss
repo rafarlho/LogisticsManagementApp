@@ -1,0 +1,31 @@
+$lighter-blue: #DCF2F1;
+$light-blue: #7fc7d9;
+$dark-blue:#365486;
+$darker-blue:#0F1035;
+
+.background {
+    background-color: white;
+    margin: 20px;
+    color: $darker-blue;
+    
+    mat-form-field {
+        margin-top: 10px;
+        width: 50%;
+    }
+    .mat-divider {
+        border-top-color: $dark-blue;
+        border-top-width: 4px;
+        margin: 4px;
+    }
+    div{
+        margin-top: 10px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        .mat-mdc-raised-button {
+            width: 30%;
+        }
+    }
+
+}

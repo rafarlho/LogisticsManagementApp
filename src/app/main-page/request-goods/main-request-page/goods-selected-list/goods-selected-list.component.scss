@@ -30,14 +30,16 @@ $darker-blue:#0F1035;
             }
 
             .mat-column-id {
+                width: 30%;
                 text-align: center !important;
             }
             .mat-column-options {
-                width: 20%;
+                width: 30%;
                 text-align: center !important;
             }
-            .mat-column-description {
-                width:70%  !important;
+            .mat-column-quantity {
+                text-align: center !important;
+                width:40%  !important;
             }
 
             th {

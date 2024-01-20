@@ -4,6 +4,8 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
 import { MatTableDataSource, MatTableModule } from '@angular/material/table';
 import { Good } from '../../../../models/good.model';
+import { Subscription } from 'rxjs';
+import { GoodsTransferService } from '../../services/goods-transfer.service';
 
 @Component({
   selector: 'app-goods-selected-list',
@@ -19,20 +21,25 @@ import { Good } from '../../../../models/good.model';
 export class GoodsSelectedListComponent {
   @ViewChild(MatPaginator) paginator!:MatPaginator
   
-  displayedColumns:String[] = ['id','description','options']
-  dataSource!:MatTableDataSource<Good>;
+  displayedColumns:String[] = ['id','quantity','options']
+  dataSource!:MatTableDataSource<{id:string,quantity:number}>;
+  private subscription!: Subscription;
+  
+  goodsAndQuantity:{id:string,quantity:number}[] = []
 
-  good1:Good = {
-    id:"123",
-    description:"asd"
-  } 
-  dummyData = [this.good1,this.good1]
-
+  constructor(
+    private goodTransferService:GoodsTransferService
+  ) {}
   ngOnInit(): void {
-    //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
-    //Add 'implements OnInit' to the class.
-    
-    this.dataSource = new MatTableDataSource()
-    this.dataSource.paginator = this.paginator
+    this.subscription = this.goodTransferService.quantityAndId.subscribe((value)=>{
+      console.log(value)
+      if(value)this.goodsAndQuantity.push({id:value.id,quantity:value.quantity})
+      this.dataSource = new MatTableDataSource(this.goodsAndQuantity)
+      this.dataSource.paginator = this.paginator
+    })
+  }
+
+  ngOnDestroy() {
+    this.subscription.unsubscribe();
   }
 }

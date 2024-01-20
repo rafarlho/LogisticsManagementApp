@@ -12,6 +12,8 @@ import {
   MatBottomSheetModule,
   MatBottomSheetRef,
 } from '@angular/material/bottom-sheet';
+import { GoodsTransferService } from '../../services/goods-transfer.service';
+import { MatDialog } from '@angular/material/dialog';
 @Component({
   selector: 'app-goods-selectable-list',
   standalone: true,
@@ -37,7 +39,8 @@ export class GoodsSelectableListComponent {
   dataSource!:MatTableDataSource<Good>;
 
   constructor(
-    private _bottomSheet: MatBottomSheet,
+    private _dialog: MatDialog,
+    private goodTransferService:GoodsTransferService
     ) {
 
   }
@@ -46,11 +49,16 @@ export class GoodsSelectableListComponent {
     setTimeout(()=>{
       this.dataSource =  new MatTableDataSource(this.goods)
       this.dataSource.paginator = this.paginator
-    },5000)
+    },1000)
     
   }
 
   enableQuantity(good:Good) {
-    this._bottomSheet.open(BottomQuantityComponent);
+    let dialog = this._dialog.open(BottomQuantityComponent,{data:good,disableClose:true,width:'600px'});
+    dialog.afterClosed().subscribe((result:{id:string,quantity:number}) => {
+      if(result) {
+        this.goodTransferService.sendQuantity(result.id,result.quantity)
+      }
+    })
   }
 }
