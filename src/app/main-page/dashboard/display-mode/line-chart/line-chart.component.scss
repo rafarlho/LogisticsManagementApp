@@ -6,6 +6,11 @@
     display: flex;
     flex-direction: column;
     .graph {
+        .filters {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+        }
         text-align: center;
         box-sizing: border-box; display: block; 
         height: 70%; width:70%;

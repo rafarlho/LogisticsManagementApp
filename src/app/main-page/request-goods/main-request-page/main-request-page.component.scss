@@ -1,0 +1,28 @@
+$lighter-blue: #DCF2F1;
+$light-blue: #7fc7d9;
+$dark-blue:#365486;
+$darker-blue:#0F1035;
+
+
+.request-goods-background {
+    background-color: $lighter-blue;
+    height: 90vh;
+    text-align: left;
+    color: $darker-blue;
+    display: flex;
+    flex-direction: column; 
+    h1 {
+        margin-top: 10px;
+        margin-left: 0.5%;
+    }
+    h3 {
+        margin-left: 0.5%;
+    }
+    .layout {
+        display: flex;
+        flex-direction: row;
+        .selectable-list {
+            width: 100%;
+        }
+    }
+}

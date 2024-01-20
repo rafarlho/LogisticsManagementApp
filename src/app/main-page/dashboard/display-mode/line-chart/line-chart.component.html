@@ -1,20 +1,34 @@
 <div class="graph-background">
     <div class="graph">
-        <div>
-            <mat-form-field>
+        <div class="filters">
+            <div>
+              <mat-form-field>
                 <mat-label>Filter by year</mat-label>
-                <mat-select (selectionChange)="filterYear($any($event))" >
+                <mat-select (selectionChange)="filterYear($event)" >
                   <mat-option>No filter</mat-option>
                   <mat-option *ngFor="let year of yearsToDisplay" [value]="year">{{ year }}</mat-option>
                 </mat-select>
               </mat-form-field>
-              <mat-form-field>
+              
+              <mat-form-field style="margin-left: 10px;">
                 <mat-label>Filter by month</mat-label>
-                <mat-select (selectionChange)="filterMonth($any($event))" >
+                <mat-select (selectionChange)="filterMonth($event)" [disabled]="!selectedYear">
                   <mat-option>No filter</mat-option>
                   <mat-option *ngFor="let month of monthsToDisplay" [value]="month">{{ month }}</mat-option>
                 </mat-select>
               </mat-form-field>
+            </div>
+            
+            <div>
+                <mat-form-field>
+                  <mat-label>Insert a precise date</mat-label>
+                  <input matInput [matDatepicker]="picker"
+                  (dateInput)="filterFullDate($event)">
+                  <mat-hint>MM/DD/YYYY</mat-hint>
+                  <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                  <mat-datepicker #picker></mat-datepicker>
+                </mat-form-field>
+              </div>
         </div>
 
         <canvas 

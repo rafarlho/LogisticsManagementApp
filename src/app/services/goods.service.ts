@@ -9,7 +9,7 @@ import { HttpClient } from '@angular/common/http';
 export class GoodsService {
 
   private readonly url = "http://127.0.0.1:3000/goods"
-  private goodsSubject$!:BehaviorSubject<Good[]>
+  private goodsSubject$:BehaviorSubject<Good[]> = new BehaviorSubject<Good[]>([])
   private loaded:boolean = false 
 
   constructor(
@@ -20,7 +20,6 @@ export class GoodsService {
     if(!this.loaded) {
       this.http.get<Good[]>(this.url)
         .subscribe(this.goodsSubject$)
-      this.loaded=true
     }
     return this.goodsSubject$.asObservable()
   }
