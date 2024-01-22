@@ -36,7 +36,7 @@ export class BottomQuantityComponent {
     private matBottomSheetRef:MatDialogRef<BottomQuantityComponent>,
     @Inject(MAT_DIALOG_DATA) public data: Good
     ) {
-    console.log(data)
+
   }
 
   onCloseClick() {

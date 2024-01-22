@@ -8,4 +8,5 @@ export interface User {
     firstName:string
     lastName:string
     type: UserType
+    token?:string
 }

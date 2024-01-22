@@ -15,8 +15,8 @@
             <ng-container matColumnDef="options">
                 <th mat-header-cell *matHeaderCellDef>Detais</th>
                 <td mat-cell *matCellDef="let good">
-                    <button mat-icon-button color="white"><mat-icon>delete</mat-icon></button>
-                    <button mat-icon-button color="white"><mat-icon>edit</mat-icon></button>
+                    <button mat-icon-button color="white" (click)="deleteGood(good.id,good.quantity)"><mat-icon>delete</mat-icon></button>
+                    <button mat-icon-button color="white" (click)="editGood(good.id,good.quantity)"><mat-icon>edit</mat-icon></button>
                 </td>
             </ng-container>
             

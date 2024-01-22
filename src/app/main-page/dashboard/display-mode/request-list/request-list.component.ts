@@ -77,7 +77,7 @@ export class RequestListComponent {
           this.dataSource = new MatTableDataSource(this.requests)
           this.dataSource.paginator = this.paginator
         } 
-  })
+    })
   }
   
   ngOnInit(): void {
@@ -168,7 +168,6 @@ export class RequestListComponent {
 
 
   ngOnDestroy(): void {
-    console.log("destroyed")
     this.unsubscribe$.next(true)
   }
 } 

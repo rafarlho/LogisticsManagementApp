@@ -14,7 +14,7 @@ import { LineChartComponent } from './display-mode/line-chart/line-chart.compone
     MatTabsModule,
     RequestListComponent,
     PieChartRequestsComponent,
-    LineChartComponent
+    LineChartComponent,
   ],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.scss'

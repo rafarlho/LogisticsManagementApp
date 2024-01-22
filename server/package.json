@@ -12,6 +12,7 @@
     "@faker-js/faker": "^8.3.1",
     "cors": "^2.8.5",
     "express": "^4.18.2",
+    "jsonwebtoken": "^9.0.2",
     "mongoose": "^8.1.0",
     "socket.io": "^4.7.4"
   }

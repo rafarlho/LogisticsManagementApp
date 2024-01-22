@@ -1,9 +1,20 @@
 <div class="request-goods-background">
-    <h1>Request making page</h1>
-    <h3>Select goods and quantity form the left table and they'll be added on the right table.</h3>
-    <h3>Once your done, cllick the 'Continue' button on the right.</h3>
+    <div class="layout-text">
+        <button mat-raised-button class="button-back"><mat-icon>arrow_back</mat-icon>Go back to requested list</button>
+        <div>
+            <h1>Request making page</h1>
+            <h3>Select goods and quantity form the left table and they'll be added on the right table.</h3>
+        </div>
+        <button mat-raised-button class="button-send"><mat-icon>send</mat-icon>Send request list to warehouse</button>
+    </div>
+    <div class="form-field">
+        <mat-form-field >
+            <mat-label>Search</mat-label>
+            <input matInput (input)="applyFilter($event)" placeholder="Search by ids" >
+            <mat-icon matSuffix>search</mat-icon>
+        </mat-form-field>
+    </div>
     <div class="layout">
-
         <app-goods-selectable-list [goods]="goods" class="selectable-list"></app-goods-selectable-list>
         <app-goods-selected-list class="selectable-list"></app-goods-selected-list>
     </div>
