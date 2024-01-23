@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, Input, ViewChild } from '@angular/core';
 import { MatTableDataSource, MatTableModule } from '@angular/material/table';
 import { Request, Status } from '../../../../models/request.model';
 import { CommonModule, DatePipe } from '@angular/common';
@@ -52,35 +52,23 @@ export class RequestListComponent {
   displayedColumns:String[] = ['id','emitter','handler','status','latestUpdate','options']
   dataSource!:MatTableDataSource<Request>;
   
-  requests: Request[] = [];
+  @Input() requests: Request[] = [];
   sortedRequests = this.requests.slice()
 
   private unsubscribe$:Subject<any> = new Subject<any>
 
   constructor(
-    private requestsService:RequestsService,
     private dialog:MatDialog
   ){
-    this.requestsService.get()
-      .pipe(
-        takeUntil(this.unsubscribe$)
-      )
-      .subscribe({
-      
-        next:
-          (requestObs) =>{
-          this.requests = requestObs
-          
-        },
-        error:(err) => console.error(err),
-        complete:() => {
-          this.dataSource = new MatTableDataSource(this.requests)
-          this.dataSource.paginator = this.paginator
-        } 
-    })
+    
   }
   
   ngOnInit(): void {
+    setTimeout(()=>{
+      console.log("asdasd ",this.requests)
+      this.dataSource = new MatTableDataSource(this.requests)
+      this.dataSource.paginator = this.paginator
+    },1000)
   }
     
   applyFilter(event:Event) {

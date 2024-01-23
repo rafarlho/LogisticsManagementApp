@@ -37,7 +37,6 @@ export class LoginComponent {
 
   //Login form on submit
   onSubmit() {
-    
     const credentials = this.loginForm.value
     if(credentials.id && credentials.password) {
       this.loading = true
@@ -45,7 +44,7 @@ export class LoginComponent {
       .subscribe({
         next: (user) => {
           this.loading=false
-          this.router.navigate(['mainpage']);
+          this.router.navigate(['']);
         },
         error: error => console.error("Something went wrong during login. ",error)
       })

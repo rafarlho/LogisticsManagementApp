@@ -10,7 +10,9 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { GoodsTransferService } from '../services/goods-transfer.service';
-
+import { RouterModule } from '@angular/router';
+import { RequestsService } from '../../../services/requests.service';
+import { Request } from '../../../models/request.model';
 @Component({
   selector: 'app-main-request-page',
   standalone: true,
@@ -20,7 +22,8 @@ import { GoodsTransferService } from '../services/goods-transfer.service';
     MatButtonModule,
     MatIconModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    RouterModule,
   ],
   templateUrl: './main-request-page.component.html',
   styleUrl: './main-request-page.component.scss'
@@ -35,7 +38,8 @@ export class MainRequestPageComponent {
  private unsubscribe$:Subject<any> = new Subject<any>
   constructor(
     private goodsService:GoodsService,
-    private goodsTransfer:GoodsTransferService
+    private goodsTransfer:GoodsTransferService,
+    private requestsService:RequestsService
   ){
     this.goodsService.get()
       .pipe(
@@ -60,7 +64,27 @@ export class MainRequestPageComponent {
   ngOnDestroy(): void {
     this.unsubscribe$.next(true)
   }
+
+  
   applyFilter(event:Event) {
     this.goodsTransfer.setFilter(event)
+  }
+
+  sendRequest() {
+    const arr = this.goodsTransfer.getGoodList()
+    const newR:Request = {
+      id: 5623,  
+      emitter: 'emitterUserId',  
+      goodsId: arr,
+      status: 0,  
+      handler: 'defaultHandlerId',
+      latestUpdate: new Date().toISOString()
+    }
+    console.log("aqui ",arr, "newR: ",newR)
+    this.requestsService.add(newR)
+      .subscribe({
+        next: (r) =>console.log(r),
+        error: err => console.error(err)
+      })
   }
 }

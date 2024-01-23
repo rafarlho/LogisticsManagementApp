@@ -1,12 +1,15 @@
-import { DatePipe } from '@angular/common';
+import { CommonModule, DatePipe } from '@angular/common';
 import { Component } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import {MatToolbarModule} from '@angular/material/toolbar';
-import { Subscription, map, share, timer } from 'rxjs';
+import { Observable, Subscription, map, share, timer } from 'rxjs';
 import {MatIconModule} from '@angular/material/icon';
 import {MatMenuModule} from '@angular/material/menu';
 import { MatCardModule } from '@angular/material/card';
 import { MatDividerModule } from '@angular/material/divider';
+import { AuthService } from '../../auth/services/auth.service';
+import { User, UserType } from '../../models/user.model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -19,6 +22,7 @@ import { MatDividerModule } from '@angular/material/divider';
     MatMenuModule,
     MatCardModule,
     MatDividerModule,
+    CommonModule,
   ],
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss'
@@ -28,10 +32,13 @@ export class HeaderComponent {
   colorHelp:string = "dark"
   colorProfile:string = "dark"
   
+  user$!:Observable<User>
+
   constructor(
+    private authService:AuthService,
+    private router:Router
   ) {
-    //let currentDateTime =this.datepipe.transform((new Date), 'MM/dd/yyyy h:mm:ss');
-    //console.log(currentDateTime)
+    this.user$ = this.authService.getUser()
   }
 
   //Variables to get real time
@@ -52,8 +59,21 @@ export class HeaderComponent {
 
 
   }
-  
 
+
+  userTypeToString(type:UserType | undefined):string {
+    switch(type){
+      case 0: return "Factory Worker"
+      case 1: return "Warehouse Operator"
+      case 2: return "Production Line Manager"
+      default: return "Factory Worker"
+    }
+  }
+
+  logout() {
+    this.authService.logOut()
+    this.router.navigateByUrl('/auth')
+  }
 
   ngOnDestroy(): void {
     clearInterval(this.intervalID) 

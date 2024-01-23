@@ -1,5 +1,4 @@
 <div class="table-class">
-
     <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" matSort>
         <ng-container matColumnDef="id">
             <th mat-header-cell *matHeaderCellDef>ID</th>
@@ -29,7 +28,7 @@
     <ng-container matColumnDef="options">
         <th mat-header-cell *matHeaderCellDef>Detais</th>
         <td mat-cell *matCellDef="let request">
-            <button mat-raised-button color="white">Confirm reception</button>
+            <button mat-raised-button color="white" (click)="confirmReception(request)">Confirm reception</button>
         </td>
     </ng-container>
     

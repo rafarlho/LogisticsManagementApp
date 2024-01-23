@@ -1,0 +1,62 @@
+$lighter-blue: #DCF2F1;
+$light-blue: #7fc7d9;
+$dark-blue:#365486;
+$darker-blue:#0F1035;
+
+
+.goods-table-background {
+    background-color: $lighter-blue;
+    width: 100%;
+    position: relative;
+    .table-div  {
+        position: absolute;
+        margin: 1%;
+        width: 98%;
+        table {
+            width: auto;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px; 
+            overflow: hidden;
+            td, th {
+                background-color: $dark-blue;
+                color: $lighter-blue;
+             
+                vertical-align: middle !important;
+                border-bottom: 1px solid $darker-blue;
+                border-right: 1px solid $darker-blue;
+                border-left: 1px solid $darker-blue;
+    
+                
+            }
+
+            .mat-column-id {
+                width: 30%;
+                text-align: center !important;
+            }
+            .mat-column-options {
+                width: 30%;
+                text-align: center !important;
+            }
+            .mat-column-quantity {
+                text-align: center !important;
+                width:40%  !important;
+            }
+
+            th {
+                font-size: larger;
+                border-bottom: 3px solid$darker-blue;
+                text-align: center !important;
+            }
+            .mat-sort-header-container {
+                justify-content: center !important;
+            }
+        }
+        mat-paginator {
+            background-color: $light-blue;
+            border-bottom-right-radius: 10px;
+            border-bottom-left-radius: 10px;
+        }
+    
+        
+    }
+}

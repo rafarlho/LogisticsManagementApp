@@ -20,6 +20,7 @@ export class GoodsService {
     if(!this.loaded) {
       this.http.get<Good[]>(this.url)
         .subscribe(this.goodsSubject$)
+        this.loaded=true
     }
     return this.goodsSubject$.asObservable()
   }

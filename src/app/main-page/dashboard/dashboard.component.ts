@@ -22,14 +22,19 @@ import { LineChartComponent } from './display-mode/line-chart/line-chart.compone
 export class DashboardComponent {
 
   requests: Request[] = [];
-  private unsubscribe$:Subject<any> = new Subject<any>
+  private destroy$ = new Subject();
 
   constructor(
     private requestsService:RequestsService
   ){
+   
+  }
+
+  ngOnInit(): void {
+    console.log("oninit")
     this.requestsService.get()
       .pipe(
-        takeUntil(this.unsubscribe$)
+        takeUntil(this.destroy$)
       )
       .subscribe({
       
@@ -41,11 +46,16 @@ export class DashboardComponent {
         error:(err) => console.error(err),
         complete:() => {
         } 
-  })
+    })
+  }
+  ngAfterViewInit(): void {
+    //Called after ngAfterContentInit when the component's view has been initialized. Applies to components only.
+    //Add 'implements AfterViewInit' to the class.
+    console.log("afterviewinit")
   }
 
   ngOnDestroy(): void {
-    console.log("destroyed")
-    this.unsubscribe$.next(true)
+    this.destroy$.next(false);
+    this.destroy$.complete();
   }
 }

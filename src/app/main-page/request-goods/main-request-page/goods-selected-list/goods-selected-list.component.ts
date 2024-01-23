@@ -37,14 +37,16 @@ export class GoodsSelectedListComponent {
     private dialog:MatDialog
   ) {}
   ngOnInit(): void {
-    this.subscription = this.goodTransferService.quantityAndId.subscribe((value)=>{
+   this.goodTransferService.quantityAndId.subscribe((value)=>{
       if(value) {
         if(this.goodsAndQuantity.some(item => item.id ===value.id)) {
           this.openWarningDialog(value.id,value.quantity)
         }
         else {
           this.goodsAndQuantity.push({id:value.id,quantity:value.quantity})
+          this.goodTransferService.setGoodList(this.goodsAndQuantity)
           this.refreshTableData()
+          
         }
       }
     })

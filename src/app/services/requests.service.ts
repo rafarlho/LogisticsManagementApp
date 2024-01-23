@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Request } from '../models/request.model';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { BehaviorSubject, Observable, tap } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 
 @Injectable({
@@ -17,8 +17,22 @@ export class RequestsService {
   ) {}
 
   get():Observable<Request[]> {
-    this.http.get<Request[]>(this.url)
-        .subscribe(this.requestsSubject$)
+    if(!this.loaded) {
+      this.http.get<Request[]>(this.url)
+      .subscribe(this.requestsSubject$)
+      this.loaded=true
+    }
     return this.requestsSubject$.asObservable()
+  }
+
+  add(req:Request):Observable<Request> {
+    return this.http.post<Request>(this.url,req)
+  }
+
+  editToOnCollection(req:Request):Observable<Request> {
+    return this.http.patch<Request>(`${this.url}/oncollection`,req)
+  }
+  editStatus(req:Request):Observable<Request> {
+    return this.http.patch<Request>(`${this.url}/updatestatus`,req)
   }
 }

@@ -85,17 +85,21 @@ export class PieChartRequestsComponent {
       this.pieChartData.datasets[0].backgroundColor= ['#fd9fb3','#67c1fd','#fde098','#91d7d7']
       this.enableStatus = true
       
+
+
       this.todayReqChartData.labels= ["Requested", "On Collection", "Sent","Recieved"]
-      this.todayReqChartData.datasets[0].data = [ this.requests.filter((request) => request.status===0 && new Date(request.latestUpdate) === new Date()).length,
-        this.requests.filter((request) => request.status===1 && new Date(request.latestUpdate) === new Date()).length,
-        this.requests.filter((request) => request.status===2 && new Date(request.latestUpdate) === new Date()).length,
-        this.requests.filter((request) => request.status===3 && new Date(request.latestUpdate) === new Date()).length,
+      this.todayReqChartData.datasets[0].data = [ this.requests.filter((request) => request.status===0 && this.compareDateToday(new Date(request.latestUpdate))).length,
+        this.requests.filter((request) => request.status===1 && this.compareDateToday(new Date(request.latestUpdate))).length,
+        this.requests.filter((request) => request.status===2 && this.compareDateToday(new Date(request.latestUpdate))).length,
+        this.requests.filter((request) => request.status===3 && this.compareDateToday(new Date(request.latestUpdate))).length,
       ]
       this.todayReqChartData.datasets[0].backgroundColor= ['#fd9fb3','#67c1fd','#fde098','#91d7d7']
-      if(this.requests.filter((request) => new Date(request.latestUpdate) === new Date()).length != 0) {
+      if(this.requests.filter((request) => this.compareDateToday(new Date(request.latestUpdate))).length != 0) {
         this.enableToday=true
       }
       
+
+
       this.requests.forEach((request)=> {
         request.goodsId.forEach((data)=> {
           const existingItem = this.goodsAndQuantity.find(item => item.id === data.id);
@@ -119,5 +123,15 @@ export class PieChartRequestsComponent {
     const colors: string[] = ['#fd9fb3','#67c1fd','#fde098','#eff0f2','#91d7d7','#bfd4df','#e8e8e8','#f88e90','#8ed7d5','#fcd09b'];
  
     return colors;
+  }
+
+  private compareDateToday(d1:Date):boolean {
+    const currentDate = new Date()
+    if(
+      d1.getFullYear() === currentDate.getFullYear() && 
+      d1.getMonth() === currentDate.getMonth() &&
+      d1.getDay() === currentDate.getDay() 
+    ) return true
+    return false
   }
 }
