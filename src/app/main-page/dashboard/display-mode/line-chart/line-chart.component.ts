@@ -4,11 +4,13 @@ import { ChartConfiguration, ChartType } from 'chart.js';
 import { BaseChartDirective } from 'ng2-charts';
 import { NgChartsModule } from 'ng2-charts';
 import { CommonModule } from '@angular/common';
-import {MatSelectChange, MatSelectModule} from '@angular/material/select';
+import {MatSelect, MatSelectChange, MatSelectModule} from '@angular/material/select';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import {MatDatepickerInputEvent, MatDatepickerModule} from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
+import { MatButtonModule } from '@angular/material/button';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-line-chart',
@@ -20,7 +22,9 @@ import { MatNativeDateModule } from '@angular/material/core';
     MatFormFieldModule,
     MatInputModule,
     MatDatepickerModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+    MatButtonModule,
+    FormsModule,
   ],
   providers:[],
 
@@ -29,12 +33,17 @@ import { MatNativeDateModule } from '@angular/material/core';
 })
 export class LineChartComponent {
 
-  readonly yearsToDisplay:string[]=['2000', '2001', '2002', '2003', '2004', '2005', '2006', '2007', '2008', '2009', '2010', '2011', '2012', '2013', '2014', '2015', '2016', '2017', '2018', '2019', '2020', '2021', '2022', '2023', '2024', '2025', '2026', '2027', '2028', '2029', '2030']
+  readonly yearsToDisplay:string[]=['2000', '2001', '2002', '2003', '2004', '2005', '2006', '2007', '2008', '2009', '2010', '2011', '2012', '2013', '2014', '2015', '2016', '2017', '2018', '2019', '2020', '2021', '2022', '2023', '2024']
   readonly monthsToDisplay:string[]=["January","February","March","April","May","June","July","August","September","October","November","December"]
 
   @Input() requests!:Request[]
   @ViewChild(BaseChartDirective) chart?: BaseChartDirective;
-  selectedYear:number =0
+  
+  selectedYear:number = -1
+  selectedMonth:string="None"
+  fullDateFilter:boolean = false
+  fullDateInput:string= ""
+
   public lineChartData: ChartConfiguration['data'] = {
     datasets :[{
       data:[],
@@ -94,11 +103,11 @@ export class LineChartComponent {
 
   //Returns an array of requests per month of a year if selected else of all years combined 
   private countRequestsByMonth(status:number, year?:number):number[] {
-    const vals = Array(12).fill(0)
+    var vals = Array(12).fill(0)
     this.requests.forEach((request) => {
-      const monthIndex = new Date(request.latestUpdate).getMonth()
+      var monthIndex = new Date(request.latestUpdate).getMonth()
       if(year) {
-        if(request.status===status && new Date(request.latestUpdate).getFullYear() ===year) {
+        if(request.status===status && (new Date(request.latestUpdate).getFullYear()) == year) {
           vals[monthIndex]++;
         }
       }else {
@@ -112,13 +121,15 @@ export class LineChartComponent {
   
   //Returns an array of requests per day of a month 
   private countRequestsByDay(status:number, year:number,month:number):number[] {
-    const vals = Array(this.getDaysInMonth(year, month)).fill(0);
-
+    var vals = Array(this.getDaysInMonth(year, month)).fill(0);
+    
     this.requests.forEach((request) => {
-      const dayOfMonth = new Date(request.latestUpdate).getDate();
-      const monthIndex = new Date(request.latestUpdate).getMonth();
-      const requestYear = new Date(request.latestUpdate).getFullYear();
-      if (request.status === status && requestYear === year && monthIndex===month) {
+      var dayOfMonth:number = (new Date(request.latestUpdate)).getDate();
+      var monthIndex:number = (new Date(request.latestUpdate)).getMonth();
+      var requestYear:number =( new Date(request.latestUpdate)).getFullYear();
+      console.log("status :",request.status,':',request.status === status,';Year:',year, ':',requestYear === year,'; MonthIndex: ',month,":",monthIndex===month)
+      if (request.status === status && requestYear == year && monthIndex===month) {
+        console.log("ading 1")
         vals[dayOfMonth-1]++;
       }
     });
@@ -127,13 +138,13 @@ export class LineChartComponent {
   
   //Returns an array of requests per hour of a day
   private countRequestsByHour(status:number, year:number,month:number,day:number):number[] {
-    const vals = Array(this.getDaysInMonth(year, month)).fill(0);
+    var vals = Array(this.getDaysInMonth(year, month)).fill(0);
 
     this.requests.forEach((request) => {
-      const hour = new Date(request.latestUpdate).getHours();
-      const monthIndex = new Date(request.latestUpdate).getMonth();
-      const requestYear = new Date(request.latestUpdate).getFullYear();
-      const requestDay = new Date(request.latestUpdate).getDay();
+      var hour = new Date(request.latestUpdate).getHours();
+      var monthIndex = new Date(request.latestUpdate).getMonth();
+      var requestYear = new Date(request.latestUpdate).getFullYear();
+      var requestDay = new Date(request.latestUpdate).getDay();
       if (request.status === status && requestYear === year && monthIndex===month && requestDay===day) {
         vals[hour]++;
       }
@@ -141,41 +152,39 @@ export class LineChartComponent {
     return vals;
   }
 
-  filterYear(e:MatSelectChange) {
+  //Filter by year and month funtion
+  filter(e:MatSelectChange) {
     if(e.value) {
-      var year:number = +e.value
-      console.log(year)
-      this.lineChartData.datasets[0].data = this.countRequestsByMonth(0,year)
-      this.lineChartData.datasets[1].data = this.countRequestsByMonth(1,year)
-      this.lineChartData.datasets[2].data = this.countRequestsByMonth(2,year)
-      this.lineChartData.datasets[3].data = this.countRequestsByMonth(3,year)
-      this.chart?.update()
-      this.selectedYear=year
-    }
-    else {
-      this.getFilterToStandard()
-      this.selectedYear=0
-    }
+      if(this.selectedYear !=-1) {
+        if(this.selectedMonth != "none") {
+          var monthIndex = this.monthsToDisplay.indexOf(this.selectedMonth);
+          var daysInMonth = this.getDaysInMonth(this.selectedYear, monthIndex);
+          this.lineChartData.labels = Array.from({ length: daysInMonth }, (_, index) => index + 1);
+          this.lineChartData.datasets[0].data = this.countRequestsByDay(0,this.selectedYear,monthIndex)
+          this.lineChartData.datasets[1].data = this.countRequestsByDay(1,this.selectedYear,monthIndex)
+          this.lineChartData.datasets[2].data = this.countRequestsByDay(2,this.selectedYear,monthIndex)
+          this.lineChartData.datasets[3].data = this.countRequestsByDay(3,this.selectedYear,monthIndex)
+          this.chart?.update()
+        }
+        else {
+          this.lineChartData.labels = ["January","February","March","April","May","June","July","August","September","October","November","December"]
+          this.lineChartData.datasets[0].data = this.countRequestsByMonth(0,this.selectedYear)
+          this.lineChartData.datasets[1].data = this.countRequestsByMonth(1,this.selectedYear)
+          this.lineChartData.datasets[2].data = this.countRequestsByMonth(2,this.selectedYear)
+          this.lineChartData.datasets[3].data = this.countRequestsByMonth(3,this.selectedYear)
+          this.chart?.update()
+          
+        }
+      }
+      else {
+        this.getFilterToStandard()
+      }
   }
-
-  filterMonth(e:MatSelectChange) {
-    if(e.value && this.selectedYear!=0) {
-      const monthIndex = this.monthsToDisplay.indexOf(e.value);
-      const daysInMonth = this.getDaysInMonth(2024, monthIndex);
-      this.lineChartData.labels = Array.from({ length: daysInMonth }, (_, index) => index + 1);
-      this.lineChartData.datasets[0].data = this.countRequestsByDay(0,2024,monthIndex)
-      this.lineChartData.datasets[1].data = this.countRequestsByDay(1,2024,monthIndex)
-      this.lineChartData.datasets[2].data = this.countRequestsByDay(2,2024,monthIndex)
-      this.lineChartData.datasets[3].data = this.countRequestsByDay(3,2024,monthIndex)
-      this.chart?.update()
-    }
-    else {
-      this.getFilterToStandard()
-    }
-  }
+}
 
   filterFullDate(e:MatDatepickerInputEvent<Date>) {
     if(e.value) {
+        this.fullDateFilter =true
         this.lineChartData.labels = Array.from({ length: 24 }, (_, index) => index);
         this.lineChartData.datasets[0].data = this.countRequestsByHour(0,e.value.getFullYear(),e.value.getMonth(),e.value.getDay())
         this.lineChartData.datasets[1].data = this.countRequestsByHour(1,e.value.getFullYear(),e.value.getMonth(),e.value.getDay())
@@ -184,12 +193,23 @@ export class LineChartComponent {
         this.chart?.update()
 
     }
-    else this.getFilterToStandard()
+    else{
+      this.fullDateFilter =false
+      this.getFilterToStandard()
+    }
+  }
+
+  clearFilters(){
+    this.selectedYear = -1
+    this.selectedMonth="None"
+    this.fullDateFilter = false
+    this.fullDateInput = ""
+    this.getFilterToStandard()
   }
 
   //Returns number of days in a month given the index and year
   getDaysInMonth(year: number, month: number): number {
-    const lastDay = new Date(year, month, 0).getDate();
+    var lastDay = new Date(year, month, 0).getDate();
     return lastDay;
   } 
 

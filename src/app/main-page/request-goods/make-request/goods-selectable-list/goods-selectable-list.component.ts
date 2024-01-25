@@ -9,7 +9,8 @@ import { CommonModule } from '@angular/common';
 import { BottomQuantityComponent } from './select-quantity/bottom-quantity.component';
 import { GoodsTransferService } from '../../services/goods-transfer.service';
 import { MatDialog } from '@angular/material/dialog';
-import { Subscription } from 'rxjs';
+import { Observable, Subject, Subscription, pipe, takeUntil } from 'rxjs';
+import { GoodsService } from '../../../../services/goods.service';
 @Component({
   selector: 'app-goods-selectable-list',
   standalone: true,
@@ -25,33 +26,40 @@ import { Subscription } from 'rxjs';
   styleUrl: './goods-selectable-list.component.scss'
 })
 export class GoodsSelectableListComponent {
-  @Input() goods:Good[] = []
   @ViewChild(MatPaginator) paginator!:MatPaginator
   
   enableQuant:boolean=false 
-  
+  goods$!:Observable<Good[]>
+  goods:Good[] = []
   displayedColumns:String[] = ['id','description','options']
   dataSource!:MatTableDataSource<Good>;
-  private subscription  !: Subscription;
+  private unsubscribe$:Subject<any> = new Subject<any>();
 
   constructor(
     private dialog: MatDialog,
-    private goodTransferService:GoodsTransferService
+    private goodTransferService:GoodsTransferService,
+    private goodsService:GoodsService
     ) {
 
   }
 
   ngOnInit(): void {
-    setTimeout(()=>{
-      this.dataSource =  new MatTableDataSource(this.goods)
-      this.dataSource.paginator = this.paginator
-    },1000)
-    this.subscription = this.goodTransferService.filterTransfered.subscribe((e:Event) =>{
-      const target = e.target as HTMLInputElement
-      this.dataSource.filter=target.value.trim().toLowerCase()
-      if (this.dataSource.paginator) {
-        this.dataSource.paginator.firstPage();
-      }
+    this.goods$ = this.goodsService.get()
+    this.goods$
+      .pipe(takeUntil(this.unsubscribe$))  
+      .subscribe((goods) => {
+        this.goods = goods
+        this.dataSource =  new MatTableDataSource(this.goods)
+        this.dataSource.paginator = this.paginator
+      })
+    this.goodTransferService.filterTransfered
+      .pipe(takeUntil(this.unsubscribe$))
+      .subscribe((e:Event) =>{
+        const target = e.target as HTMLInputElement
+        this.dataSource.filter=target.value.trim().toLowerCase()
+        if (this.dataSource.paginator) {
+          this.dataSource.paginator.firstPage();
+        }
     })
     
   }
@@ -65,8 +73,10 @@ export class GoodsSelectableListComponent {
     })
   }
 
-  ngOnDestroy() {
-    this.subscription.unsubscribe();
+  ngOnDestroy(): void {
+    console.log("destroyed")
+    this.unsubscribe$.next(true)
+    this.unsubscribe$.complete()
   }
   
 }

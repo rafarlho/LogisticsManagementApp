@@ -1,12 +1,12 @@
 import { EventEmitter, Injectable } from '@angular/core';
-import { Request } from '../../../../models/request.model';
+import { Request } from '../../../models/request.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class RequestToCollectService {
 
-
+  public completed = new EventEmitter<boolean>()
   public requestToCollect!:Request
   constructor() { }
 
@@ -17,4 +17,10 @@ export class RequestToCollectService {
     return this.requestToCollect
   }
 
+  completedRequest() {
+    this.completed.emit(true)
+  }
+  incompletedRequest() {
+    this.completed.emit(false)
+  }
 }

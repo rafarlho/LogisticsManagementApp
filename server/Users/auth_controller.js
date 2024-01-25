@@ -1,6 +1,7 @@
 const User = require('./user')
 const jwt = require('jsonwebtoken')
 const consts = require('../utils/consts')
+const { log } = require('@angular-devkit/build-angular/src/builders/ssr-dev-server')
 
 module.exports = {
     login: async function(req,res) {
@@ -13,8 +14,12 @@ module.exports = {
                     if(auth_err) {
                         return res.status(404).json({message:'Wrong email or password!'})}
                     else if(password === user.password) {
-                        const token = jwt.sign({_id:user._id},consts.keyJWT,{expiresIn:consts.expiresJWT})
+                        const token = jwt.sign({_id:user.id},consts.keyJWT,{expiresIn:consts.expiresJWT})
+                        delete user.password
                         return res.json({...user,token:token})
+                    }
+                    else {
+                        return res.status(404).json({message:'Wrong email or password!'})
                     }
                 })
                 .catch((err) => {
@@ -50,7 +55,7 @@ module.exports = {
                 User.findById(id).lean().exec()
                     .then((user) =>{
                         if(user) {
-                            const tkn = jwt.sign({_id:user._id},consts.keyJWT,{expiresIn:consts.expiresJWT})
+                            const tkn = jwt.sign({_id:user.id},consts.keyJWT,{expiresIn:consts.expiresJWT})
                             delete user.password
                             return res.json({...user,token:tkn})
                         }
@@ -59,6 +64,7 @@ module.exports = {
                         
                         return res.status(500).json({message:'Error when triyng to fetch the user data',error:err})
                     })
+                return res.status(500).json({message:"Error! ",err})
             })
     }
 }

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { GoodsService } from '../../../services/goods.service';
-import { Subject, takeUntil } from 'rxjs';
+import { Observable, Subject, take, takeUntil, tap } from 'rxjs';
 import { Good } from '../../../models/good.model';
 import { MatTableDataSource } from '@angular/material/table';
 import { GoodsSelectableListComponent } from './goods-selectable-list/goods-selectable-list.component';
@@ -13,8 +13,12 @@ import { GoodsTransferService } from '../services/goods-transfer.service';
 import { RouterModule } from '@angular/router';
 import { RequestsService } from '../../../services/requests.service';
 import { Request } from '../../../models/request.model';
+import { AuthService } from '../../../auth/services/auth.service';
+import { User } from '../../../models/user.model';
+import { RequestDialogComponent } from './request-dialog/request-dialog.component';
+import { MatDialog } from '@angular/material/dialog';
 @Component({
-  selector: 'app-main-request-page',
+  selector: 'app-make-request',
   standalone: true,
   imports: [
     GoodsSelectableListComponent,
@@ -25,41 +29,26 @@ import { Request } from '../../../models/request.model';
     MatInputModule,
     RouterModule,
   ],
-  templateUrl: './main-request-page.component.html',
-  styleUrl: './main-request-page.component.scss'
+  templateUrl: './make-request.component.html',
+  styleUrl: './make-request.component.scss'
 })
-export class MainRequestPageComponent {
+export class MakeRequestComponent {
 
- goods:Good[] = []
- displayedColumns:String[] = ['id','emitter','handler','status','latestUpdate','options']
+ 
+  displayedColumns:String[] = ['id','emitter','handler','status','latestUpdate','options']
   dataSource!:MatTableDataSource<Request>;
-
+  user$!:Observable<User>
 
  private unsubscribe$:Subject<any> = new Subject<any>
   constructor(
-    private goodsService:GoodsService,
     private goodsTransfer:GoodsTransferService,
-    private requestsService:RequestsService
+    private requestsService:RequestsService,
+    private authService:AuthService,
+    private dialog:MatDialog
   ){
-    this.goodsService.get()
-      .pipe(
-        takeUntil(this.unsubscribe$)
-      )
-      .subscribe({
-      
-        next:
-          (goodsObs) =>{
-          this.goods = goodsObs
-          
-        },
-        error:(err) => console.error(err),
-        complete:() => {
-          console.log(this.goods)
-        } 
-    })
+   
+    this.user$ = this.authService.getUser()
   }
-
-
 
   ngOnDestroy(): void {
     this.unsubscribe$.next(true)
@@ -72,19 +61,25 @@ export class MainRequestPageComponent {
 
   sendRequest() {
     const arr = this.goodsTransfer.getGoodList()
+    let emmiter =""
+    this.user$.pipe(take(1)).subscribe((user:User) => emmiter = user.id) 
     const newR:Request = {
-      id: 5623,  
-      emitter: 'emitterUserId',  
+      id: Math.floor(Math.random() * 10000),  
+      emitter: emmiter,  
       goodsId: arr,
       status: 0,  
-      handler: 'defaultHandlerId',
+      handler: '',
       latestUpdate: new Date().toISOString()
     }
-    console.log("aqui ",arr, "newR: ",newR)
-    this.requestsService.add(newR)
-      .subscribe({
-        next: (r) =>console.log(r),
-        error: err => console.error(err)
-      })
+    let dialog = this.dialog.open(RequestDialogComponent,{data:{request:newR,valid:false},disableClose:true,width:'600px'});
+    dialog.afterClosed().subscribe((data:{request:Request,valid:boolean}) => {
+      if(data.valid) {
+        this.requestsService.add(newR)
+          .pipe(take(1))
+          .subscribe({
+            error: err => console.error(err)
+        })
+      }
+    })
   }
 }

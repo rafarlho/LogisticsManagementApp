@@ -1,67 +1,70 @@
 <div class="table-class">
+    
     <div class="navigator">
         
-        <mat-form-field>
-            <mat-label>Search</mat-label>
-            <input matInput (input)="applyFilter($event)" placeholder="Search by ids" >
-            <mat-icon matSuffix>search</mat-icon>
-        </mat-form-field>
-
         <div class="sorter">
-            <div>
-                <mat-slide-toggle [(ngModel)]="status" [disabled]="date" (change)="disableFilter($any($event))" color="primary"><p>Sort by Status</p></mat-slide-toggle>   
-                <mat-slide-toggle [(ngModel)]="date" [disabled]="status" (change)="disableFilter($any($event))" color="primary"><p>Sort by Date</p></mat-slide-toggle>
-            </div>
-            <div>
-                <mat-radio-group aria-label="Select an option" *ngIf="status" >
+            <mat-form-field>
+                <mat-label>Search</mat-label>
+                <input matInput (input)="applyTextFilter($event)" placeholder="Search by ids" >
+                <mat-icon matSuffix>search</mat-icon>
+            </mat-form-field>
+            <div class="status-filter">
+                <h3>Sort by status</h3>
+                <mat-radio-group aria-label="Select an option" name="statusRadioGroup">
                     <mat-radio-button color="primary" *ngFor="let s of statusList,let i = index" [value]="i" (change)="handleStatusChange($any($event))"><p>{{s}}</p></mat-radio-button>
                 </mat-radio-group>
-                <mat-radio-group aria-label="Select an option" *ngIf="date" >
-                    <mat-radio-button color="primary" *ngFor="let d of dateList,let i = index" [value]="i" (change)="handleDateChange($any($event))"><p>{{d}}</p></mat-radio-button>
-                </mat-radio-group>
+
             </div> 
+            <div class="date-filter">
+                <h3>Sort by date</h3>
+                <mat-radio-group aria-label="Select an option" name="dateRadioGroup">
+                    <mat-radio-button color="primary" *ngFor="let d of dateList,let i = index" [value]="i"  (change)="handleDateChange($any($event))"><p>{{d}}</p></mat-radio-button>
+                </mat-radio-group>
+            </div>    
+            <button mat-raised-button color="warn" (click)="removeFilters()">Remove filters</button>
+            
         </div>
     </div>
-    <div class="table">
-
-        <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" matSort>
+    
+    <div class="table-div">
+        <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" matSort> 
             <ng-container matColumnDef="id">
                 <th mat-header-cell *matHeaderCellDef>ID</th>
-            <td mat-cell *matCellDef="let request">{{request.id}}</td>
-        </ng-container>
+                <td mat-cell *matCellDef="let request">{{request.id}}</td>
+            </ng-container>
         
-        <ng-container matColumnDef="emitter">
-            <th mat-header-cell *matHeaderCellDef>Requested by</th>
-            <td mat-cell *matCellDef="let request">{{request.emitter}}</td>
-        </ng-container>
-        
-        <ng-container matColumnDef="handler">
-            <th mat-header-cell *matHeaderCellDef>Handled by</th>
-            <td mat-cell *matCellDef="let request">{{handleRequester(request.handler)}} </td>
-        </ng-container>
-        
-        <ng-container matColumnDef="status">
-            <th mat-header-cell *matHeaderCellDef>Status</th>
-            <td mat-cell *matCellDef="let request">{{numberToStatus(request.status)}}</td>
-        </ng-container>
-        
-        <ng-container matColumnDef="latestUpdate">
-            <th mat-header-cell *matHeaderCellDef>Lastest update</th>
-            <td mat-cell *matCellDef="let request"> {{request?.latestUpdate | date:'medium'}}</td>
-        </ng-container>
-        
-        <ng-container matColumnDef="options">
-            <th mat-header-cell *matHeaderCellDef>Detais</th>
-            <td mat-cell *matCellDef="let request">
-                <button mat-raised-button color="white" (click)="openDialog(request)"><mat-icon>info_outlined</mat-icon>Get detailed information</button>
-            </td>
-        </ng-container>
-        
-        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-        <tr mat-row *matRowDef="let row;columns:displayedColumns"></tr>
-        
-    </table>
-    <mat-paginator [pageSizeOptions]="[5,10,15,20]" class="mat-elevation-z8"></mat-paginator>
-</div>
+            <ng-container matColumnDef="emitter">
+                <th mat-header-cell *matHeaderCellDef>Requested by</th>
+                <td mat-cell *matCellDef="let request">{{request.emitter}}</td>
+            </ng-container>
 
+            <ng-container matColumnDef="handler">
+                <th mat-header-cell *matHeaderCellDef>Handled by</th>
+                <td mat-cell *matCellDef="let request">{{handleRequester(request.handler)}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="status">
+                <th mat-header-cell *matHeaderCellDef>Status</th>
+                <td mat-cell *matCellDef="let request">{{numberToStatus(request.status)}}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="latestUpdate">
+                <th mat-header-cell *matHeaderCellDef>Lastest update</th>
+                <td mat-cell *matCellDef="let request"> {{request?.latestUpdate | date:'medium'}}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="options">
+                <th mat-header-cell *matHeaderCellDef>Detais</th>
+                <td mat-cell *matCellDef="let request">
+                    <button mat-raised-button color="white" (click)="openDialog(request)"><mat-icon>info_outlined</mat-icon>Get detailed information</button>
+                </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row;columns:displayedColumns"></tr>
+        
+        </table>
+        
+        <mat-paginator [pageSizeOptions]="[5]" class="mat-elevation-z8"></mat-paginator>
+    </div>
 </div>

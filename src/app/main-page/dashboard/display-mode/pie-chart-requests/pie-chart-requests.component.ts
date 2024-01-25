@@ -110,7 +110,6 @@ export class PieChartRequestsComponent {
       this.goodsAndQuantity.sort((a,b)=> b.quantity-a.quantity)
 
       const top10Goods = this.goodsAndQuantity.slice(0, 10);
-      console.log(top10Goods)
       this.goodsChartData.labels = top10Goods.map(item => item.id);
       this.goodsChartData.datasets[0].data = top10Goods.map(item => item.quantity);
       this.goodsChartData.datasets[0].backgroundColor = this.generateRandomColors(top10Goods.length);

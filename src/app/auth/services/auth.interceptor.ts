@@ -1,6 +1,6 @@
 import { HttpErrorResponse, HttpEvent, HttpHandler, HttpInterceptor, HttpRequest } from "@angular/common/http";
 import { Injectable } from "@angular/core";
-import { Observable, catchError, throwError } from "rxjs";
+import { Observable, catchError, tap, throwError } from "rxjs";
 import { AuthService } from "./auth.service";
 import { Router } from "@angular/router";
 
@@ -13,11 +13,9 @@ export class AuthInterceptor implements HttpInterceptor {
     ) {}
     
     intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-        console.log(req)
         if(localStorage.getItem('token')) {
             let token = localStorage.getItem('token')
             if(token!=null) {
-
                 const authReq = req.clone({
                     setHeaders: {
                         Authorization: token
@@ -33,7 +31,7 @@ export class AuthInterceptor implements HttpInterceptor {
                                     this.router.navigateByUrl('/auth')
                                 }
                             }
-                            return throwError(() => err)
+                            return throwError(() =>err)
                         })
                     )
             }

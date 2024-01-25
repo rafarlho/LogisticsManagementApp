@@ -1,9 +1,10 @@
 <div class="requested-goods-background">
     <div class="layout-text">
         <div>
-            <h1 >Attend request </h1>
-            <h3>somthing something something.</h3>
+            <h1>Attend request </h1>
+            <h3>Once you tick all goods, a button will appear so you can send the request.</h3>
         </div>
+        <button mat-raised-button class="button-send" (click)="submit()" *ngIf="completedList$|async">Submit list</button>
     </div>
     
     <div class="layout">

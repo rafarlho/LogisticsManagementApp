@@ -2,7 +2,7 @@ import { CommonModule, DatePipe } from '@angular/common';
 import { Component } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import {MatToolbarModule} from '@angular/material/toolbar';
-import { Observable, Subscription, map, share, timer } from 'rxjs';
+import { Observable, Subscription, map,timer } from 'rxjs';
 import {MatIconModule} from '@angular/material/icon';
 import {MatMenuModule} from '@angular/material/menu';
 import { MatCardModule } from '@angular/material/card';
@@ -39,6 +39,7 @@ export class HeaderComponent {
     private router:Router
   ) {
     this.user$ = this.authService.getUser()
+
   }
 
   //Variables to get real time

@@ -31,7 +31,7 @@ export class AuthService {
 
   isAuthenticated():Observable<boolean> {
     const token = localStorage.getItem('token')
-    //condição para quando se da refresh À pagina
+
     if(token && !this.subjectLoggedIn$.value) { 
       return this.checkTokenValidation()
     }
@@ -40,7 +40,7 @@ export class AuthService {
 
   checkTokenValidation():Observable<boolean> {
     return this.httpClient
-      .get<User>(`${this.url}`)
+      .get<User>(`${this.url}/user`)
       .pipe(
         tap((u:User) => {
           if(u && u.token!= undefined) {

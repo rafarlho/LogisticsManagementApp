@@ -1,10 +1,10 @@
 import { Component, Input, ViewChild } from '@angular/core';
 import { MatTableDataSource, MatTableModule } from '@angular/material/table';
-import { Request, Status } from '../../../../models/request.model';
+import { Request } from '../../../../models/request.model';
 import { CommonModule, DatePipe } from '@angular/common';
 import { MatButtonModule } from '@angular/material/button';
 import { RequestsService } from '../../../../services/requests.service';
-import { Subject, takeUntil } from 'rxjs';
+import { Observable, Subject, take, takeUntil } from 'rxjs';
 import { MatPaginator } from '@angular/material/paginator';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -39,64 +39,41 @@ import {Sort, MatSortModule, SortDirection} from '@angular/material/sort';
   styleUrl: './request-list.component.scss'
 })
 export class RequestListComponent {
-
-  @ViewChild(MatPaginator) paginator!:MatPaginator
-
-  status!:boolean
-  date!:boolean
-  sort!:number
-
+  //Control variables for sorters 
+  dateFilter:number= -1
+  statusFilter:number= -1 
   statusList=["Requested","On Collection","Sent","Recieved"]
   dateList=["Most recent first","Oldest first"]
   
+  //Variables for table
+  @ViewChild(MatPaginator) paginator!:MatPaginator
   displayedColumns:String[] = ['id','emitter','handler','status','latestUpdate','options']
   dataSource!:MatTableDataSource<Request>;
   
-  @Input() requests: Request[] = [];
+  //Data variables and observables/subcriptions
+  requests$!:Observable<Request[]>
+  requests: Request[] = [];
   sortedRequests = this.requests.slice()
-
   private unsubscribe$:Subject<any> = new Subject<any>
 
   constructor(
-    private dialog:MatDialog
+    private dialog:MatDialog,
+    private requestsService:RequestsService
   ){
     
   }
-  
+  //Retrieves information from service and updates it
   ngOnInit(): void {
-    setTimeout(()=>{
-      console.log("asdasd ",this.requests)
-      this.dataSource = new MatTableDataSource(this.requests)
-      this.dataSource.paginator = this.paginator
-    },1000)
-  }
-    
-  applyFilter(event:Event) {
-    const target = event.target as HTMLInputElement
-    this.dataSource.filter=target.value.trim().toLowerCase()
-    if (this.dataSource.paginator) {
-      this.dataSource.paginator.firstPage();
-    }
+    this.requests$ = this.requestsService.get()
+    this.requests$.pipe(takeUntil(this.unsubscribe$))
+      .subscribe((requests) =>{
+        this.requests = requests;
+        this.dataSource = new MatTableDataSource(this.requests);
+        this.dataSource.paginator = this.paginator;
+      })
   }
 
-  handleStatusChange(e:MatRadioChange){
-    this.dataSource.filterPredicate = function(data,filter:string) {
-      return data.status.toString().includes(filter)
-    } 
-    this.dataSource.filter = e.value
-    if (this.dataSource.paginator) {
-      this.dataSource.paginator.firstPage();
-    }
-  } 
-  
-  handleDateChange(e:MatRadioChange) {
-    let order:SortDirection = ""
-      if(e.value===1) order="asc"
-      if(e.value===2) order="desc"
-      this.sortData({ active: 'latestUpdate', direction: order });
-
-  }
-
+  //Funtion to return table to normal after a filter was applied
   disableFilter(e:MatSlideToggleChange) {
     if(!e.checked) {
         this.dataSource = new MatTableDataSource(this.requests)
@@ -104,11 +81,12 @@ export class RequestListComponent {
     }
   }
 
+  //Funtion that returns a string if a request was not handled
   handleRequester(s:string) {
     if(s) return s
     return "Not handled yet"
   }
-
+  //Funtion that returns a string for each status
   numberToStatus(n:number) {
     switch(n) {
       case 0:
@@ -124,16 +102,61 @@ export class RequestListComponent {
     }
   }
 
+  //Funtion to open the dialog with detailed information about a specific request
   openDialog(r:Request) {
     this.dialog.open(RequestInfoComponent,{data:r})
   }
+  
+  
+  //Funtion to handle search input filter
+  applyTextFilter(event:Event) {
+    const target = event.target as HTMLInputElement
+    this.dataSource.filter=target.value.trim().toLowerCase()
+    if (this.dataSource.paginator) {
+      this.dataSource.paginator.firstPage();
+    }
+  }
+  
+  applyFilter() {
+    let filteredData = this.requests.slice();
+    if(this.statusFilter!=-1) {
+      filteredData = filteredData.filter(request => request.status === this.statusFilter);
+    }
 
-  sortData(sort: Sort) {
-    const data = this.requests.slice();
+    if(this.dateFilter!=-1) {
+      let order:SortDirection = ""
+      if(this.dateFilter===1) order="asc"
+      if(this.dateFilter===0) order="desc"
+      console.log(order)
+      this.sortData(filteredData,{ active: 'latestUpdate', direction: order });
+    }
+
+    this.dataSource = new MatTableDataSource(filteredData);
+    this.dataSource.paginator = this.paginator;
+
+    if (this.dataSource.paginator) {
+        this.dataSource.paginator.firstPage();
+    }
+  }
+
+  
+  //Funtion to handle status sorter
+  handleStatusChange(e:MatRadioChange){
+    this.statusFilter = e.value
+    this.applyFilter()
+  } 
+ 
+  //Funtion to handle date sorter
+  handleDateChange(e:MatRadioChange) {
+    this.dateFilter = e.value
+    this.applyFilter()
+  }
+
+  //Sub-Funtion to sor the table by date
+  sortData(data:Request[],sort: Sort) {
     if (!sort.active || sort.direction === '') {
       this.sortedRequests = data;
     }
-
     this.sortedRequests = data.sort((a, b) => {
       if (sort.active === 'latestUpdate') {
         const isAsc = sort.direction === "asc";
@@ -146,16 +169,35 @@ export class RequestListComponent {
     this.dataSource = new MatTableDataSource(this.sortedRequests);
     this.dataSource.paginator = this.paginator
   }
-
+  //Funtion that compares two dates
   compare(a: Date, b: Date, isAsc: boolean) {
     const timeA = a.getTime();
     const timeB = b.getTime();
     return (timeA < timeB ? -1 : 1) * (isAsc ? 1 : -1);
   }
 
-
-
+  //On destroy method to unsubscribe all subscriptions
   ngOnDestroy(): void {
     this.unsubscribe$.next(true)
+    this.unsubscribe$.complete()
+  }
+
+
+  removeFilters() {
+    this.dateFilter = -1
+    this.statusFilter = -1
+    this.applyFilter()
+    this.clearRadioOptions()
+  }
+
+  clearRadioOptions() {
+    var statusGroup = document.getElementsByName('statusRadioGroup') as NodeListOf<HTMLInputElement>
+    statusGroup.forEach((radio:HTMLInputElement)=> {
+      radio.checked = false
+    }) 
+    var dateGroup = document.getElementsByName('dateRadioGroup') as NodeListOf<HTMLInputElement>
+    dateGroup.forEach((radio:HTMLInputElement)=> {
+      radio.checked = false
+    })
   }
 } 

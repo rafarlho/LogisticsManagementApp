@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Request } from '../models/request.model';
-import { BehaviorSubject, Observable, tap } from 'rxjs';
+import { BehaviorSubject, Observable, catchError, tap, throwError } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 
 @Injectable({
@@ -17,12 +17,13 @@ export class RequestsService {
   ) {}
 
   get():Observable<Request[]> {
-    if(!this.loaded) {
-      this.http.get<Request[]>(this.url)
-      .subscribe(this.requestsSubject$)
-      this.loaded=true
-    }
-    return this.requestsSubject$.asObservable()
+    return this.http.get<Request[]>(this.url)
+      .pipe(
+        catchError((e)=>{
+          return throwError(()=> new Error('Error getting requests: ',e))
+        })
+      )
+    
   }
 
   add(req:Request):Observable<Request> {

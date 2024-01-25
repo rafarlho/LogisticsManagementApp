@@ -17,9 +17,9 @@ export const Main_Page_Routes: Route[] = [
 //        ]
 //}
 {path:'dashboard',component:DashboardComponent},
-{path:'request',component:RequestPageComponent,loadChildren: ()=> import('./request-goods/requested-goods.routes').then(m=>m.Requested_Goods_Route)},
+{path:'request',loadChildren: ()=> import('./request-goods/requested-goods.routes').then(m=>m.Requested_Goods_Route)},
 
-{path:'handlerequests',component:HandleRequestComponent,loadChildren: ()=> import('./handle-requests/handle-requests.routes').then(m=>m.Handle_Requests_Routes)},
+{path:'handlerequests',loadChildren: ()=> import('./handle-requests/handle-requests.routes').then(m=>m.Handle_Requests_Routes)},
 //{path:'handlerequests',component:HandleRequestComponent},
 {path:'',pathMatch:'full',redirectTo:'dashboard'},
 ];

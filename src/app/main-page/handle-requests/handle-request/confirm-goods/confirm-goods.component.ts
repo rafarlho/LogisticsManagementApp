@@ -1,5 +1,5 @@
 import { Component, Input, ViewChild } from '@angular/core';
-import { RequestToCollectService } from '../../requested-list/services/request-to-collect.service';
+import { RequestToCollectService } from '../../services/request-to-collect.service';
 import { Subscription } from 'rxjs';
 import { Request } from '../../../../models/request.model';
 import { MatTableDataSource, MatTableModule } from '@angular/material/table';
@@ -30,8 +30,6 @@ export class ConfirmGoodsComponent {
   
   displayedColumns:String[] = ['id','quantity','options']
   dataSource!:MatTableDataSource<{id:string,quantity:number,verified:boolean}>;
-  private subscription!: Subscription;
-  
 
   constructor(
     private requestToCollect:RequestToCollectService,
@@ -41,7 +39,6 @@ export class ConfirmGoodsComponent {
   ngOnInit(): void {
     this.request = this.requestToCollect.getRequest()
     this.goodsAndQuantity = this.request.goodsId.map(good => ({ id: good.id, quantity: good.quantity, verified: false }))
-    console.log(this.goodsAndQuantity)
     this.refreshTableData()
   }
 
@@ -51,22 +48,19 @@ export class ConfirmGoodsComponent {
       found.verified=true
     }
     if(this.goodsAndQuantity.find(good=>good.verified === false) ===undefined) {
-      this.completedList=true
+      this.requestToCollect.completedRequest()
     }
   }
   cancelGood(id:string,quantity:number){
     const found = this.goodsAndQuantity.find((good) => good.id === id && good.quantity===quantity)
     if(found) {
       found.verified=false
-      this.completedList=false
+      this.requestToCollect.incompletedRequest()
     }
   }
 
 
-  ngOnDestroy() {
-    console.log("destroyed")
-    this.subscription.unsubscribe();
-  }
+
 
   refreshTableData() {
       this.dataSource = new MatTableDataSource(this.goodsAndQuantity)

@@ -8,6 +8,7 @@
         </div>
 
         <form [formGroup]="loginForm" (onSubmit)="onSubmit()">       
+            <mat-error *ngIf="wrong">Invalid ID or password, please try again! </mat-error>
                 <mat-form-field>
                     <mat-label>Enter User ID</mat-label>
                     <input matInput formControlName="id" placeholder="Ex:W1234" type="text">

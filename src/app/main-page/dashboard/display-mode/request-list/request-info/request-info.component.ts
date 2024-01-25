@@ -25,7 +25,7 @@ export class RequestInfoComponent {
       if(this.request.handler) this.handled = this.request.handler
     }
 
-    
+  //Funtion that returns a string for each request status
   numberToStatus(n:number) {
     switch(n) {
       case 0:

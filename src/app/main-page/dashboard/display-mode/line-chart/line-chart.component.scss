@@ -7,13 +7,21 @@
     flex-direction: column;
     .graph {
         .filters {
+            height: 10%;
             display: flex;
             flex-direction: row;
             justify-content: space-between;
+            align-items: center;
+            .mat-mdc-raised-button.mat-warn {
+                margin-right: 1%;
+            }
         }
         text-align: center;
-        box-sizing: border-box; display: block; 
-        height: 70%; width:70%;
+        box-sizing: border-box; 
+        display: block; 
+        height: 100%; width:70%;
         margin-left: 15%;
+
+       
     }
 }

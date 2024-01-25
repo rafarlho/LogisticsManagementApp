@@ -5,17 +5,30 @@ $darker-blue:#0F1035;
 
 
 .table-class {
-    margin: 1%;
+    background-color:$lighter-blue;
     .navigator {
+        margin: 1%;
         display: flex;
         .sorter {
+            color: $darker-blue;
             width: 100%;
-            align-items: end;
+            align-items: center;
             display: flex;
-            flex-direction: column;
+            flex-direction: row;
+            justify-content: space-between;
+            margin-bottom: 5px;
+
+            .date-filter,.status-filter {
+                padding: 5px;
+                border:2px white solid;
+                border-radius: 10px;
+                text-align: center;
+                background-color: white;
+            }
             mat-slide-toggle {
+                
                 margin-left: 50px;
-                background-color: $dark-blue;
+                background-color: $darker-blue;
                 padding: 5px;
                 border-radius: 5px;
                 p {
@@ -26,9 +39,9 @@ $darker-blue:#0F1035;
             mat-radio-button {
                 align-items: center;
                 margin: 10px;
-                padding: 10px;
+                padding: 5px;
                 background-color: $lighter-blue;
-                border: 4px solid $darker-blue;
+                border: 2px solid $darker-blue;
                 border-radius: 10px;
                 color: $darker-blue;
                 p {
@@ -39,45 +52,44 @@ $darker-blue:#0F1035;
         }
     }
 
-    .table{
-        max-height:100%;
-
-        flex-wrap: wrap;
+    .table-div{
+        background-color:$lighter-blue;
+        margin: 1%;
+        width: 98%;
         table{
-            max-height: 10%;
-            border-top-left-radius: 10px;
-            border-top-right-radius: 10px;
-            width: auto;
+            border-top-left-radius: 10px ;
+            border-top-right-radius: 10px; 
             td, th {
                 background-color: $dark-blue;
                 color: $lighter-blue;
                 text-align: center !important;
                 vertical-align: middle !important;
                 border-bottom: 1px solid $darker-blue;
-            border-right: 1px solid $darker-blue;
-            border-left: 1px solid $darker-blue;
-            width: 10% !important;
+                border-right: 1px solid $darker-blue;
+                border-left: 1px solid $darker-blue;
             
             .mat-mdc-raised-button.mat-white {
                 color: white;
                 background-color: $darker-blue;
                 border: 1px solid white;
             }
-        }
-        
-        th {
-            font-size: larger;
-            border-bottom: 3px solid$darker-blue;
-        }
-        .mat-sort-header-container {
-            justify-content: center !important;
-        }
-    }
+            }
+
+            th {
+                
     
-    mat-paginator {
-        background-color: $light-blue;
-        border-bottom-right-radius: 10px;
-        border-bottom-left-radius: 10px;
-    }
+                font-size: larger;
+                border-bottom: 3px solid$darker-blue;
+            }
+            .mat-sort-header-container {
+                justify-content: center !important;
+            }
+        }
+    
+        mat-paginator {
+            background-color: $light-blue;
+            border-bottom-right-radius: 10px;
+            border-bottom-left-radius: 10px;
+        }
     }
 }

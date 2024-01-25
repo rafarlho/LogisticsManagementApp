@@ -9,8 +9,7 @@ $darker-blue:#0F1035;
 
     table{
         border-top-left-radius: 10px;
-        border-top-right-radius: 10px; 
-        overflow: hidden;
+        border-top-right-radius: 10px;
         width: auto;
         td, th {
             background-color: $dark-blue;
@@ -20,7 +19,6 @@ $darker-blue:#0F1035;
             border-bottom: 1px solid $darker-blue;
             border-right: 1px solid $darker-blue;
             border-left: 1px solid $darker-blue;
-            width: 10% !important;
             
             .mat-mdc-raised-button.mat-white {
                 color: white;
@@ -29,8 +27,11 @@ $darker-blue:#0F1035;
             }
         }
         
-        .mat-column-id, .mat-column-emitter,.mat-column-handler,.mat-column-latestUpdate,.mat-column-options {
-            width: 5% !important; 
+        .mat-column-id, .mat-column-emitter,.mat-column-handler,.mat-column-latestUpdate {
+            width: 10% !important; 
+        }
+        .mat-column-options {
+            width: 20%;
         }
 
         .mat-column-goods{

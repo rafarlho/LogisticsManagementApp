@@ -3,11 +3,7 @@
     <div class="layout-text">
         <div>
             <h1>List of sent requests</h1>
-            <!--
-
-                <h3>The list below allows you to confirm the reception of a request.</h3>
-                <h3>You can also make a new request using the button on the right.</h3>
-            -->
+            <h3>Use this page to confirm reception of requests or make new ones.</h3>
         </div>
         
         <button mat-raised-button class="button-send" [routerLink]="'/request/makerequest'"><mat-icon>format_list_bulleted</mat-icon>Make a request list</button>
@@ -19,6 +15,6 @@
         <mat-icon matSuffix>search</mat-icon>
     </mat-form-field>
     <div class="layout">
-        <app-list-of-sent-goods [requests]="requests"></app-list-of-sent-goods>
+        <app-list-of-sent-goods></app-list-of-sent-goods>
     </div>
 </div>

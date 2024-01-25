@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { BehaviorSubject, Observable, catchError, throwError } from 'rxjs';
 import { Good } from '../models/good.model';
 import { HttpClient } from '@angular/common/http';
 
@@ -17,11 +17,14 @@ export class GoodsService {
   ) {}
 
   get():Observable<Good[]> {
-    if(!this.loaded) {
-      this.http.get<Good[]>(this.url)
-        .subscribe(this.goodsSubject$)
-        this.loaded=true
+
+    return this.http.get<Good[]>(this.url)
+      .pipe(
+        catchError((e)=>{
+          return throwError(()=> new Error('Error getting requests: ',e))
+        })
+      )
     }
-    return this.goodsSubject$.asObservable()
-  }
+   
 }
+

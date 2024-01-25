@@ -5,7 +5,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { RequestsService } from '../../../services/requests.service';
 import { Request } from '../../../models/request.model';
-import { Subject,takeUntil } from 'rxjs';
+import { Observable, Subject,takeUntil } from 'rxjs';
 import { ListOfSentGoodsComponent } from './list-of-sent-goods/list-of-sent-goods.component';
 import { RouterModule } from '@angular/router';
 import { GoodsTransferService } from '../services/goods-transfer.service';
@@ -26,35 +26,11 @@ import { GoodsTransferService } from '../services/goods-transfer.service';
   styleUrl: './sent-list.component.scss'
 })
 export class SentListComponent {
-
-
-  requests:Request[] = []
-  unsubscribe$:Subject<any> = new Subject<any>()
-
-  constructor(private requestsService:RequestsService,
+  
+  constructor(
     private goodsTransferService:GoodsTransferService
     ) {
-    this.requestsService.get()
-      .pipe(
-        takeUntil(this.unsubscribe$)
-      )
-      .subscribe({
-      
-        next:
-          (requestObs) =>{  
-            
-          this.requests = requestObs
-          this.requests = this.requests.filter(request => request.status ===2)
-        },
-        error:(err) => console.error(err),
-        complete:() => {
-         
-        } 
-    })
-  }
-
-  ngOnDestroy(): void {
-    this.unsubscribe$.next(true)
+   
   }
   applyFilter(e:Event) {
     this.goodsTransferService.setFilter(e)

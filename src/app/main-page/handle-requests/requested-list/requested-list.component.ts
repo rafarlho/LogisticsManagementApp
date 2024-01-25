@@ -19,28 +19,10 @@ import { Request } from '../../../models/request.model';
   styleUrl: './requested-list.component.scss'
 })
 export class RequestedListComponent {
-  requests:Request[] = []
-  private destroy$ = new Subject();
-  constructor(private requestsService:RequestsService) {
-    this.requestsService.get()
-      .pipe(
-        takeUntil(this.destroy$)
-      )
-      .subscribe({
-        next:
-          (requestObs) =>{  
-            
-          this.requests = requestObs
-          this.requests = this.requests.filter(request => request.status ===0)
-        },
-        error:(err) => console.error(err),
-        complete:() => {
-         
-        } 
-    })
+  
+  constructor() {
+    
   }
   ngOnDestroy(): void {
-    this.destroy$.next(false);
-    this.destroy$.complete();
   }
 }

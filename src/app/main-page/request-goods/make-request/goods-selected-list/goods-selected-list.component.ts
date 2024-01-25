@@ -92,9 +92,9 @@ export class GoodsSelectedListComponent {
 
   }
 
-  ngOnDestroy() {
-    this.subscription.unsubscribe();
-  }
+    ngOnDestroy() {
+      this.subscription.unsubscribe();
+    }
 
   refreshTableData() {
     this.dataSource = new MatTableDataSource(this.goodsAndQuantity)

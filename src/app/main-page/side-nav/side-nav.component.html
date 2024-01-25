@@ -1,13 +1,13 @@
 <div class="side-nav">
     <div class="side-content">
         <div class="navigation">
-            <button mat-fab [routerLink]="'./dashboard'">
+            <button mat-mini-fab [routerLink]="'./dashboard'">
                 <mat-icon>analytics</mat-icon>
             </button>
-            <button mat-fab [routerLink]="'./request/sentlist'"  *ngIf="(user$|async)?.type === 1">
+            <button mat-mini-fab [routerLink]="'./request/sentlist'"  *ngIf="(user$|async)?.type === 1">
                 <mat-icon>content_paste</mat-icon>
             </button>
-            <button mat-fab [routerLink]="'./handlerequests/requestedlist'" *ngIf="(user$|async)?.type === 2">
+            <button mat-mini-fab [routerLink]="'./handlerequests/requestedlist'" *ngIf="(user$|async)?.type === 2">
                 <mat-icon>checklist</mat-icon>
             </button>
         </div>

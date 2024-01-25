@@ -5,6 +5,8 @@ import {MatButtonModule} from '@angular/material/button';
 import { CommonModule } from '@angular/common';
 import { AuthService } from '../services/auth.service';
 import { Router } from '@angular/router';
+import { Observable, Subject, takeUntil } from 'rxjs';
+import { User } from '../../models/user.model';
 
 @Component({
   selector: 'app-login',
@@ -21,16 +23,17 @@ import { Router } from '@angular/router';
 export class LoginComponent {
   isPassword:string = "password" 
   color="dark"
-  loading:boolean=false
+  wrong:boolean = false
   loginForm = this.formBuilder.group({
     'id':['',Validators.required],
     'password':['',[Validators.required,Validators.minLength(4)]],
   })
-
+  unsubscribe$: Subject<any> = new Subject<any>()
+  login$!: Observable<User>;
   constructor(
     private formBuilder:FormBuilder,
     private authService:AuthService,
-    private router:Router
+    private router:Router,
   ) {
 
   }
@@ -39,15 +42,29 @@ export class LoginComponent {
   onSubmit() {
     const credentials = this.loginForm.value
     if(credentials.id && credentials.password) {
-      this.loading = true
-      this.authService.login(credentials.id,credentials.password)
+      this.login$ = this.authService.login(credentials.id,credentials.password) 
+      this.login$
+      .pipe(takeUntil(this.unsubscribe$))
       .subscribe({
         next: (user) => {
-          this.loading=false
+          this.wrong=false
           this.router.navigate(['']);
+
         },
-        error: error => console.error("Something went wrong during login. ",error)
+        error: error =>{ 
+          this.wrong = true
+          this.clearFields()
+        }
       })
     }
+  }
+
+  clearFields() {
+    this.loginForm.reset()
+  }
+
+  ngOnDestroy(): void {
+    this.unsubscribe$.next(false)
+    this.unsubscribe$.complete()
   }
 }
