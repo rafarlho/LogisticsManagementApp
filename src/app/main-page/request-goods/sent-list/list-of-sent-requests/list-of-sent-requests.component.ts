@@ -79,7 +79,7 @@ export class ListOfSentRequestsComponent {
       if(data.valid) {
         request.status = 3
         this.requestsService.editStatus(request)
-          .pipe(takeUntil(this.unsubscribe$))
+
           .subscribe( {
             next:()=>this.updateData(),
             error: err => console.error(err)
@@ -92,7 +92,7 @@ export class ListOfSentRequestsComponent {
   updateData(){
     this.requests$ = this.requestsService.get()
     this.requests$
-      .pipe(takeUntil(this.unsubscribe$))  
+
       .subscribe((requests) => {
         this.requests = requests.filter(request => request.status ===2)
         this.dataSource =  new MatTableDataSource(this.requests)
