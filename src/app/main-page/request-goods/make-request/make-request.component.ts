@@ -93,9 +93,9 @@ export class MakeRequestComponent {
   }
 
   //On destroy to avoid memory leak
-  //ngOnDestroy(): void {
-  //  console.log("makereques destroyed")
-  //  this.unsubscribe$.next()
-  //  this.unsubscribe$.complete()
-  //}
+  ngOnDestroy(): void {
+
+    this.unsubscribe$.next()
+    this.unsubscribe$.complete()
+  }
 }
