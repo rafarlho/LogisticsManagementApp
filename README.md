@@ -58,46 +58,27 @@ To run the project on your local environment, you need to have the following lis
 <!-- Project struture -->
 ### Project structure
 
-
-.
-
+ ``` bash
+. 
 ├── miscelaneous                # Folder for diagrams and others
-
 ├── server                      # Folder Node api and server
-
 │   ├── Goods                   # Controller for goods db collection 
-
 │   ├── Requests                # Controller for requests db collection
-
 │   |── Users                   # Controller for users and authentication collection
-
 │   |── utils                   # Folder for variables definitions
-
 |   |── generate-data.js        # file to generate data onto db
-
 |   └── app.js                  # server file
-
 └── src                         # Folder containing the angular project
-
     └── app                     # Folder containing the angular components
-
         ├── auth                # Folder for components and services related to authentication and login 
-
         ├── main-page           # Folder for components and services related to the main purpose of the app 
-
         |   ├── dashboard       # Folder for components and services related to the dashboard and display of all the data 
-
         |   ├── handle-requests # Folder for components and services related to make a request or confirm it -> dedicated to Production Line workers 
-
         |   ├── header          # Folder for components for the app nav bar 
-
         |   └── request-goods   # Folder for components and services related to handle a request -> dedicated to Warehouse workers
-
         ├── models              # Folder containing the interfaces that define the models of the requests, users and goods 
-        
         └── services            # Folder that contains goods and requests services
-
-
+ ```
 <!-- Installation -->
 ### Installation
 
