@@ -12,7 +12,6 @@ $darker-blue:#0F1035;
         margin: 1%;
         display: flex;
         .sorter {
-            color: $darker-blue;
             width: 100%;
             align-items: center;
             display: flex;
@@ -22,22 +21,26 @@ $darker-blue:#0F1035;
             
             .date-filter,.status-filter {
                 padding: 5px;
-                border:2px white solid;
+                border:2px $dark-blue solid;
                 border-radius: 10px;
-                text-align: center;
-                background-color: white;
+                text-align: left;
+                background-color: $dark-blue;
+                h4 {
+                    color: $light-blue;
+                    margin-left: 10px;
+                }
             }
             //Radio button styling
             mat-radio-button {
                 align-items: center;
                 margin: 10px;
                 padding: 5px;
-                background-color: $lighter-blue;
-                border: 2px solid $darker-blue;
+                background-color: $darker-blue;
+                border: 2px solid white;
                 border-radius: 10px;
-                color: $darker-blue;
+                color: white;
                 p {
-                    color: $dark-blue;
+                    color: white;
                     font-size: large;
                 }
             }

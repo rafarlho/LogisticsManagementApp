@@ -8,6 +8,7 @@
     <li>
       <a href="#about-the-project">About The Project</a>
       <ul>
+        <li><a href="#built-with">Built with</a></li>        
         <li><a href="#users">Users</a></li>
         <li><a href="#goods">Goods</a></li>
         <li><a href="#requests">Requests</a></li>
@@ -20,7 +21,8 @@
         <li><a href="#requirements">Requirements</a></li>
         <li><a href="#project-structure">Project Struture</a></li>
         <li><a href="#installation">Installation</a></li>
-        <li><a href="#usage">Usage</a></li> 
+        <li><a href="#usage">Usage</a></li>         
+        <li><a href="#possible-improvements">Possible improvements</a></li> 
       </ul>
     </li>
   </ol>
@@ -41,6 +43,21 @@ The user, depending on whether is a Production Line worker or a Warehouse operat
 * Sent: a Warehouse operator sent the request to the production line; 
 * Received: a Production Line worker confirmed the reception of the requested goods. 
 
+
+<!-- Built with -->
+### Built with
+
+The application was built using Angular as front-end framework and the following libraries:
+* Angular Material "https://material.angular.io/"
+* ChartsJs "https://www.chartjs.org/docs/latest/"
+* Ng2-Charts "https://valor-software.com/ng2-charts/"
+* RxJs "https://rxjs.dev/"
+
+The server and API was built on NodeJs and the following libraries:
+* mongoose 'https://mongoosejs.com/'
+* express  'https://expressjs.com/'
+* cors 'https://www.npmjs.com/package/cors'
+* JsonWebToken 'https://jwt.io/'
 
 <!-- Users -->
 ### Users
@@ -169,3 +186,14 @@ Warehouse operator:
 
 Feel free to explore the app and managing your factory!
 
+
+<!-- Possible improvements -->
+### Possible improvements
+
+Some of the possible improvements that the app can get are the following:
+* Improve authentication: the authentication interceptor is not working correctly, still figuring out why not;
+* Docker compose: implement a Dockerfile for easy mounting and local deployment, but needed to rebuild the API and Server:
+* Edit request while status is 'requested': a production line worker could edit the request while it is still not collected;
+* Implement NgRx;
+* Improve colors and front-end display;
+* Improve resizing display, not fit for small screens for now.
