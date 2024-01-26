@@ -11,6 +11,7 @@
         <li><a href="#users">Users</a></li>
         <li><a href="#goods">Goods</a></li>
         <li><a href="#requests">Requests</a></li>
+        <li><a href="#class-diagram">Class diagram</a></li>
       </ul>
     </li>
     <li>
@@ -49,15 +50,26 @@ The aplication contains three types of users:
 * Production Line worker: this type can make requestes and confirm the reception of them, but cannot collect them.
 * Wharehouse operator: this type can only collect requests and send them to the production line.
 
-Below is the use case diagram and the class for the User model.
+Below is the use case diagram.
 ![alt text](miscelaneous/Use-case-diagram.jpg)
 
 
 <!-- Goods -->
 ### Goods
 
+The goods represent any material that is required a required in the production line and is stored in the warehouse. It is identified by and ID and description
+
 <!-- Requests -->
 ### Requests
+
+The requests represent an order emmited or handle by a worker with a list of goods and a timstamp of the last update on that request.
+
+
+<!-- Requests -->
+### Class diagram
+
+Below is the class diagram for all the models and how they interact with eachother.
+![alt text](miscelaneous/class-diagram.png)
 
 
 <!-- Instalation and usage -->
@@ -142,15 +154,18 @@ And navigate to "http://localhost:4200/" on your browser to use the app.
 
 Once you're able to access the app, as mentioned above you can select between 3 types of users.
 To simplify here are users created to simplify:
+
 Factory worker: 
-    * ID: lara
-    *password: 123qwe
+* ID: lara
+* password: 123qwe
+
 Production Line Worker: 
-    * ID: rafa
-    *password: 123qwe
+* ID: rafa
+* password: 123qwe
+
 Warehouse operator: 
-    * ID: joao
-    *password: 123qwe
+* ID: joao
+* password: 123qwe
 
 Feel free to explore the app and managing your factory!
 
