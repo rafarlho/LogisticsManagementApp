@@ -58,7 +58,7 @@ To run the project on your local environment, you need to have the following lis
 <!-- Project struture -->
 ### Project structure
 
- ``` bash
+```
 . 
 ├── miscelaneous                # Folder for diagrams and others
 ├── server                      # Folder Node api and server
