@@ -1,5 +1,7 @@
 
 <div class="background">
+    <h2>Are you sure you want to submit the folowing request?</h2>
+    <mat-divider></mat-divider>
     <h2>Request ID: {{data.request.id}}</h2>
     <mat-divider></mat-divider>
     <span mat-subheader><b>Goods list:</b></span>
@@ -17,8 +19,7 @@
     <span><b>Latest update:</b> {{data.request.latestUpdate}}</span>
     <mat-divider></mat-divider>
     <span><b>Emmited by:</b> {{data.request.emitter}}</span>
-    <mat-divider></mat-divider>
-    <span><b>Handled by:</b> {{data.request.handler}}</span>
+
     <div>
 
         <button mat-raised-button color="warn" (click)="onCloseClick()">Cancel</button>

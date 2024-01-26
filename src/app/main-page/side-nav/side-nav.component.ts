@@ -8,6 +8,7 @@ import { Observable } from 'rxjs';
 import { AuthService } from '../../auth/services/auth.service';
 import { User } from '../../models/user.model';
 import { CommonModule } from '@angular/common';
+import { MatDividerModule } from '@angular/material/divider';
 
 @Component({
   selector: 'app-side-nav',
@@ -18,7 +19,8 @@ import { CommonModule } from '@angular/common';
     MatButtonModule,
     MatIconModule,
     RouterModule,
-    CommonModule
+    CommonModule,
+    MatDividerModule,
   ],
   templateUrl: './side-nav.component.html',
   styleUrl: './side-nav.component.scss'

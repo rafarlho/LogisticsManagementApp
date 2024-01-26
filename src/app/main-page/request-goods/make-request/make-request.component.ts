@@ -17,6 +17,8 @@ import { AuthService } from '../../../auth/services/auth.service';
 import { User } from '../../../models/user.model';
 import { RequestDialogComponent } from './request-dialog/request-dialog.component';
 import { MatDialog } from '@angular/material/dialog';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { CommonModule } from '@angular/common';
 @Component({
   selector: 'app-make-request',
   standalone: true,
@@ -28,6 +30,8 @@ import { MatDialog } from '@angular/material/dialog';
     MatFormFieldModule,
     MatInputModule,
     RouterModule,
+    MatSidenavModule,
+    CommonModule,
   ],
   templateUrl: './make-request.component.html',
   styleUrl: './make-request.component.scss'

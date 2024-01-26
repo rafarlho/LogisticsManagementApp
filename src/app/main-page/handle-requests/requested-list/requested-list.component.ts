@@ -3,9 +3,11 @@ import {  MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { ListOfRequestedComponent } from './list-of-requested/list-of-requested.component';
-import { Subject, takeUntil } from 'rxjs';
-import { RequestsService } from '../../../services/requests.service';
-import { Request } from '../../../models/request.model';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { CommonModule } from '@angular/common';
+import { MatButtonModule } from '@angular/material/button';
+import { RouterModule } from '@angular/router';
+
 @Component({
   selector: 'app-requested-list',
   standalone: true,
@@ -13,7 +15,11 @@ import { Request } from '../../../models/request.model';
     MatFormFieldModule,
     MatInputModule,
     MatIconModule,
-    ListOfRequestedComponent
+    ListOfRequestedComponent,
+    MatSidenavModule,
+    CommonModule,
+    MatButtonModule,
+    RouterModule
   ],
   templateUrl: './requested-list.component.html',
   styleUrl: './requested-list.component.scss'

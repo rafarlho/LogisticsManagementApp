@@ -79,13 +79,34 @@ export class LineChartComponent {
   public lineChartOptions: ChartConfiguration['options'] = {
     elements: {
       line: {tension:0.5}
+      
     },
     scales: {
-      y: {position:'left'}
+      y: {position:'left',
+        grid: {
+          color: '#0F1035',
+        },
+        ticks: {
+          color:'white'
+        }
+      },
+      x: {
+        grid: {
+          color: '#0F1035',
+        },
+        ticks: {
+          color:'white'
+        }
+      }
+      
     },
     plugins: {
       legend :{
-        display:true
+        display:true,
+        labels: {
+          color: 'white'
+        }
+        
       }
     }
   }

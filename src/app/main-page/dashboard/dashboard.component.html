@@ -1,7 +1,37 @@
 <div class="dashboard">
-    <mat-tab-group>
-        <mat-tab label="Table"><app-request-list></app-request-list></mat-tab>
-        <mat-tab label="Pie Charts"> <app-pie-chart-requests [requests]="requests"></app-pie-chart-requests></mat-tab>
-        <mat-tab label="Line Graphs"><app-line-chart [requests]="requests"></app-line-chart></mat-tab>
-      </mat-tab-group>
+  <mat-drawer-container class="example-container" hasBackdrop="true">
+    <mat-drawer #drawer mode="push">
+      <div class="side-nav">
+        <div class="side-content">
+  
+            <button mat-fab [routerLink]="''">
+              <mat-icon>analytics</mat-icon>
+            </button>
+          
+            <button mat-fab [routerLink]="'../request/sentlist'"  *ngIf="(user$|async)?.type === 1">
+              <mat-icon>content_paste</mat-icon>
+            </button>
+            <button  mat-fab [routerLink]="'../handlerequests/requestedlist'" *ngIf="(user$|async)?.type === 2">
+              <mat-icon>checklist</mat-icon>
+            </button>
+       
+          
+        </div>
+      </div>
+
+    
+    
+    </mat-drawer>
+    <mat-drawer-content>
+      <div class="tab-group">
+
+        <button mat-fab (click)="drawer.toggle()"><mat-icon>navigation</mat-icon></button>
+        <mat-tab-group >
+          <mat-tab label="Table"><app-request-list></app-request-list></mat-tab>
+          <mat-tab label="Pie Charts"> <app-pie-chart-requests [requests]="requests"></app-pie-chart-requests></mat-tab>
+          <mat-tab label="Line Graphs"><app-line-chart [requests]="requests"></app-line-chart></mat-tab>
+        </mat-tab-group>
+      </div>
+    </mat-drawer-content>
+  </mat-drawer-container>
 </div>

@@ -24,6 +24,13 @@ $darker-blue:#0F1035;
                 color: $light-blue;
                 border: 2px solid $light-blue;
             }
+            .mat-divider {
+                border-top-color: $lighter-blue;
+                border-top-width: 4px;
+                margin: 4px;
+            }
+
+            
         }
     }
 

@@ -1,12 +1,45 @@
 
 <div class="requested-goods-background">
-    <div class="layout-text">
-        <div>
-            <h1>List of requests not collected yet</h1>            
-            <h3>Use this page to confirm reception of requests or make new ones.</h3>
-        </div>
-    </div>
-    <div class="layout">
-       <app-list-of-requested></app-list-of-requested>
-    </div>
+    
+    
+    <mat-drawer-container class="example-container" hasBackdrop="true">
+        <mat-drawer #drawer mode="push">
+          <div class="side-nav">
+            <div class="side-content">
+      
+                <button mat-fab [routerLink]="''">
+                  <mat-icon>analytics</mat-icon>
+                </button>
+              
+                <button mat-fab [routerLink]="'../requestedlist'" >
+                  <mat-icon>checklist</mat-icon>
+                </button>
+                
+           
+              
+            </div>
+          </div>
+    
+        
+        
+        </mat-drawer>
+        <mat-drawer-content>
+          <div class="tab-group">
+    
+            <button mat-fab (click)="drawer.toggle()"><mat-icon>navigation</mat-icon></button>
+            <div class="layout-text">
+                <div>
+                    <h1>List of requests not collected yet</h1>            
+                    <h3>Use this page to confirm reception of requests or make new ones.</h3>
+                </div>
+            </div>
+            <div class="layout">
+               <app-list-of-requested></app-list-of-requested>
+            </div>
+          </div>
+        </mat-drawer-content>
+        </mat-drawer-container>
+    
+   
+
 </div>
