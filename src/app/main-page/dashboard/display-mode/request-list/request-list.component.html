@@ -1,19 +1,22 @@
+<!--    Main background div     -->
 <div class="table-class">
     
+    <!--    Sorter and search bar     -->
     <div class="navigator">
-        
         <div class="sorter">
+            <!--    Search bar      -->
             <mat-form-field>
                 <mat-label>Search</mat-label>
                 <input matInput (input)="applyTextFilter($event)" placeholder="Search by ids" >
                 <mat-icon matSuffix>search</mat-icon>
             </mat-form-field>
+            <!--    Filter by status    -->
             <div class="status-filter">
                 <h3>Sort by status</h3>
                 <mat-radio-group aria-label="Select an option" name="statusRadioGroup">
                     <mat-radio-button color="primary" *ngFor="let s of statusList,let i = index" [value]="i" (change)="handleStatusChange($any($event))"><p>{{s}}</p></mat-radio-button>
                 </mat-radio-group>
-
+            <!--    Filter by date      -->
             </div> 
             <div class="date-filter">
                 <h3>Sort by date</h3>
@@ -21,11 +24,12 @@
                     <mat-radio-button color="primary" *ngFor="let d of dateList,let i = index" [value]="i"  (change)="handleDateChange($any($event))"><p>{{d}}</p></mat-radio-button>
                 </mat-radio-group>
             </div>    
+            <!--    Clear filters button    -->
             <button mat-raised-button color="warn" (click)="removeFilters()">Remove filters</button>
-            
         </div>
     </div>
     
+    <!--    Table to show all requests  -->
     <div class="table-div">
         <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" matSort> 
             <ng-container matColumnDef="id">

@@ -21,12 +21,12 @@ export class RequestDialogComponent {
     @Inject(MAT_DIALOG_DATA) public data: {request:Request,valid:boolean},
     ) {
 
-    }
-
+  }
+  //Dialog navigation
   onCloseClick() {
     this.matBottomSheetRef.close(this.data);
   }
-
+  //Dialog navigation
   confirmReception(){
     this.data.valid=true
     this.matBottomSheetRef.close(this.data);

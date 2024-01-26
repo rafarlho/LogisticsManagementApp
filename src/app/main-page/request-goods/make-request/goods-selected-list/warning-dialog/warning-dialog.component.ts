@@ -19,14 +19,14 @@ export class WarningDialogComponent {
   constructor(
     private matBottomSheetRef:MatDialogRef<WarningDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: boolean
-    ) {
+  ) {
 
-    }
-
+  }
+  //Navigation dialog
   onCloseClick() {
     this.matBottomSheetRef.close({data:false});
   }
-
+  //Dialog navigation
   updateValue(){
     this.matBottomSheetRef.close({data:true});
     this.onCloseClick()

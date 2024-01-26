@@ -1,6 +1,5 @@
 
 import { Route } from "@angular/router";
-import { HandleRequestsComponent } from "./handle-requests.component";
 import { RequestedListComponent } from "./requested-list/requested-list.component";
 import { HandleRequestComponent } from "./handle-request/handle-request.component";
 

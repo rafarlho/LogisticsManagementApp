@@ -1,7 +1,5 @@
 import { Component } from '@angular/core';
-import { GoodsService } from '../../../services/goods.service';
 import { Observable, Subject, take, takeUntil, tap } from 'rxjs';
-import { Good } from '../../../models/good.model';
 import { MatTableDataSource } from '@angular/material/table';
 import { GoodsSelectableListComponent } from './goods-selectable-list/goods-selectable-list.component';
 import { GoodsSelectedListComponent } from './goods-selected-list/goods-selected-list.component';
@@ -38,31 +36,29 @@ import { CommonModule } from '@angular/common';
 })
 export class MakeRequestComponent {
 
- 
+  //Observable to get logged in user
+  user$!:Observable<User>
+  
+  //Data and control variables
   displayedColumns:String[] = ['id','emitter','handler','status','latestUpdate','options']
   dataSource!:MatTableDataSource<Request>;
-  user$!:Observable<User>
+  private unsubscribe$:Subject<void> = new Subject<void>()
 
- private unsubscribe$:Subject<any> = new Subject<any>
   constructor(
-    private goodsTransfer:GoodsTransferService,
-    private requestsService:RequestsService,
-    private authService:AuthService,
-    private dialog:MatDialog
-  ){
-   
+      private goodsTransfer:GoodsTransferService,
+      private requestsService:RequestsService,
+      private authService:AuthService,
+      private dialog:MatDialog
+  ){  
     this.user$ = this.authService.getUser()
   }
-
-  ngOnDestroy(): void {
-    this.unsubscribe$.next(true)
-  }
-
   
+  //Apply filter to table from search bar
   applyFilter(event:Event) {
     this.goodsTransfer.setFilter(event)
   }
 
+  //Send a request to the warehouse, setting the status to requested
   sendRequest() {
     const arr = this.goodsTransfer.getGoodList()
     let emmiter =""
@@ -76,7 +72,7 @@ export class MakeRequestComponent {
       latestUpdate: new Date().toISOString()
     }
     let dialog = this.dialog.open(RequestDialogComponent,{data:{request:newR,valid:false},disableClose:true,width:'600px'});
-    dialog.afterClosed().subscribe((data:{request:Request,valid:boolean}) => {
+    dialog.afterClosed().pipe(take(1)).subscribe((data:{request:Request,valid:boolean}) => {
       if(data.valid) {
         this.requestsService.add(newR)
           .pipe(take(1))
@@ -85,5 +81,11 @@ export class MakeRequestComponent {
         })
       }
     })
+  }
+
+  //On destroy to avoid memory leak
+  ngOnDestroy(): void {
+    this.unsubscribe$.next()
+    this.unsubscribe$.complete()
   }
 }

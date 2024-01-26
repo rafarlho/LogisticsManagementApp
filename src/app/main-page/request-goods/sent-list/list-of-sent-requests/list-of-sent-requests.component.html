@@ -1,7 +1,7 @@
-<!--    List of requested requests  -->
+<!--    List of sent goods  -->
 <div class="table-class">
-    
-    <!--    	Table   -->
+
+    <!--    Table   -->
     <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" matSort>
         <ng-container matColumnDef="id">
             <th mat-header-cell *matHeaderCellDef>ID</th>
@@ -11,6 +11,11 @@
         <ng-container matColumnDef="emitter">
             <th mat-header-cell *matHeaderCellDef>Requested by</th>
             <td mat-cell *matCellDef="let request">{{request.emitter}}</td>
+        </ng-container>
+    
+        <ng-container matColumnDef="handler">
+            <th mat-header-cell *matHeaderCellDef>Handled by</th>
+            <td mat-cell *matCellDef="let request">{{request.handler}} </td>
         </ng-container>
     
         <ng-container matColumnDef="latestUpdate">
@@ -26,7 +31,7 @@
         <ng-container matColumnDef="options">
             <th mat-header-cell *matHeaderCellDef>Detais</th>
             <td mat-cell *matCellDef="let request">
-                <button mat-raised-button color="white" (click)="collectRequest(request)">Collect request</button>
+                <button mat-raised-button color="white" (click)="confirmReception(request)">Confirm reception</button>
             </td>
         </ng-container>
     

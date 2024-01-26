@@ -1,5 +1,8 @@
+<!--    Header  -->
 <mat-toolbar class="tool-bar">
     <mat-toolbar-row>
+        
+        <!--    Nav -->
         <img src="../../../assets/imgs/logo_optimized.jpg" alt="Logistic Management logo" class="logo-header">
         <span  class="example-spacer"></span>
         <div>
@@ -8,26 +11,31 @@
         </div>
         <span  class="example-spacer"></span>
         
-            <button mat-raised-button [color]="colorHelp" (mouseover)="colorHelp='white'" (mouseout)="colorHelp='dark'">
-                <mat-icon>support_agent</mat-icon>Help Desk</button>
-            <button mat-raised-button [matMenuTriggerFor]="menu" [color]="colorProfile" (mouseover)="colorProfile='white'" (mouseout)="colorProfile='dark'">
-                <mat-icon>arrow_drop_down</mat-icon>Profile
-            </button>
-            <mat-menu #menu> 
-                <mat-card>
-                    <mat-card-header>
-                        <div mat-card-avatar class="header-profile-photo"></div>
-                    </mat-card-header>
-                    <mat-card-content>
-                        <mat-card-title>{{(user$|async)?.firstName}} {{(user$|async)?.lastName}}</mat-card-title>
-                        <mat-divider></mat-divider>
-                        <mat-card-subtitle>{{userTypeToString((user$|async)?.type)}}</mat-card-subtitle> 
-                    </mat-card-content>
-                    <mat-card-actions>
-                        <button mat-raised-button color="warn" (click)="logout()">Logout</button>
-                    </mat-card-actions>
-                </mat-card>
-            </mat-menu>
+        <button mat-raised-button [color]="colorHelp" (mouseover)="colorHelp='white'" (mouseout)="colorHelp='dark'">
+            <mat-icon>support_agent</mat-icon>Help Desk
+        </button>
+        <button mat-raised-button [matMenuTriggerFor]="menu" [color]="colorProfile" (mouseover)="colorProfile='white'" (mouseout)="colorProfile='dark'">
+            <mat-icon>arrow_drop_down</mat-icon>Profile
+        </button>
         
+        <!--    Porfile dropdown content    -->
+        <mat-menu #menu> 
+            <mat-card>
+                <mat-card-header>
+                    <div mat-card-avatar class="header-profile-photo"></div>
+                </mat-card-header>
+                
+                <mat-card-content>
+                    <mat-card-title>{{(user$|async)?.firstName}} {{(user$|async)?.lastName}}</mat-card-title>
+                    <mat-divider></mat-divider>
+                    <mat-card-subtitle>{{userTypeToString((user$|async)?.type)}}</mat-card-subtitle> 
+                </mat-card-content>
+                
+                <!--    Button to logout    -->
+                <mat-card-actions>
+                    <button mat-raised-button color="warn" (click)="logout()">Logout</button>
+                </mat-card-actions>
+            </mat-card>
+        </mat-menu>
     </mat-toolbar-row>
 </mat-toolbar>

@@ -3,7 +3,7 @@ $light-blue: #7fc7d9;
 $dark-blue:#365486;
 $darker-blue:#0F1035;
 
-
+//Make request styling
 .request-goods-background {
     background-color: $lighter-blue;
     height: 100%;
@@ -12,6 +12,8 @@ $darker-blue:#0F1035;
     color: $darker-blue;
     display: flex;
     flex-direction: column; 
+
+    //Sidenav styling
     .example-container {
         height: 100%;
         background-color: $lighter-blue;
@@ -52,12 +54,42 @@ $darker-blue:#0F1035;
         }
     }
 }
+//Sidenav drawer styling
+.side-nav {
+    z-index: 0;
+    background-color: $dark-blue;
+    height: 100%;
+    width: 100px;
+    position: relative;
+    
+    .side-content {
+        position: absolute;
+        width: 100%;
+        text-align: center;
+        
+        
+        //
+        .mat-mdc-fab {
+            margin-top: 100%;
+            margin-bottom: 70%;
+            width: 80px;
+            height: 80px;
+            
+            background-color: $darker-blue;
+            color: $light-blue;
+            border: 2px solid $light-blue;
+        }  
+    }
+    
+}
+//Sidenav content
 .tab-group{
     z-index: 0;
     height: 95%;
     mat-mdc-tab-body-wrapper {
         height: 100%;   
     } 
+    //Floating navigation button
     .mat-mdc-fab {
         position: fixed;
 
@@ -70,31 +102,4 @@ $darker-blue:#0F1035;
         bottom: 20px;
         left: 20px;
     } 
-}
-.side-nav {
-    z-index: 0;
-    background-color: $dark-blue;
-    height: 100%;
-    width: 100px;
-    position: relative;
-    
-    .side-content {
-        position: absolute;
-        width: 100%;
-        text-align: center;
-     
-       
-       
-        .mat-mdc-fab {
-            margin-top: 100%;
-            margin-bottom: 70%;
-            width: 80px;
-            height: 80px;
-            
-            background-color: $darker-blue;
-            color: $light-blue;
-            border: 2px solid $light-blue;
-        }  
-    }
-   
 }

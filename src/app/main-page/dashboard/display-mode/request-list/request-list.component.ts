@@ -29,7 +29,6 @@ import {Sort, MatSortModule, SortDirection} from '@angular/material/sort';
     MatFormFieldModule,
     MatInputModule,
     MatIconModule,
-    MatSlideToggleModule,
     FormsModule,
     MatRadioModule,
     MatSortModule,
@@ -105,18 +104,24 @@ export class RequestListComponent {
   //Funtion to open the dialog with detailed information about a specific request
   openDialog(r:Request) {
     this.dialog.open(RequestInfoComponent,{data:r})
-  }
-  
+  } 
   
   //Funtion to handle search input filter
   applyTextFilter(event:Event) {
     const target = event.target as HTMLInputElement
-    this.dataSource.filter=target.value.trim().toLowerCase()
+    var filterValue =target.value.trim().toLowerCase()
+    this.dataSource.filterPredicate = (data:Request,filter:string) =>{
+      return data.id.toString().includes(filter) ||
+            data.handler?.toLowerCase().includes(filter) ||
+            data.emitter.toLowerCase().includes(filter)
+    }
+    this.dataSource.filter=filterValue
     if (this.dataSource.paginator) {
       this.dataSource.paginator.firstPage();
     }
   }
   
+  //Funtion to apply status and date filter
   applyFilter() {
     let filteredData = this.requests.slice();
     if(this.statusFilter!=-1) {
@@ -138,7 +143,6 @@ export class RequestListComponent {
         this.dataSource.paginator.firstPage();
     }
   }
-
   
   //Funtion to handle status sorter
   handleStatusChange(e:MatRadioChange){
@@ -175,21 +179,16 @@ export class RequestListComponent {
     const timeB = b.getTime();
     return (timeA < timeB ? -1 : 1) * (isAsc ? 1 : -1);
   }
-
-  //On destroy method to unsubscribe all subscriptions
-  ngOnDestroy(): void {
-    this.unsubscribe$.next(true)
-    this.unsubscribe$.complete()
-  }
-
-
+  
+  //Funtion to clear filter
   removeFilters() {
     this.dateFilter = -1
     this.statusFilter = -1
     this.applyFilter()
     this.clearRadioOptions()
   }
-
+  
+  //Funtion to clear radio buttons selection
   clearRadioOptions() {
     var statusGroup = document.getElementsByName('statusRadioGroup') as NodeListOf<HTMLInputElement>
     statusGroup.forEach((radio:HTMLInputElement)=> {
@@ -199,5 +198,11 @@ export class RequestListComponent {
     dateGroup.forEach((radio:HTMLInputElement)=> {
       radio.checked = false
     })
+  }
+
+  //On destroy method to unsubscribe all subscriptions
+  ngOnDestroy(): void {
+    this.unsubscribe$.next(true)
+    this.unsubscribe$.complete()
   }
 } 

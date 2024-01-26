@@ -15,17 +15,19 @@ import { MatButtonModule } from '@angular/material/button';
   styleUrl: './confirm-leaving.component.scss'
 })
 export class ConfirmLeavingComponent {
+
   constructor(
     private matBottomSheetRef:MatDialogRef<RequestDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: {valid:boolean},
     ) {
 
-    }
+  }
 
+  //Navigation
   onCloseClick() {
     this.matBottomSheetRef.close(this.data);
   }
-
+  //Navigation
   confirmReception(){
     this.data.valid=true
     this.matBottomSheetRef.close(this.data);

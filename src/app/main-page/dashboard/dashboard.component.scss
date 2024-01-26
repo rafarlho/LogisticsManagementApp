@@ -3,9 +3,9 @@ $light-blue: #7fc7d9;
 $dark-blue:#365486;
 $darker-blue:#0F1035;
 
+//Main dashboard styling and sidnav content
 .dashboard {
     background-color: $lighter-blue;
-    //background: linear-gradient(0deg, rgba(21,25,61,1) 14%, rgba(100,146,188,1) 28%, rgba(113,166,209,1) 39%, rgba(152,207,226,1) 45%, rgba(185,242,240,1) 50%, rgba(149,204,225,1) 55%, rgba(113,166,209,1) 60%, rgba(105,154,197,1) 74%, rgba(21,25,61,1) 86%);
     height: 100%;
     width: 100%;
     z-index: 0;
@@ -16,7 +16,7 @@ $darker-blue:#0F1035;
     }
 }
 
-
+//Sidenav drawer
 .side-nav {
     z-index: 0;
     background-color: $dark-blue;
@@ -28,9 +28,7 @@ $darker-blue:#0F1035;
         position: absolute;
         width: 100%;
         text-align: center;
-     
-       
-       
+        //Navigation buttons styling
         .mat-mdc-fab {
             margin-top: 100%;
             margin-bottom: 70%;
@@ -44,12 +42,15 @@ $darker-blue:#0F1035;
     }
    
 }
+
+//Sidenav content
 .tab-group{
     z-index: 0;
     height: 100%;
     mat-mdc-tab-body-wrapper {
         height: 100%;   
     } 
+    //Floating button to open the drawer
     .mat-mdc-fab {
         position: fixed;
 

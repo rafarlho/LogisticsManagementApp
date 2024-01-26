@@ -1,51 +1,52 @@
+<!--  Make request  -->
 <div class="request-goods-background">
-
-
-    <mat-drawer-container class="example-container" hasBackdrop="true">
-        <mat-drawer #drawer mode="push">
-          <div class="side-nav">
-            <div class="side-content">
-      
-                <button mat-fab [routerLink]="''">
-                  <mat-icon>analytics</mat-icon>
-                </button>
+  <mat-drawer-container class="example-container" hasBackdrop="true">
+    <!--  Sidenav navigation drawer -->
+    <mat-drawer #drawer mode="push">
+      <div class="side-nav">
+        <div class="side-content">
+          
+          <!--  Navigation buttons  -->
+          <button mat-fab [routerLink]="''">
+           <mat-icon>analytics</mat-icon>
+          </button>
               
-                <button mat-fab [routerLink]="'../sentlist'"  *ngIf="(user$|async)?.type === 1">
-                  <mat-icon>content_paste</mat-icon>
-                </button>
-                
-           
-              
-            </div>
-          </div>
+          <button mat-fab [routerLink]="'../sentlist'">
+            <mat-icon>content_paste</mat-icon>
+          </button>    
+        </div>
+      </div>
+    </mat-drawer>
     
+    <!--  Sidenav content -->
+    <mat-drawer-content>
+      <div class="tab-group">
         
-        
-        </mat-drawer>
-        <mat-drawer-content>
-          <div class="tab-group">
-    
-            <button mat-fab (click)="drawer.toggle()"><mat-icon>navigation</mat-icon></button>
-            <div class="layout-text">
-                
-                <div>
-                    <h1>Request making page</h1>
-                    <h3>Select goods and quantity form the left table and they'll be added on the right table.</h3>
-                </div>
-                <button mat-raised-button class="button-send" (click)="sendRequest()"><mat-icon>send</mat-icon>Send request list to warehouse</button>
-            </div>
-            <div class="form-field">
-                <mat-form-field >
-                    <mat-label>Search</mat-label>
-                    <input matInput (input)="applyFilter($event)" placeholder="Search by ids" >
-                    <mat-icon matSuffix>search</mat-icon>
-                </mat-form-field>
-            </div>
-            <div class="layout">
-                <app-goods-selectable-list class="selectable-list"></app-goods-selectable-list>
-                <app-goods-selected-list class="selectable-list"></app-goods-selected-list>
-            </div>
+        <!--  Sidenav toggle button -->
+        <button mat-fab (click)="drawer.toggle()"><mat-icon>navigation</mat-icon></button>
+        <div class="layout-text">    
+          <div>
+            <h1>Request making page</h1>
+            <h3>Select goods and quantity form the left table and they'll be added on the right table.</h3>
           </div>
-        </mat-drawer-content>
-        </mat-drawer-container>
+          <button mat-raised-button class="button-send" (click)="sendRequest()"><mat-icon>send</mat-icon>Send request list to warehouse</button>
+        </div>
+        
+        <!--  Search bar  -->
+        <div class="form-field">
+          <mat-form-field >
+            <mat-label>Search</mat-label>
+            <input matInput (input)="applyFilter($event)" placeholder="Search by ids" >
+            <mat-icon matSuffix>search</mat-icon>
+          </mat-form-field>
+        </div>
+        
+        <!-- Goods list components -->
+        <div class="layout">
+          <app-goods-selectable-list class="selectable-list"></app-goods-selectable-list>
+          <app-goods-selected-list class="selectable-list"></app-goods-selected-list>
+        </div>
+      </div>
+    </mat-drawer-content>
+  </mat-drawer-container>
 </div>

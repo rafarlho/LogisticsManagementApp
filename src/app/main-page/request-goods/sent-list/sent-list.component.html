@@ -1,52 +1,55 @@
-
-<div class="sent-goods-background">
-
-        <mat-drawer-container class="example-container" hasBackdrop="true">
-            <mat-drawer #drawer mode="push">
-              <div class="side-nav">
-                <div class="side-content">
+<!--  Sent requests -->
+<div class="sent-requests-background">
+  <mat-drawer-container class="example-container" hasBackdrop="true">
+    
+    <!--  Sidenav drawer navigation -->
+    <mat-drawer #drawer mode="push">
+      <div class="side-nav">
+        <div class="side-content">
           
-                    <button mat-fab [routerLink]="''">
-                      <mat-icon>analytics</mat-icon>
-                    </button>
-                  
-                    <button mat-fab [routerLink]="'../sentlist'"  *ngIf="(user$|async)?.type === 1">
-                      <mat-icon>content_paste</mat-icon>
-                    </button>
-                    
-               
-                  
-                </div>
-              </div>
-        
-            
-            
-            </mat-drawer>
-            <mat-drawer-content>
-              <div class="tab-group">
-        
-                <button mat-fab (click)="drawer.toggle()"><mat-icon>navigation</mat-icon></button>
-                <div class="layout-text">
-                    <div>
-                        <h1>List of sent requests</h1>
-                        <h3>Use this page to confirm reception of requests or make new ones.</h3>
-                    </div>
-                    
-                    <button mat-raised-button class="button-send" [routerLink]="'/request/makerequest'"><mat-icon>format_list_bulleted</mat-icon>Make a request list</button>
-                </div>
-                
-                <mat-form-field >
-                    <mat-label>Search</mat-label>
-                    <input matInput (input)="applyFilter($event)" placeholder="Search by ids" >
-                    <mat-icon matSuffix>search</mat-icon>
-                </mat-form-field>
-                <div class="layout">
-                    <app-list-of-sent-goods></app-list-of-sent-goods>
-                </div>
-              </div>
-            </mat-drawer-content>
-            </mat-drawer-container>
+          <!--  Navigation buttons   -->
+          <button mat-fab [routerLink]="''">
+            <mat-icon>analytics</mat-icon>
+          </button>
+
+          <button mat-fab [routerLink]="'../sentlist'">
+            <mat-icon>content_paste</mat-icon>
+          </button>
         </div>
+      </div>
+    </mat-drawer>
+    
+    <!--  Sidenav content-->
+    <mat-drawer-content>
+      <div class="tab-group">
+
+        <!--  Toggle sidenav button -->
+        <button mat-fab (click)="drawer.toggle()"><mat-icon>navigation</mat-icon></button>
+        <div class="layout-text">
+          <div>
+            <h1>List of sent requests</h1>
+            <h3>Use this page to confirm reception of requests or make new ones.</h3>
+          </div>
+          
+          <!--  Make request navigation button  -->
+          <button mat-raised-button class="button-send" [routerLink]="'/request/makerequest'"><mat-icon>format_list_bulleted</mat-icon>Make a request list</button>
+        </div>
+        
+        <!--  Search bar  -->
+        <mat-form-field >
+            <mat-label>Search</mat-label>
+            <input matInput (input)="applyFilter($event)" placeholder="Search by ids" >
+            <mat-icon matSuffix>search</mat-icon>
+        </mat-form-field>
+
+        <!--  Requested list component-->
+        <div class="layout">
+            <app-list-of-sent-requests></app-list-of-sent-requests>
+        </div>
+      </div>
+    </mat-drawer-content>
+  </mat-drawer-container>
+</div>
 
 
 

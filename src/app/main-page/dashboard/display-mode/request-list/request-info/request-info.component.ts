@@ -15,15 +15,17 @@ import { CommonModule } from '@angular/common';
   styleUrl: './request-info.component.scss'
 })
 export class RequestInfoComponent {
-
+  //String if request is not handled
   handled:string="Not handled yet"
+
   constructor(
     @Inject(MAT_DIALOG_DATA) public request:Request
   ) {}
-
-    ngOnInit(): void {
-      if(this.request.handler) this.handled = this.request.handler
-    }
+  
+  //Verifies if request has handler, if not assgin the previous string
+  ngOnInit(): void {
+    if(this.request.handler) this.handled = this.request.handler
+  }
 
   //Funtion that returns a string for each request status
   numberToStatus(n:number) {

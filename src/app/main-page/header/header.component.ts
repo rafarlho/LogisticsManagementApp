@@ -29,9 +29,11 @@ import { Router } from '@angular/router';
 })
 export class HeaderComponent {
 
+  //Button variables
   colorHelp:string = "dark"
   colorProfile:string = "dark"
   
+  //User observable to get logged in user
   user$!:Observable<User>
 
   constructor(
@@ -61,7 +63,7 @@ export class HeaderComponent {
 
   }
 
-
+  //Method that converts UserType to string
   userTypeToString(type:UserType | undefined):string {
     switch(type){
       case 0: return "Factory Worker"
@@ -71,11 +73,13 @@ export class HeaderComponent {
     }
   }
 
+  //Funtion to logout a user
   logout() {
     this.authService.logOut()
     this.router.navigateByUrl('/auth')
   }
 
+  //On destroy to avoid memory leaks
   ngOnDestroy(): void {
     clearInterval(this.intervalID) 
      if(this.subscription) this.subscription.unsubscribe()

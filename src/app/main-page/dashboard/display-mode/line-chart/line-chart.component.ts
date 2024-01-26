@@ -32,18 +32,22 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './line-chart.component.scss'
 })
 export class LineChartComponent {
-
+  
+  //Array to get the years and months
   readonly yearsToDisplay:string[]=['2000', '2001', '2002', '2003', '2004', '2005', '2006', '2007', '2008', '2009', '2010', '2011', '2012', '2013', '2014', '2015', '2016', '2017', '2018', '2019', '2020', '2021', '2022', '2023', '2024']
   readonly monthsToDisplay:string[]=["January","February","March","April","May","June","July","August","September","October","November","December"]
 
+  //Chart data and control for chart update
   @Input() requests!:Request[]
   @ViewChild(BaseChartDirective) chart?: BaseChartDirective;
   
+  //Control variables
   selectedYear:number = -1
   selectedMonth:string="None"
   fullDateFilter:boolean = false
   fullDateInput:string= ""
 
+  // Linear chart confirguration
   public lineChartData: ChartConfiguration['data'] = {
     datasets :[{
       data:[],
@@ -87,7 +91,7 @@ export class LineChartComponent {
           color: '#0F1035',
         },
         ticks: {
-          color:'white'
+          color:'#0F1035'
         }
       },
       x: {
@@ -95,7 +99,7 @@ export class LineChartComponent {
           color: '#0F1035',
         },
         ticks: {
-          color:'white'
+          color:'#0F1035'
         }
       }
       
@@ -104,7 +108,7 @@ export class LineChartComponent {
       legend :{
         display:true,
         labels: {
-          color: 'white'
+          color: '#0F1035'
         }
         
       }
@@ -115,6 +119,7 @@ export class LineChartComponent {
 
   constructor() {}
 
+  //Updates values on graph
   ngOnInit(): void {
     setTimeout(()=> {
       this.getFilterToStandard()
@@ -200,9 +205,10 @@ export class LineChartComponent {
       else {
         this.getFilterToStandard()
       }
+    }
   }
-}
 
+  //Filters full date using the datepicker 
   filterFullDate(e:MatDatepickerInputEvent<Date>) {
     if(e.value) {
         this.fullDateFilter =true
@@ -220,6 +226,7 @@ export class LineChartComponent {
     }
   }
 
+  //Clears all filter fields
   clearFilters(){
     this.selectedYear = -1
     this.selectedMonth="None"

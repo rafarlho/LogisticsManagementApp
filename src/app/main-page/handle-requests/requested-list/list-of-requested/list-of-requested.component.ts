@@ -1,5 +1,5 @@
 import { CommonModule, DatePipe } from '@angular/common';
-import { Component, Input, ViewChild } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
 import { MatTableDataSource, MatTableModule } from '@angular/material/table';
 import { Request } from '../../../../models/request.model';
@@ -25,10 +25,14 @@ import { AuthService } from '../../../../auth/services/auth.service';
 })
 export class ListOfRequestedComponent {
 
+  //Reference variables
   private unsubscribe$ = new Subject();
   @ViewChild(MatPaginator) paginator!:MatPaginator
 
+  //List columns
   displayedColumns:String[] = ['id','emitter','latestUpdate','goods','options']
+  
+  //Data variables for table
   dataSource!:MatTableDataSource<Request>;
   requests:Request[] =[]
   requests$!:Observable<Request[]>
@@ -38,6 +42,8 @@ export class ListOfRequestedComponent {
     private authService:AuthService,
     private router:Router
     ){}
+
+  //On init gets data from service
   ngOnInit(): void {
     this.requests$ = this.requestsService.get()
     this.requests$.pipe(takeUntil(this.unsubscribe$))
@@ -48,6 +54,7 @@ export class ListOfRequestedComponent {
       })
   }
 
+  //Funtion to collectet a request, wich navigates the user to the handle request page
   collectRequest(request:Request) {
     this.requestToCollect.setRequest(request)
     this.router.navigateByUrl('/handlerequests/handlerequest')
@@ -64,7 +71,7 @@ export class ListOfRequestedComponent {
       })
   }
 
-
+  //On destroy method to unsubscribe all subscriptions
   ngOnDestroy(): void {
     this.unsubscribe$.next(false);
     this.unsubscribe$.complete();

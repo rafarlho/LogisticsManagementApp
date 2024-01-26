@@ -3,10 +3,10 @@ $light-blue: #7fc7d9;
 $dark-blue:#365486;
 $darker-blue:#0F1035;
 
-
+//List of sent requests styling
 .table-class {
     margin: 20px;
-
+    //Table styling
     table{
         border-top-left-radius: 10px;
         border-top-right-radius: 10px;
@@ -50,6 +50,7 @@ $darker-blue:#0F1035;
         }
     }
 
+    //Paginator styling
     mat-paginator {
         background-color: $light-blue;
         border-bottom-right-radius: 10px;

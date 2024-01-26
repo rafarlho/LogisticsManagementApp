@@ -1,5 +1,7 @@
-
+<!--    Confirmation dialog -->
 <div class="background">
+
+    <!--    Request data    -->
     <h2>Request ID: {{data.request.id}}</h2>
     <mat-divider></mat-divider>
     <span mat-subheader><b>Goods list:</b></span>
@@ -19,6 +21,8 @@
     <span><b>Emmited by:</b> {{data.request.emitter}}</span>
     <mat-divider></mat-divider>
     <span><b>Handled by:</b> {{data.request.handler}}</span>
+
+    <!--    Control buttons     -->
     <div>
         <button mat-raised-button color="warn" (click)="onCloseClick()">Cancel</button>
         <button mat-raised-button color="primary" (click)="confirmReception()">Confirm</button>

@@ -1,7 +1,10 @@
+<!--    Change values dialog    -->
 <div class="background">
     <h2>Good ID: {{data.id}}</h2>
     <mat-divider></mat-divider>
     <h3>Insert quantity:</h3>
+
+    <!--    Form to edit quantity   -->
     <form [formGroup]="goodForm" (ngSubmit)="onSubmit()">    
         <mat-form-field>
             <mat-label>Quantity</mat-label>
@@ -10,6 +13,8 @@
             <mat-error *ngIf="goodForm.get('quantity')?.hasError('min')">Quantity must be bigger than 0</mat-error>
         </mat-form-field>    
     </form>
+
+    <!--    Buttons control     -->
     <div>
         <button mat-raised-button color="warn" (click)="onCloseClick()">Cancel</button>
         <button mat-raised-button color="primary" (click)="onSubmit()" [disabled]="!goodForm.valid">Insert</button>

@@ -3,10 +3,11 @@ $light-blue: #7fc7d9;
 $dark-blue:#365486;
 $darker-blue:#0F1035;
 
-
+//Main styling class
 .table-class {
     background-color:$lighter-blue;
-   
+    
+    //Filter and search bar class
     .navigator {
         margin: 1%;
         display: flex;
@@ -18,7 +19,7 @@ $darker-blue:#0F1035;
             flex-direction: row;
             justify-content: space-between;
             margin-bottom: 5px;
-
+            
             .date-filter,.status-filter {
                 padding: 5px;
                 border:2px white solid;
@@ -26,17 +27,7 @@ $darker-blue:#0F1035;
                 text-align: center;
                 background-color: white;
             }
-            mat-slide-toggle {
-                
-                margin-left: 50px;
-                background-color: $darker-blue;
-                padding: 5px;
-                border-radius: 5px;
-                p {
-                    color: white;
-                }
-            }
-          
+            //Radio button styling
             mat-radio-button {
                 align-items: center;
                 margin: 10px;
@@ -53,6 +44,7 @@ $darker-blue:#0F1035;
         }
     }
 
+    //Table styling options
     .table-div{
         background-color:$lighter-blue;
         margin: 1%;
@@ -68,17 +60,15 @@ $darker-blue:#0F1035;
                 border-bottom: 1px solid $darker-blue;
                 border-right: 1px solid $darker-blue;
                 border-left: 1px solid $darker-blue;
-            
-            .mat-mdc-raised-button.mat-white {
-                color: white;
-                background-color: $darker-blue;
-                border: 1px solid white;
-            }
+                //Detailed info button styling
+                .mat-mdc-raised-button.mat-white {
+                    color: white;
+                    background-color: $darker-blue;
+                    border: 1px solid white;
+                }
             }
 
             th {
-                
-    
                 font-size: larger;
                 border-bottom: 3px solid$darker-blue;
             }
@@ -86,7 +76,7 @@ $darker-blue:#0F1035;
                 justify-content: center !important;
             }
         }
-    
+        //Paginator styling
         mat-paginator {
             background-color: $light-blue;
             border-bottom-right-radius: 10px;

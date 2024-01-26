@@ -1,9 +1,11 @@
+<!--    Delete dialog   -->
 <div class="background">
     <h2>You are about to delete the good:<br>ID:<b>{{data.id}}</b>; Quantity <b>{{data.quantity}}</b>;<br>from the selected list.</h2>
     <mat-divider></mat-divider>
     <h3>Are you want to delete it?</h3>
+    
+    <!--    Buttons control -->
     <div>
-
         <button mat-raised-button color="warn" (click)="onCloseClick()">Cancel</button>
         <button mat-raised-button color="primary" (click)="updateValue()">Delete it</button>
     </div>

@@ -21,11 +21,11 @@ export class DeleteDialogComponent {
     ) {
 
     }
-
+  //Dialog navigation
   onCloseClick() {
     this.matBottomSheetRef.close(this.data);
   }
-
+  //Dialog navigation
   updateValue(){
     this.data.valid=true
     this.matBottomSheetRef.close(this.data);

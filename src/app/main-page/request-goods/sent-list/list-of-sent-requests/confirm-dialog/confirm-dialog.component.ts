@@ -17,17 +17,18 @@ import { CommonModule } from '@angular/common';
   styleUrl: './confirm-dialog.component.scss'
 })
 export class ConfirmDialogComponent {
+  
   constructor(
     private matBottomSheetRef:MatDialogRef<DeleteDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: {request:Request,valid:boolean},
     ) {
 
-    }
-
+  }
+  //Dialog navigation 
   onCloseClick() {
     this.matBottomSheetRef.close(this.data);
   }
-
+  //Dialog navigation
   confirmReception(){
     this.data.valid=true
     this.matBottomSheetRef.close(this.data);

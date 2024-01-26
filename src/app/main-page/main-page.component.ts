@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { HeaderComponent } from './header/header.component';
-import { SideNavComponent } from './side-nav/side-nav.component';
 import { Route, Router, RouterOutlet } from '@angular/router';
 
 @Component({
@@ -8,7 +7,6 @@ import { Route, Router, RouterOutlet } from '@angular/router';
   standalone: true,
   imports: [
     HeaderComponent,
-    SideNavComponent,
     RouterOutlet,
   ],
   templateUrl: './main-page.component.html',

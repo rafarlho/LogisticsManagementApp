@@ -5,7 +5,7 @@ import { Request } from '../../../models/request.model';
   providedIn: 'root'
 })
 export class RequestToCollectService {
-
+  
   public completed = new EventEmitter<boolean>()
   public requestToCollect!:Request
   constructor() { }

@@ -3,14 +3,15 @@ $light-blue: #7fc7d9;
 $dark-blue:#365486;
 $darker-blue:#0F1035;
 
-
-
+//Quantity dialog styling
 .background {
     background-color: white;
     margin: 20px;
     color: $darker-blue;
-    b{
-        color: $dark-blue;
+    
+    mat-form-field {
+        margin-top: 10px;
+        width: 50%;
     }
     .mat-divider {
         border-top-color: $dark-blue;
@@ -27,7 +28,5 @@ $darker-blue:#0F1035;
             width: 30%;
         }
     }
-    th,td {
-        text-align: center;
-    }
+
 }

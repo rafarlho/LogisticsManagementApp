@@ -1,5 +1,8 @@
+<!--    Confirm goods table -->
 <div class="goods-table-background">
     <div class="table-div">
+        
+        <!--    Table   -->
         <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
             <ng-container matColumnDef="id">
                 <th mat-header-cell *matHeaderCellDef>ID</th>
@@ -23,7 +26,6 @@
             <tr mat-row *matRowDef="let row;columns:displayedColumns"></tr>
             
         </table>
-        
         <mat-paginator [pageSizeOptions]="[5]" class="mat-elevation-z8"></mat-paginator>
     </div>
 </div>

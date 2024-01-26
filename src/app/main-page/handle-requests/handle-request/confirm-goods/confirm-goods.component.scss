@@ -3,7 +3,7 @@ $light-blue: #7fc7d9;
 $dark-blue:#365486;
 $darker-blue:#0F1035;
 
-
+//Confirm good styling
 .goods-table-background {
     background-color: $lighter-blue;
     width: 100%;
@@ -12,6 +12,8 @@ $darker-blue:#0F1035;
         position: absolute;
         margin: 1%;
         width: 98%;
+
+        //Table styling
         table {
             width: auto;
             border-top-left-radius: 10px;
@@ -24,9 +26,7 @@ $darker-blue:#0F1035;
                 vertical-align: middle !important;
                 border-bottom: 1px solid $darker-blue;
                 border-right: 1px solid $darker-blue;
-                border-left: 1px solid $darker-blue;
-    
-                
+                border-left: 1px solid $darker-blue;   
             }
 
             .mat-column-id {
@@ -51,6 +51,8 @@ $darker-blue:#0F1035;
                 justify-content: center !important;
             }
         }
+        
+        //Paginator styling
         mat-paginator {
             background-color: $light-blue;
             border-bottom-right-radius: 10px;

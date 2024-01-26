@@ -1,6 +1,10 @@
+<!--    Dialog background   -->
 <div class="dialog">    
+    <!--    Request information -->
     <h2>Request ID: {{request.id}}</h2>
     <mat-divider></mat-divider>
+    
+    <!--    Goods list  -->
     <span mat-subheader><b>Goods list:</b></span>
     <table>
         <tr>
@@ -19,5 +23,5 @@
     <mat-divider></mat-divider>
     <span><b>Handled by:</b> {{handled}}</span>
     <mat-divider></mat-divider>
-    <span><b>Status:</b> {{numberToStatus(request.status)}}</span>
+    <span><b>Status:</b>{{numberToStatus(request.status)}}</span>
 </div>

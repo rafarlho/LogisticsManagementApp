@@ -6,7 +6,7 @@ import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { CommonModule } from '@angular/common';
-import { BottomQuantityComponent } from './select-quantity/bottom-quantity.component';
+import { QuantityDialogComponent } from './select-quantity/quantity-dialog.component';
 import { GoodsTransferService } from '../../services/goods-transfer.service';
 import { MatDialog } from '@angular/material/dialog';
 import { Observable, Subject, Subscription, pipe, takeUntil } from 'rxjs';
@@ -26,23 +26,27 @@ import { GoodsService } from '../../../../services/goods.service';
   styleUrl: './goods-selectable-list.component.scss'
 })
 export class GoodsSelectableListComponent {
-  @ViewChild(MatPaginator) paginator!:MatPaginator
   
+  //Control variables
+  @ViewChild(MatPaginator) paginator!:MatPaginator
   enableQuant:boolean=false 
+  private unsubscribe$:Subject<void> = new Subject<void>();
+  
+  //Data variables
   goods$!:Observable<Good[]>
   goods:Good[] = []
   displayedColumns:String[] = ['id','description','options']
   dataSource!:MatTableDataSource<Good>;
-  private unsubscribe$:Subject<any> = new Subject<any>();
+
 
   constructor(
     private dialog: MatDialog,
     private goodTransferService:GoodsTransferService,
     private goodsService:GoodsService
     ) {
-
   }
 
+  //On init gets goods from backend and handles filter change
   ngOnInit(): void {
     this.goods$ = this.goodsService.get()
     this.goods$
@@ -64,8 +68,9 @@ export class GoodsSelectableListComponent {
     
   }
 
+  //Opens dialog to select quantity
   enableQuantity(good:Good) {
-    let dialog = this.dialog.open(BottomQuantityComponent,{data:good,disableClose:true,width:'600px'});
+    let dialog = this.dialog.open(QuantityDialogComponent,{data:good,disableClose:true,width:'600px'});
     dialog.afterClosed().subscribe((result:{id:string,quantity:number}) => {
       if(result) {
         this.goodTransferService.sendQuantity(result.id,result.quantity)
@@ -73,9 +78,9 @@ export class GoodsSelectableListComponent {
     })
   }
 
+  //On destroy to avoid memory leak
   ngOnDestroy(): void {
-    console.log("destroyed")
-    this.unsubscribe$.next(true)
+    this.unsubscribe$.next()
     this.unsubscribe$.complete()
   }
   

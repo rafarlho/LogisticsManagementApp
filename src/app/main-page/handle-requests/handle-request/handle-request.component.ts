@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { ConfirmGoodsComponent } from './confirm-goods/confirm-goods.component';
-import { Observable, Subject, Subscription, take, takeUntil } from 'rxjs';
+import { Observable, take } from 'rxjs';
 import { RequestToCollectService } from '../services/request-to-collect.service';
 import { Request } from '../../../models/request.model';
 import { CommonModule } from '@angular/common';
@@ -26,10 +26,14 @@ import { ConfirmLeavingComponent } from './confirm-leaving/confirm-leaving.compo
   styleUrl: './handle-request.component.scss'
 })
 export class HandleRequestComponent {
+  
+  //Control and data variables
   leavinToList =false
   leavinToDashboard =false
   request!:Request
   completedList$!:Observable<boolean>
+
+  //Here gets request to collect and observable for the completed goods list
   constructor(
     private requestToCollect:RequestToCollectService,
     private requestsService:RequestsService,
@@ -41,9 +45,9 @@ export class HandleRequestComponent {
   } 
 
   ngOnInit(): void {
-    
   }
 
+  //After collectiong request and setting it status to sent
   submit() {
     this.request.status=2
     this.request.latestUpdate = (new Date()).toISOString()
@@ -56,39 +60,42 @@ export class HandleRequestComponent {
         error: err => console.error(err)
       })
   }
+
+  //Funtion that handles redirect while collecting
   confirmLeavingToDashboard() {
     this.leavinToDashboard = true
     this.confirmLeaving()
   }
+
+  //Funtion that handles redirect while collecting
   confirmLeavingTolist() {
     this.leavinToList = true
     this.confirmLeaving()
   }
+
+  //Funtion that handles redirect while collecting and sets the request to on collect cleaning teh handler camp
   confirmLeaving() {
     let dialog = this.dialog.open(ConfirmLeavingComponent,{data:{valid:false},disableClose:true,width:'600px'})
     dialog.afterClosed().pipe(
-      take(1)
-    ).subscribe((data:{request:Request,valid:boolean}) => {
-      if(data.valid) {
-        this.request.status=0
-        this.request.handler=''
-        this.request.latestUpdate = (new Date()).toISOString()
-        this.requestsService.editStatus(this.request)
-      .pipe(
         take(1)
       )
-      .subscribe( {
-        next: () => {
-          if(this.leavinToDashboard) this.router.navigateByUrl('')
-          if(this.leavinToList) this.router.navigateByUrl("/handlerequests/requestedlist")
-        },
-        error: err => console.error(err)
+      .subscribe((data:{request:Request,valid:boolean}) => {
+        if(data.valid) {
+          this.request.status=0
+          this.request.handler=''
+          this.request.latestUpdate = (new Date()).toISOString()
+          this.requestsService.editStatus(this.request)
+            .pipe(
+              take(1)
+            )
+            .subscribe( {
+              next: () => {
+                if(this.leavinToDashboard) this.router.navigateByUrl('')
+                if(this.leavinToList) this.router.navigateByUrl("/handlerequests/requestedlist")
+              },
+              error: err => console.error(err)
+            })
+          }
       })
-      }
-    })
-  }
-
-
-  ngOnDestroy(): void {
   }
 }

@@ -1,4 +1,7 @@
+<!--    Main charts div -->
 <div class="pie-charts">
+    
+    <!--    Requests by status chart -->
     <div class="chart">
         <h2>All requests by status</h2>
         <mat-progress-bar *ngIf="enableProgressBar" mode="indeterminate"></mat-progress-bar>
@@ -11,6 +14,8 @@
             </canvas>
         </ng-container>
     </div>
+
+    <!--    Top 10 goods chart-->
     <div class="chart">
         <h2>Top 10 requested goods</h2>
         <mat-progress-bar *ngIf="enableProgressBar" mode="indeterminate"></mat-progress-bar>
@@ -23,6 +28,8 @@
             </canvas>
         </ng-container>
     </div>
+
+    <!--    Todays requests chart   -->
     <div class="chart" >
         <h2>Requests today</h2>
         <mat-progress-bar *ngIf="enableProgressBar" mode="indeterminate"></mat-progress-bar>
@@ -36,6 +43,7 @@
         </ng-container>
     </div>
 
+    <!--    Container to show if there is no data on the graphs     -->
     <ng-template #nothingToShow>
         <div *ngIf="!enableProgressBar">
             <p>It seems that there is no data to show...</p>

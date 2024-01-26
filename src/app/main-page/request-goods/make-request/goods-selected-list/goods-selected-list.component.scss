@@ -3,7 +3,7 @@ $light-blue: #7fc7d9;
 $dark-blue:#365486;
 $darker-blue:#0F1035;
 
-
+//Selected goods list styling
 .goods-table-background {
     background-color: $lighter-blue;
     width: 100%;
@@ -11,6 +11,8 @@ $darker-blue:#0F1035;
     .table-div  {
         position: absolute;
         width: 99%;
+
+        //Table stylling
         table {
             width: auto;
             border-top-left-radius: 10px;
@@ -49,6 +51,8 @@ $darker-blue:#0F1035;
                 justify-content: center !important;
             }
         }
+
+        //Paginator styling
         mat-paginator {
             background-color: $light-blue;
             border-bottom-right-radius: 10px;

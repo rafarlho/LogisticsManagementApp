@@ -9,7 +9,7 @@ import { MatDividerModule } from '@angular/material/divider';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 @Component({
-  selector: 'app-bottom-quantity',
+  selector: 'app-quantity-dialog',
   standalone: true,
   imports: [
     MatFormFieldModule,
@@ -20,10 +20,10 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
     MatDividerModule,
 
   ],
-  templateUrl: './bottom-quantity.component.html',
-  styleUrl: './bottom-quantity.component.scss'
+  templateUrl: './quantity-dialog.component.html',
+  styleUrl: './quantity-dialog.component.scss'
 })
-export class BottomQuantityComponent {
+export class QuantityDialogComponent {
 
 
   goodForm = this.fb.group({
@@ -33,16 +33,16 @@ export class BottomQuantityComponent {
 
   constructor(
     private fb:FormBuilder,
-    private matBottomSheetRef:MatDialogRef<BottomQuantityComponent>,
+    private matBottomSheetRef:MatDialogRef<QuantityDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: Good
-    ) {
+  ) {
 
   }
-
+  //Dialog navigation
   onCloseClick() {
     this.matBottomSheetRef.close();
   }
-
+  //Dialog navigation
   onSubmit(){
     const toReturn = {id:this.data.id,quantity:this.goodForm.value.quantity}
     this.matBottomSheetRef.close(toReturn)

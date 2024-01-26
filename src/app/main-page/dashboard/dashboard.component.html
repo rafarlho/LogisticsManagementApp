@@ -1,30 +1,29 @@
+<!--  Main background div  -->
 <div class="dashboard">
   <mat-drawer-container class="example-container" hasBackdrop="true">
+
+    <!--  Sidenav drawer content  -->
     <mat-drawer #drawer mode="push">
       <div class="side-nav">
         <div class="side-content">
-  
             <button mat-fab [routerLink]="''">
               <mat-icon>analytics</mat-icon>
             </button>
-          
             <button mat-fab [routerLink]="'../request/sentlist'"  *ngIf="(user$|async)?.type === 1">
               <mat-icon>content_paste</mat-icon>
             </button>
             <button  mat-fab [routerLink]="'../handlerequests/requestedlist'" *ngIf="(user$|async)?.type === 2">
               <mat-icon>checklist</mat-icon>
             </button>
-       
-          
         </div>
       </div>
-
-    
-    
     </mat-drawer>
+
+    <!--Sidenav main content  -->
     <mat-drawer-content>
       <div class="tab-group">
-
+        
+        <!--Button to toggle side nav-->
         <button mat-fab (click)="drawer.toggle()"><mat-icon>navigation</mat-icon></button>
         <mat-tab-group >
           <mat-tab label="Table"><app-request-list></app-request-list></mat-tab>

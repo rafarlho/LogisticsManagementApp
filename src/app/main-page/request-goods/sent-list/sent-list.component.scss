@@ -3,8 +3,8 @@ $light-blue: #7fc7d9;
 $dark-blue:#365486;
 $darker-blue:#0F1035;
 
-
-.sent-goods-background {
+//Sent requests styling
+.sent-requests-background {
     background-color: $lighter-blue;
     height: 100%;
     width: 100%;
@@ -12,6 +12,8 @@ $darker-blue:#0F1035;
     color: $darker-blue;
     display: flex;
     flex-direction: column; 
+    
+    //Sidenav styling
     .example-container {
         height: 100%;
         background-color: $lighter-blue;
@@ -53,7 +55,7 @@ $darker-blue:#0F1035;
     }
 }
 
-
+//Sidenav drawer styling
 .side-nav {
     z-index: 0;
     background-color: $dark-blue;
@@ -81,12 +83,15 @@ $darker-blue:#0F1035;
     }
    
 }
+//Sidenav content
 .tab-group{
     z-index: 0;
     height: 95%;
     mat-mdc-tab-body-wrapper {
         height: 100%;   
     } 
+
+    //Floating navigation button
     .mat-mdc-fab {
         position: fixed;
 

@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { BottomQuantityComponent } from './bottom-quantity.component';
+import { QuantityDialogComponent } from './quantity-dialog.component';
 
 describe('BottomQuantityComponent', () => {
-  let component: BottomQuantityComponent;
-  let fixture: ComponentFixture<BottomQuantityComponent>;
+  let component: QuantityDialogComponent;
+  let fixture: ComponentFixture<QuantityDialogComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [BottomQuantityComponent]
+      imports: [QuantityDialogComponent]
     })
     .compileComponents();
     
-    fixture = TestBed.createComponent(BottomQuantityComponent);
+    fixture = TestBed.createComponent(QuantityDialogComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

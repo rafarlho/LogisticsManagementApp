@@ -23,11 +23,13 @@ import { CommonModule } from '@angular/common';
 })
 export class ConfirmGoodsComponent {
 
-  request!:Request 
-  goodsAndQuantity:{id:string,quantity:number,verified:boolean}[] = []
+  //Control variables
   completedList:boolean = false
   @ViewChild(MatPaginator) paginator!:MatPaginator
-  
+
+  //Data variables
+  request!:Request 
+  goodsAndQuantity:{id:string,quantity:number,verified:boolean}[] = []
   displayedColumns:String[] = ['id','quantity','options']
   dataSource!:MatTableDataSource<{id:string,quantity:number,verified:boolean}>;
 
@@ -35,13 +37,14 @@ export class ConfirmGoodsComponent {
     private requestToCollect:RequestToCollectService,
   ) {}
 
-
+  //On init gets the request to collect
   ngOnInit(): void {
     this.request = this.requestToCollect.getRequest()
     this.goodsAndQuantity = this.request.goodsId.map(good => ({ id: good.id, quantity: good.quantity, verified: false }))
     this.refreshTableData()
   }
 
+  //Function called when a good it ticked true, also enables the submit button when fully ticked
   confirmGood(id:string,quantity:number){
     const found = this.goodsAndQuantity.find((good) => good.id === id && good.quantity===quantity)
     if(found) {
@@ -51,6 +54,8 @@ export class ConfirmGoodsComponent {
       this.requestToCollect.completedRequest()
     }
   }
+  
+  //Function called when a good it ticked false, also disables the submit button if enabled
   cancelGood(id:string,quantity:number){
     const found = this.goodsAndQuantity.find((good) => good.id === id && good.quantity===quantity)
     if(found) {
@@ -59,9 +64,7 @@ export class ConfirmGoodsComponent {
     }
   }
 
-
-
-
+  //Funtion that updates table data
   refreshTableData() {
       this.dataSource = new MatTableDataSource(this.goodsAndQuantity)
       this.dataSource.paginator = this.paginator

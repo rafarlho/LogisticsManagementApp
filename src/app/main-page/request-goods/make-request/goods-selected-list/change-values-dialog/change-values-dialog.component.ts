@@ -2,7 +2,7 @@ import { Component, Inject } from '@angular/core';
 import { Validators, FormBuilder, ReactiveFormsModule, FormGroup } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Good } from '../../../../../models/good.model';
-import { BottomQuantityComponent } from '../../goods-selectable-list/select-quantity/bottom-quantity.component';
+import { QuantityDialogComponent } from '../../goods-selectable-list/select-quantity/quantity-dialog.component';
 import { CommonModule } from '@angular/common';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDividerModule } from '@angular/material/divider';
@@ -23,9 +23,10 @@ import { MatInputModule } from '@angular/material/input';
   styleUrl: './change-values-dialog.component.scss'
 })
 export class ChangeValuesDialogComponent {
-
+  //Form to read quantity
   goodForm!:FormGroup
 
+  //Initializes form
   constructor(
     private fb:FormBuilder,
     private matBottomSheetRef:MatDialogRef<ChangeValuesDialogComponent>,
@@ -37,10 +38,12 @@ export class ChangeValuesDialogComponent {
       })
   }
 
+  //Navigation
   onCloseClick() {
     this.matBottomSheetRef.close();
   }
 
+  //Navigation
   onSubmit(){
     const toReturn = {id:this.data.id,quantity:this.goodForm.value.quantity}
     this.matBottomSheetRef.close(toReturn)
