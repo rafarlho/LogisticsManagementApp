@@ -32,13 +32,13 @@
           </div>
           
           <!--  Make request navigation button  -->
-          <button mat-raised-button class="button-send" [routerLink]="'/request/makerequest'"><mat-icon>format_list_bulleted</mat-icon>Make a request list</button>
+          <button mat-raised-button class="button-send" [routerLink]="'/request/makerequest'"><mat-icon>format_list_bulleted</mat-icon>New request list</button>
         </div>
         
         <!--  Search bar  -->
         <mat-form-field >
             <mat-label>Search</mat-label>
-            <input matInput (input)="applyFilter($event)" placeholder="Search by ids" >
+            <input matInput (input)="applyFilter($event)" placeholder="Search id, handler or emitter" >
             <mat-icon matSuffix>search</mat-icon>
         </mat-form-field>
 

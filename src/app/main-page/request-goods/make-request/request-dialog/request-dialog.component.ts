@@ -4,6 +4,8 @@ import { Request } from '../../../../models/request.model';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatButtonModule } from '@angular/material/button';
 import { CommonModule } from '@angular/common';
+import { Router } from '@angular/router';
+
 @Component({
   selector: 'app-request-dialog',
   standalone: true,
@@ -18,6 +20,7 @@ import { CommonModule } from '@angular/common';
 export class RequestDialogComponent {
   constructor(
     private matBottomSheetRef:MatDialogRef<RequestDialogComponent>,
+    private router:Router,
     @Inject(MAT_DIALOG_DATA) public data: {request:Request,valid:boolean},
     ) {
 

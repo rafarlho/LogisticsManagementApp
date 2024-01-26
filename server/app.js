@@ -13,7 +13,7 @@ app.use(cors())
 
 mongoose.connect('mongodb://127.0.0.1:27017/logistic_app')
 
-console.log("Running the api...")
+console.log("Running the server...")
 app.use('/auth',auth)
 app.use('/goods',goods_controller);
 app.use('/requests',requests_controller);

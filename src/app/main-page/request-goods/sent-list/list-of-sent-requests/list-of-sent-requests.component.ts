@@ -92,7 +92,7 @@ export class ListOfSentRequestsComponent {
   updateData(){
     this.requests$ = this.requestsService.get()
     this.requests$
-      .pipe(take(1))  
+      .pipe(takeUntil(this.unsubscribe$))  
       .subscribe((requests) => {
         this.requests = requests.filter(request => request.status ===2)
         this.dataSource =  new MatTableDataSource(this.requests)
@@ -101,8 +101,9 @@ export class ListOfSentRequestsComponent {
   }
 
   //On destroy to avoid memory leakes
-  ngOnDestroy(): void {
-    this.unsubscribe$.next()
-    this.unsubscribe$.complete()
-  }
+  //ngOnDestroy(): void {
+  //  console.log("list of sent destroyed")
+  //  this.unsubscribe$.next()
+  //  this.unsubscribe$.complete()
+  //}
 }

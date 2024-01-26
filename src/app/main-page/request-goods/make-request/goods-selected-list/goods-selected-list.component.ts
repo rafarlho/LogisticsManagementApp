@@ -109,8 +109,9 @@ export class GoodsSelectedListComponent {
   }
 
   //On destroy to avoid memory leak
-  ngOnDestroy() {
-    this.unsubscribe$.unsubscribe();
-    this.unsubscribe$.complete()
-  }
+  //ngOnDestroy() {
+  //  console.log("goods selected destroyed")
+  //  this.unsubscribe$.unsubscribe();
+  //  this.unsubscribe$.complete()
+  //}
 }

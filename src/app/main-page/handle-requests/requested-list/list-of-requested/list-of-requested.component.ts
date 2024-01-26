@@ -59,12 +59,12 @@ export class ListOfRequestedComponent {
     this.requestToCollect.setRequest(request)
     this.router.navigateByUrl('/handlerequests/handlerequest')
     let handler = '' 
-    this.authService.getUser().pipe(take(1)).subscribe((logedInUser) => {handler = logedInUser.id})
+    this.authService.getUser().pipe(takeUntil(this.unsubscribe$)).subscribe((logedInUser) => {handler = logedInUser.id})
     request.handler = handler 
     request.status = 1
     this.requestsService.editToOnCollection(request)
       .pipe(
-        take(1)
+        takeUntil(this.unsubscribe$)
       )
       .subscribe( {
         error: err => console.error(err)

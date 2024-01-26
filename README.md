@@ -147,12 +147,14 @@ If you don't have data generated, you can generate it on the server directory us
 ```sh
   node generate.js 
 ```
+The message "Users, goods and requests generated." should appear.
+
 
 Then you can start the server by running:
 ```sh
   node app.js 
 ```
-The message "Running the api..." should appear if successful. 
+The message "Running the server..." should appear if successful. 
 
 Then, on another terminal, navigate to the root folder to install the dependencies for the angular app:
 ```sh
@@ -191,6 +193,7 @@ Feel free to explore the app and managing your factory!
 ### Possible improvements
 
 Some of the possible improvements that the app can get are the following:
+* Implement HelpDesk and password recover system;
 * Improve authentication: the authentication interceptor is not working correctly, still figuring out why not;
 * Docker compose: implement a Dockerfile for easy mounting and local deployment, but needed to rebuild the API and Server:
 * Edit request while status is 'requested': a production line worker could edit the request while it is still not collected;

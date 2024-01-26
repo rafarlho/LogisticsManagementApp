@@ -4,7 +4,7 @@ import { EventEmitter, Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class GoodsTransferService {
-
+  
   public quantityAndId = new EventEmitter<{id:string,quantity:number}>()
   public filterTransfered = new EventEmitter<Event>()
   public quantityAndIdList:{id:string,quantity:number}[] = []
@@ -24,5 +24,9 @@ export class GoodsTransferService {
 
   getGoodList():{id:string,quantity:number}[] {
     return this.quantityAndIdList
+  }
+
+  eraseGoodList(){
+    this.quantityAndIdList = []
   }
 }

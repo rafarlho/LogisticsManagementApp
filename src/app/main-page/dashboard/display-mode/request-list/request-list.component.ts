@@ -103,7 +103,7 @@ export class RequestListComponent {
 
   //Funtion to open the dialog with detailed information about a specific request
   openDialog(r:Request) {
-    this.dialog.open(RequestInfoComponent,{data:r})
+    this.dialog.open(RequestInfoComponent,{data:r,width:'600px'})
   } 
   
   //Funtion to handle search input filter

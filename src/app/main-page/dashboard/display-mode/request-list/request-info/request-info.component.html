@@ -17,9 +17,9 @@
         </tr>
     </table>
     <mat-divider></mat-divider>
-    <span><b>Latest update:</b> {{request.latestUpdate}}</span>
+    <span><b>Latest update:</b> {{request.latestUpdate | date:'medium'}}</span>
     <mat-divider></mat-divider>
-    <span><b>Emmited by:</b> {{request.emitter}}</span>
+    <span><b>Emitted by:</b> {{request.emitter}}</span>
     <mat-divider></mat-divider>
     <span><b>Handled by:</b> {{handled}}</span>
     <mat-divider></mat-divider>

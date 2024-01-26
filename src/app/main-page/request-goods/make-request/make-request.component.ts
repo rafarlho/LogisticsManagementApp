@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Observable, Subject, take, takeUntil, tap } from 'rxjs';
+import { Observable, Subject, Subscription, take, takeUntil, tap } from 'rxjs';
 import { MatTableDataSource } from '@angular/material/table';
 import { GoodsSelectableListComponent } from './goods-selectable-list/goods-selectable-list.component';
 import { GoodsSelectedListComponent } from './goods-selected-list/goods-selected-list.component';
@@ -8,7 +8,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { GoodsTransferService } from '../services/goods-transfer.service';
-import { RouterModule } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 import { RequestsService } from '../../../services/requests.service';
 import { Request } from '../../../models/request.model';
 import { AuthService } from '../../../auth/services/auth.service';
@@ -30,6 +30,7 @@ import { CommonModule } from '@angular/common';
     RouterModule,
     MatSidenavModule,
     CommonModule,
+    RouterModule
   ],
   templateUrl: './make-request.component.html',
   styleUrl: './make-request.component.scss'
@@ -44,11 +45,14 @@ export class MakeRequestComponent {
   dataSource!:MatTableDataSource<Request>;
   private unsubscribe$:Subject<void> = new Subject<void>()
 
+  private subscription!:Subscription
+
   constructor(
       private goodsTransfer:GoodsTransferService,
       private requestsService:RequestsService,
       private authService:AuthService,
-      private dialog:MatDialog
+      private dialog:MatDialog,
+      private router:Router
   ){  
     this.user$ = this.authService.getUser()
   }
@@ -61,31 +65,37 @@ export class MakeRequestComponent {
   //Send a request to the warehouse, setting the status to requested
   sendRequest() {
     const arr = this.goodsTransfer.getGoodList()
-    let emmiter =""
-    this.user$.pipe(take(1)).subscribe((user:User) => emmiter = user.id) 
+    let emitter =""
+    this.user$.pipe(takeUntil(this.unsubscribe$)).subscribe((user:User) => emitter = user.id) 
     const newR:Request = {
       id: Math.floor(Math.random() * 10000),  
-      emitter: emmiter,  
+      emitter: emitter,  
       goodsId: arr,
       status: 0,  
       handler: '',
       latestUpdate: new Date().toISOString()
     }
+    
     let dialog = this.dialog.open(RequestDialogComponent,{data:{request:newR,valid:false},disableClose:true,width:'600px'});
-    dialog.afterClosed().pipe(take(1)).subscribe((data:{request:Request,valid:boolean}) => {
+    
+    this.subscription = dialog.afterClosed().subscribe((data:{request:Request,valid:boolean}) => {
       if(data.valid) {
         this.requestsService.add(newR)
-          .pipe(take(1))
           .subscribe({
-            error: err => console.error(err)
+            next:()=>{},
+            error: err => console.error(err),
+            complete: ()=>{
+              this.router.navigateByUrl('/request/sentlist')
+            }
         })
       }
     })
   }
 
   //On destroy to avoid memory leak
-  ngOnDestroy(): void {
-    this.unsubscribe$.next()
-    this.unsubscribe$.complete()
-  }
+  //ngOnDestroy(): void {
+  //  console.log("makereques destroyed")
+  //  this.unsubscribe$.next()
+  //  this.unsubscribe$.complete()
+  //}
 }
