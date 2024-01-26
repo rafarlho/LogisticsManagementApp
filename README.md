@@ -7,6 +7,11 @@
   <ol>
     <li>
       <a href="#about-the-project">About The Project</a>
+      <ul>
+        <li><a href="#users">Users</a></li>
+        <li><a href="#goods">Goods</a></li>
+        <li><a href="#requests">Requests</a></li>
+      </ul>
     </li>
     <li>
       <a href="#installation-and-running">Installation and running</a>
@@ -14,14 +19,9 @@
         <li><a href="#requirements">Requirements</a></li>
         <li><a href="#project-structure">Project Struture</a></li>
         <li><a href="#installation">Installation</a></li>
+        <li><a href="#usage">Usage</a></li> 
       </ul>
     </li>
-    <li><a href="#usage">Usage</a></li>
-    <li><a href="#roadmap">Roadmap</a></li>
-    <li><a href="#contributing">Contributing</a></li>
-    <li><a href="#license">License</a></li>
-    <li><a href="#contact">Contact</a></li>
-    <li><a href="#acknowledgments">Acknowledgments</a></li>
   </ol>
 </details>
 
@@ -34,11 +34,30 @@ The main purpose of the LogisticsManagementApp is to manage the supply and deman
 
 Is assumes that the factory has a Warehouse, where the goods or materials are stored and a Production Line, where the goods are needed to manufacture materials, systems or other components.  
 
-The user, depending on wether is a Production Line worker or a Warehouse worker, can make or handle a request of goods. Requests have a sequential flow:
+The user, depending on wether is a Production Line worker or a Warehouse operator, can make or handle a request of goods. Requests have a sequential flow:
 * Requested: a Production Line worker requested a list of goods;
-* On collection: a Warehouse worker is collecting the goods for that request;
-* Sent: a Warehouse worker sent the request to the production line; 
+* On collection: a Warehouse operator is collecting the goods for that request;
+* Sent: a Warehouse operator sent the request to the production line; 
 * Recieved: a Production Line worker confirmed the reception of the requested goods. 
+
+
+<!-- Users -->
+### Users
+
+The aplication contains three types of users:
+* Factory worker: this type can only access the dashboard to see information raltive to the requests and goods, it can't make or handle requests.
+* Production Line worker: this type can make requestes and confirm the reception of them, but cannot collect them.
+* Wharehouse operator: this type can only collect requests and send them to the production line.
+
+Below is the use case diagram and the class for the User model.
+![alt text](miscelaneous/Use-case-diagram.jpg)
+
+
+<!-- Goods -->
+### Goods
+
+<!-- Requests -->
+### Requests
 
 
 <!-- Instalation and usage -->
@@ -82,7 +101,7 @@ To run the project on your local environment, you need to have the following lis
 <!-- Installation -->
 ### Installation
 
-After you have all the requirements installed, clone the repository onto a folder of your choosing
+After you have all the requirements installed, clone the repository onto a folder of your choosing:
  ```sh
   git clone https://github.com/rafarlho/LogisticsManagementApp.git 
   ```
@@ -116,4 +135,22 @@ Run the app
 ```
 
 And navigate to "http://localhost:4200/" on your browser to use the app.
-![alt text](miscelaneous/Use-case-diagram.jpg)
+
+
+<!-- Usage -->
+### Usage
+
+Once you're able to access the app, as mentioned above you can select between 3 types of users.
+To simplify here are users created to simplify:
+Factory worker: 
+    * ID: lara
+    *password: 123qwe
+Production Line Worker: 
+    * ID: rafa
+    *password: 123qwe
+Warehouse operator: 
+    * ID: joao
+    *password: 123qwe
+
+Feel free to explore the app and managing your factory!
+
