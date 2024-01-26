@@ -35,20 +35,20 @@ The main purpose of the LogisticsManagementApp is to manage the supply and deman
 
 Is assumes that the factory has a Warehouse, where the goods or materials are stored and a Production Line, where the goods are needed to manufacture materials, systems or other components.  
 
-The user, depending on wether is a Production Line worker or a Warehouse operator, can make or handle a request of goods. Requests have a sequential flow:
+The user, depending on whether is a Production Line worker or a Warehouse operator, can make or handle a request of goods. Requests have a sequential flow:
 * Requested: a Production Line worker requested a list of goods;
 * On collection: a Warehouse operator is collecting the goods for that request;
 * Sent: a Warehouse operator sent the request to the production line; 
-* Recieved: a Production Line worker confirmed the reception of the requested goods. 
+* Received: a Production Line worker confirmed the reception of the requested goods. 
 
 
 <!-- Users -->
 ### Users
 
-The aplication contains three types of users:
-* Factory worker: this type can only access the dashboard to see information raltive to the requests and goods, it can't make or handle requests.
-* Production Line worker: this type can make requestes and confirm the reception of them, but cannot collect them.
-* Wharehouse operator: this type can only collect requests and send them to the production line.
+The application contains three types of users:
+* Factory worker: this type can only access the dashboard to see information relative to the requests and goods, it can't make or handle requests.
+* Production Line worker: this type can make requests and confirm the reception of them, but cannot collect them.
+* Warehouse operator: this type can only collect requests and send them to the production line.
 
 Below is the use case diagram.
 ![alt text](miscelaneous/Use-case-diagram.jpg)
@@ -62,13 +62,13 @@ The goods represent any material that is required a required in the production l
 <!-- Requests -->
 ### Requests
 
-The requests represent an order emmited or handle by a worker with a list of goods and a timstamp of the last update on that request.
+The requests represent an order emitted or handle by a worker with a list of goods and a timestamp of the last update on that request.
 
 
 <!-- Requests -->
 ### Class diagram
 
-Below is the class diagram for all the models and how they interact with eachother.
+Below is the class diagram for all the models and how they interact with each other.
 ![alt text](miscelaneous/class-diagram.png)
 
 
@@ -80,7 +80,7 @@ This section presents what knowledge you need and steps to install and run the a
 <!-- Requirements -->
 ### Requirements
 
-To run the project on your local environment, you need to have the following list of frameworks and lybraries:
+To run the project on your local environment, you need to have the following list of frameworks and libraries:
 * Angular CLI v17.0.10
 * Typescript v5.2.2
 * Node v18.15.0
@@ -118,7 +118,7 @@ After you have all the requirements installed, clone the repository onto a folde
   git clone https://github.com/rafarlho/LogisticsManagementApp.git 
   ```
 
-Navigate to the server directory to install the dependencies for teh server:
+Navigate to the server directory to install the dependencies for the server:
 ```sh
   cd server
 ```
@@ -126,7 +126,7 @@ Navigate to the server directory to install the dependencies for teh server:
   npm install
 ```
 
-If you dont have data generated, you can generate it on the server directory using the command:
+If you don't have data generated, you can generate it on the server directory using the command:
 ```sh
   node generate.js 
 ```
@@ -141,7 +141,7 @@ Then, on another terminal, navigate to the root folder to install the dependenci
 ```sh
   npm install 
 ```
-Run the app
+Run the app:
 ```sh
   ng serve 
 ```
@@ -152,8 +152,8 @@ And navigate to "http://localhost:4200/" on your browser to use the app.
 <!-- Usage -->
 ### Usage
 
-Once you're able to access the app, as mentioned above you can select between 3 types of users.
-To simplify here are users created to simplify:
+Once you're able to access the app, as mentioned above, you can select between three types of users.
+To simplify, here are users created for testing purpose:
 
 Factory worker: 
 * ID: lara
