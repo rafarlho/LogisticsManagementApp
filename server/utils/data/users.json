@@ -1,0 +1,305 @@
+[{
+  "_id": {
+    "$oid": "65a856bc8fee64742ba43459"
+  },
+  "id": "yaqQ",
+  "password": "I_rwtuJuvBfbAFF",
+  "firstName": "Mateo",
+  "lastName": "Funk",
+  "type": 1,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65a856bc8fee64742ba4345c"
+  },
+  "id": "KEzQ",
+  "password": "wADZN_8BRrJq9A9",
+  "firstName": "Eunice",
+  "lastName": "Schmitt",
+  "type": 1,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65a856bc8fee64742ba4345e"
+  },
+  "id": "ffTh",
+  "password": "psnL9pYE1oKQ1l_",
+  "firstName": "Lonny",
+  "lastName": "Jerde",
+  "type": 1,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65a856bc8fee64742ba43460"
+  },
+  "id": "PUFE",
+  "password": "1_QGWHWac_UassB",
+  "firstName": "Aimee",
+  "lastName": "Wilkinson",
+  "type": 1,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65a856bc8fee64742ba43462"
+  },
+  "id": "q3Nr",
+  "password": "A5btKYx4VKtjGzg",
+  "firstName": "Kamryn",
+  "lastName": "Schiller",
+  "type": 1,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65a856bc8fee64742ba43464"
+  },
+  "id": "AR0Y",
+  "password": "Tsu6ADBdjH8gF18",
+  "firstName": "Bertha",
+  "lastName": "Quitzon",
+  "type": 1,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65a856bc8fee64742ba43466"
+  },
+  "id": "rjIQ",
+  "password": "RKT4aRLXszeKZuE",
+  "firstName": "Johnpaul",
+  "lastName": "Kirlin",
+  "type": 1,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65a856bc8fee64742ba43468"
+  },
+  "id": "MLKK",
+  "password": "jxdvztVXHOw339E",
+  "firstName": "Princess",
+  "lastName": "Gottlieb",
+  "type": 1,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65a856bc8fee64742ba4346a"
+  },
+  "id": "rwcS",
+  "password": "uvMY_DcfDJKUE8Z",
+  "firstName": "Cyrus",
+  "lastName": "Lebsack",
+  "type": 1,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65a856bc8fee64742ba4346c"
+  },
+  "id": "prNk",
+  "password": "EVf48InhPLE1Q6G",
+  "firstName": "Yolanda",
+  "lastName": "Langosh",
+  "type": 1,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65a85701cf9f14cb7703d35f"
+  },
+  "id": "JdCb",
+  "password": "Qs6HxTSBH6eJpx4",
+  "firstName": "Maida",
+  "lastName": "Grady",
+  "type": 2,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65a85701cf9f14cb7703d362"
+  },
+  "id": "kge7",
+  "password": "NGkqxRZGS9lZdPB",
+  "firstName": "Madisyn",
+  "lastName": "Nolan",
+  "type": 2,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65a85701cf9f14cb7703d364"
+  },
+  "id": "IpVs",
+  "password": "a2dprlOpZSvF7fu",
+  "firstName": "Winifred",
+  "lastName": "Johnston",
+  "type": 2,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65a85701cf9f14cb7703d366"
+  },
+  "id": "IJP6",
+  "password": "28r9bw3yX1dP66q",
+  "firstName": "Keith",
+  "lastName": "Ortiz",
+  "type": 2,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65a85701cf9f14cb7703d368"
+  },
+  "id": "KPAm",
+  "password": "bh3aWPF_tIvxBXh",
+  "firstName": "Zander",
+  "lastName": "Jast",
+  "type": 2,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65a85701cf9f14cb7703d36a"
+  },
+  "id": "8Usu",
+  "password": "rkvOqb4QFg8wbwI",
+  "firstName": "Jerry",
+  "lastName": "Kozey",
+  "type": 2,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65a85701cf9f14cb7703d36c"
+  },
+  "id": "AHCE",
+  "password": "VZoe5RbRI16Rxva",
+  "firstName": "Irving",
+  "lastName": "Lang",
+  "type": 2,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65a85701cf9f14cb7703d36e"
+  },
+  "id": "RwqY",
+  "password": "8WRskDgtQhqYGE2",
+  "firstName": "Devonte",
+  "lastName": "Mills",
+  "type": 2,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65a85701cf9f14cb7703d370"
+  },
+  "id": "64aa",
+  "password": "EeGbaMma1OdfQkd",
+  "firstName": "Laverne",
+  "lastName": "Marks-DuBuque",
+  "type": 2,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65a85701cf9f14cb7703d372"
+  },
+  "id": "Qwe1",
+  "password": "ywjQc6c5f7GXmnp",
+  "firstName": "Karen",
+  "lastName": "Schmitt-Effertz",
+  "type": 2,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65a857463e1e2ebb30a2f776"
+  },
+  "id": "a13a",
+  "password": "FIhkR_uXO2W4CbE",
+  "firstName": "Emily",
+  "lastName": "Lesch",
+  "type": 0,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65a857463e1e2ebb30a2f779"
+  },
+  "id": "6pt0",
+  "password": "wjZFu4V68xyZGeS",
+  "firstName": "Neha",
+  "lastName": "Abernathy",
+  "type": 0,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65a857463e1e2ebb30a2f77b"
+  },
+  "id": "AYq1",
+  "password": "x88L2CgQdrbU9uE",
+  "firstName": "Lisette",
+  "lastName": "Halvorson",
+  "type": 0,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65a857463e1e2ebb30a2f77d"
+  },
+  "id": "onGC",
+  "password": "56gVXWKCtYO2OKB",
+  "firstName": "Asha",
+  "lastName": "McKenzie",
+  "type": 0,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65a857463e1e2ebb30a2f77f"
+  },
+  "id": "Erv6",
+  "password": "yEEL631QQHyfwiH",
+  "firstName": "Alva",
+  "lastName": "Streich",
+  "type": 0,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65b15733c08cede4d7a20468"
+  },
+  "id": "rafa",
+  "password": "123qwe",
+  "firstName": "Rafael",
+  "lastName": "Carvalho",
+  "type": 1
+},
+{
+  "_id": {
+    "$oid": "65b157ddc08cede4d7a20469"
+  },
+  "id": "joao",
+  "password": "123qwe",
+  "firstName": "João",
+  "lastName": "Gomes",
+  "type": 2
+},
+{
+  "_id": {
+    "$oid": "65b3c11f44822ddbed472313"
+  },
+  "id": "lara",
+  "password": "123qwe",
+  "firstName": "Lara",
+  "lastName": "Rodrigues",
+  "type": 0
+}]

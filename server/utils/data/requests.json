@@ -1,0 +1,1123 @@
+[{
+  "_id": {
+    "$oid": "65a9bfb00fbe678bdd12090a"
+  },
+  "id": 1151,
+  "goodsId": [
+    {
+      "id": "MLAzOj",
+      "quantity": 1,
+      "_id": {
+        "$oid": "65a9bfb00fbe678bdd12090b"
+      }
+    },
+    {
+      "id": "O2aPxX",
+      "quantity": 4,
+      "_id": {
+        "$oid": "65a9bfb00fbe678bdd12090c"
+      }
+    },
+    {
+      "id": "gp7Acc",
+      "quantity": 7,
+      "_id": {
+        "$oid": "65a9bfb00fbe678bdd12090d"
+      }
+    },
+    {
+      "id": "GUy5a9",
+      "quantity": 36,
+      "_id": {
+        "$oid": "65a9bfb00fbe678bdd12090e"
+      }
+    },
+    {
+      "id": "kcKffW",
+      "quantity": 49,
+      "_id": {
+        "$oid": "65a9bfb00fbe678bdd12090f"
+      }
+    },
+    {
+      "id": "1Ft0tO",
+      "quantity": 48,
+      "_id": {
+        "$oid": "65a9bfb00fbe678bdd120910"
+      }
+    },
+    {
+      "id": "wQZw5k",
+      "quantity": 10,
+      "_id": {
+        "$oid": "65a9bfb00fbe678bdd120911"
+      }
+    },
+    {
+      "id": "Boow2S",
+      "quantity": 17,
+      "_id": {
+        "$oid": "65a9bfb00fbe678bdd120912"
+      }
+    },
+    {
+      "id": "LtiJxe",
+      "quantity": 43,
+      "_id": {
+        "$oid": "65a9bfb00fbe678bdd120913"
+      }
+    },
+    {
+      "id": "wQZw5k",
+      "quantity": 48,
+      "_id": {
+        "$oid": "65a9bfb00fbe678bdd120914"
+      }
+    }
+  ],
+  "status": 0,
+  "emitter": "rjIQ",
+  "handler": "asdas",
+  "latestUpdate": "Sat Jan 20 2024 01:30:31 GMT+0000 (Western European Standard Time)",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65a9bfb00fbe678bdd120917"
+  },
+  "id": 1998,
+  "goodsId": [
+    {
+      "id": "QsvrrK",
+      "quantity": 1,
+      "_id": {
+        "$oid": "65a9bfb00fbe678bdd120918"
+      }
+    },
+    {
+      "id": "C7y1Rg",
+      "quantity": 4,
+      "_id": {
+        "$oid": "65a9bfb00fbe678bdd120919"
+      }
+    },
+    {
+      "id": "O2aPxX",
+      "quantity": 26,
+      "_id": {
+        "$oid": "65a9bfb00fbe678bdd12091a"
+      }
+    },
+    {
+      "id": "JRa7e3",
+      "quantity": 48,
+      "_id": {
+        "$oid": "65a9bfb00fbe678bdd12091b"
+      }
+    },
+    {
+      "id": "GUy5a9",
+      "quantity": 35,
+      "_id": {
+        "$oid": "65a9bfb00fbe678bdd12091c"
+      }
+    },
+    {
+      "id": "3Ozav5",
+      "quantity": 18,
+      "_id": {
+        "$oid": "65a9bfb00fbe678bdd12091d"
+      }
+    }
+  ],
+  "status": 1,
+  "emitter": "KEzQ",
+  "handler": "asdas",
+  "latestUpdate": "Thu Jun 13 2024 12:31:36 GMT+0100 (Western European Summer Time)",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65a9bfb00fbe678bdd12091f"
+  },
+  "id": 2334,
+  "goodsId": [
+    {
+      "id": "DRvCGq",
+      "quantity": 1,
+      "_id": {
+        "$oid": "65a9bfb00fbe678bdd120920"
+      }
+    },
+    {
+      "id": "ZrIPSk",
+      "quantity": 12,
+      "_id": {
+        "$oid": "65a9bfb00fbe678bdd120921"
+      }
+    },
+    {
+      "id": "kcKffW",
+      "quantity": 45,
+      "_id": {
+        "$oid": "65a9bfb00fbe678bdd120922"
+      }
+    },
+    {
+      "id": "PZRVxD",
+      "quantity": 4,
+      "_id": {
+        "$oid": "65a9bfb00fbe678bdd120923"
+      }
+    },
+    {
+      "id": "QsvrrK",
+      "quantity": 49,
+      "_id": {
+        "$oid": "65a9bfb00fbe678bdd120924"
+      }
+    },
+    {
+      "id": "GUy5a9",
+      "quantity": 50,
+      "_id": {
+        "$oid": "65a9bfb00fbe678bdd120925"
+      }
+    },
+    {
+      "id": "LtiJxe",
+      "quantity": 37,
+      "_id": {
+        "$oid": "65a9bfb00fbe678bdd120926"
+      }
+    }
+  ],
+  "status": 2,
+  "emitter": "AR0Y",
+  "handler": "joao",
+  "latestUpdate": "Tue Jul 16 2024 10:32:28 GMT+0100 (Western European Summer Time)",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65a9bfb00fbe678bdd120928"
+  },
+  "id": 1096,
+  "goodsId": [
+    {
+      "id": "tvyk11",
+      "quantity": 49,
+      "_id": {
+        "$oid": "65a9bfb00fbe678bdd120929"
+      }
+    },
+    {
+      "id": "hl6NGL",
+      "quantity": 33,
+      "_id": {
+        "$oid": "65a9bfb00fbe678bdd12092a"
+      }
+    },
+    {
+      "id": "tvyk11",
+      "quantity": 39,
+      "_id": {
+        "$oid": "65a9bfb00fbe678bdd12092b"
+      }
+    },
+    {
+      "id": "C7y1Rg",
+      "quantity": 29,
+      "_id": {
+        "$oid": "65a9bfb00fbe678bdd12092c"
+      }
+    },
+    {
+      "id": "jfx2xE",
+      "quantity": 1,
+      "_id": {
+        "$oid": "65a9bfb00fbe678bdd12092d"
+      }
+    },
+    {
+      "id": "tvyk11",
+      "quantity": 32,
+      "_id": {
+        "$oid": "65a9bfb00fbe678bdd12092e"
+      }
+    }
+  ],
+  "status": 2,
+  "emitter": "KEzQ",
+  "handler": "joao",
+  "latestUpdate": "Mon Dec 25 2023 02:20:55 GMT+0000 (Western European Standard Time)",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65a9bfb00fbe678bdd120930"
+  },
+  "id": 1459,
+  "goodsId": [
+    {
+      "id": "iOCm1M",
+      "quantity": 9,
+      "_id": {
+        "$oid": "65a9bfb00fbe678bdd120931"
+      }
+    },
+    {
+      "id": "Pp7e5M",
+      "quantity": 37,
+      "_id": {
+        "$oid": "65a9bfb00fbe678bdd120932"
+      }
+    },
+    {
+      "id": "VwksYn",
+      "quantity": 27,
+      "_id": {
+        "$oid": "65a9bfb00fbe678bdd120933"
+      }
+    }
+  ],
+  "status": 1,
+  "emitter": "MLKK",
+  "handler": "joao",
+  "latestUpdate": "Mon Jan 30 2023 13:21:49 GMT+0000 (Western European Standard Time)",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65a9bfb00fbe678bdd120935"
+  },
+  "id": 3923,
+  "goodsId": [
+    {
+      "id": "wQZw5k",
+      "quantity": 6,
+      "_id": {
+        "$oid": "65a9bfb00fbe678bdd120936"
+      }
+    },
+    {
+      "id": "M2a2nv",
+      "quantity": 37,
+      "_id": {
+        "$oid": "65a9bfb00fbe678bdd120937"
+      }
+    },
+    {
+      "id": "dYiQ9i",
+      "quantity": 18,
+      "_id": {
+        "$oid": "65a9bfb00fbe678bdd120938"
+      }
+    }
+  ],
+  "status": 2,
+  "emitter": "AR0Y",
+  "handler": "64aa",
+  "latestUpdate": "Thu Sep 21 2023 12:00:56 GMT+0100 (Western European Summer Time)",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65a9bfb00fbe678bdd12093a"
+  },
+  "id": 615,
+  "goodsId": [
+    {
+      "id": "hl6NGL",
+      "quantity": 45,
+      "_id": {
+        "$oid": "65a9bfb00fbe678bdd12093b"
+      }
+    },
+    {
+      "id": "wQZw5k",
+      "quantity": 29,
+      "_id": {
+        "$oid": "65a9bfb00fbe678bdd12093c"
+      }
+    },
+    {
+      "id": "dYiQ9i",
+      "quantity": 3,
+      "_id": {
+        "$oid": "65a9bfb00fbe678bdd12093d"
+      }
+    }
+  ],
+  "status": 1,
+  "emitter": "rwcS",
+  "handler": "IJP6",
+  "latestUpdate": "Tue Dec 05 2023 09:37:41 GMT+0000 (Western European Standard Time)",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65a9bfb00fbe678bdd12093f"
+  },
+  "id": 2949,
+  "goodsId": [
+    {
+      "id": "JRa7e3",
+      "quantity": 28,
+      "_id": {
+        "$oid": "65a9bfb00fbe678bdd120940"
+      }
+    },
+    {
+      "id": "ZrIPSk",
+      "quantity": 34,
+      "_id": {
+        "$oid": "65a9bfb00fbe678bdd120941"
+      }
+    },
+    {
+      "id": "gp7Acc",
+      "quantity": 12,
+      "_id": {
+        "$oid": "65a9bfb00fbe678bdd120942"
+      }
+    },
+    {
+      "id": "hl6NGL",
+      "quantity": 7,
+      "_id": {
+        "$oid": "65a9bfb00fbe678bdd120943"
+      }
+    }
+  ],
+  "status": 0,
+  "emitter": "AR0Y",
+  "handler": "64aa",
+  "latestUpdate": "Mon Mar 13 2023 19:42:42 GMT+0000 (Western European Standard Time)",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65a9bfb00fbe678bdd120945"
+  },
+  "id": 1714,
+  "goodsId": [
+    {
+      "id": "C7y1Rg",
+      "quantity": 46,
+      "_id": {
+        "$oid": "65a9bfb00fbe678bdd120946"
+      }
+    },
+    {
+      "id": "ZrIPSk",
+      "quantity": 13,
+      "_id": {
+        "$oid": "65a9bfb00fbe678bdd120947"
+      }
+    },
+    {
+      "id": "O2aPxX",
+      "quantity": 20,
+      "_id": {
+        "$oid": "65a9bfb00fbe678bdd120948"
+      }
+    },
+    {
+      "id": "ZrIPSk",
+      "quantity": 20,
+      "_id": {
+        "$oid": "65a9bfb00fbe678bdd120949"
+      }
+    },
+    {
+      "id": "VwksYn",
+      "quantity": 27,
+      "_id": {
+        "$oid": "65a9bfb00fbe678bdd12094a"
+      }
+    },
+    {
+      "id": "O2aPxX",
+      "quantity": 19,
+      "_id": {
+        "$oid": "65a9bfb00fbe678bdd12094b"
+      }
+    },
+    {
+      "id": "MLAzOj",
+      "quantity": 42,
+      "_id": {
+        "$oid": "65a9bfb00fbe678bdd12094c"
+      }
+    },
+    {
+      "id": "vDC2Gh",
+      "quantity": 24,
+      "_id": {
+        "$oid": "65a9bfb00fbe678bdd12094d"
+      }
+    }
+  ],
+  "status": 3,
+  "emitter": "rwcS",
+  "handler": "KPAm",
+  "latestUpdate": "Fri Nov 22 2024 02:37:20 GMT+0000 (Western European Standard Time)",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65a9bfb00fbe678bdd12094f"
+  },
+  "id": 514,
+  "goodsId": [
+    {
+      "id": "VESokO",
+      "quantity": 50,
+      "_id": {
+        "$oid": "65a9bfb00fbe678bdd120950"
+      }
+    },
+    {
+      "id": "VwksYn",
+      "quantity": 44,
+      "_id": {
+        "$oid": "65a9bfb00fbe678bdd120951"
+      }
+    },
+    {
+      "id": "vDC2Gh",
+      "quantity": 43,
+      "_id": {
+        "$oid": "65a9bfb00fbe678bdd120952"
+      }
+    },
+    {
+      "id": "jfx2xE",
+      "quantity": 41,
+      "_id": {
+        "$oid": "65a9bfb00fbe678bdd120953"
+      }
+    },
+    {
+      "id": "QsvrrK",
+      "quantity": 7,
+      "_id": {
+        "$oid": "65a9bfb00fbe678bdd120954"
+      }
+    }
+  ],
+  "status": 2,
+  "emitter": "ffTh",
+  "handler": "JdCb",
+  "latestUpdate": "Sat May 06 2023 05:12:39 GMT+0100 (Western European Summer Time)",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65a9bfb00fbe678bdd120956"
+  },
+  "id": 4078,
+  "goodsId": [
+    {
+      "id": "tvyk11",
+      "quantity": 15,
+      "_id": {
+        "$oid": "65a9bfb00fbe678bdd120957"
+      }
+    }
+  ],
+  "status": 1,
+  "emitter": "PUFE",
+  "handler": "RwqY",
+  "latestUpdate": "Tue Jun 13 2023 06:19:42 GMT+0100 (Western European Summer Time)",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65a9bfb00fbe678bdd120959"
+  },
+  "id": 1137,
+  "goodsId": [
+    {
+      "id": "jfx2xE",
+      "quantity": 49,
+      "_id": {
+        "$oid": "65a9bfb00fbe678bdd12095a"
+      }
+    },
+    {
+      "id": "hl6NGL",
+      "quantity": 42,
+      "_id": {
+        "$oid": "65a9bfb00fbe678bdd12095b"
+      }
+    },
+    {
+      "id": "M2a2nv",
+      "quantity": 50,
+      "_id": {
+        "$oid": "65a9bfb00fbe678bdd12095c"
+      }
+    }
+  ],
+  "status": 3,
+  "emitter": "MLKK",
+  "handler": "Qwe1",
+  "latestUpdate": "Thu Feb 16 2023 05:06:09 GMT+0000 (Western European Standard Time)",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65a9bfb00fbe678bdd12095e"
+  },
+  "id": 4298,
+  "goodsId": [
+    {
+      "id": "JRa7e3",
+      "quantity": 19,
+      "_id": {
+        "$oid": "65a9bfb00fbe678bdd12095f"
+      }
+    },
+    {
+      "id": "C7y1Rg",
+      "quantity": 5,
+      "_id": {
+        "$oid": "65a9bfb00fbe678bdd120960"
+      }
+    },
+    {
+      "id": "C7y1Rg",
+      "quantity": 42,
+      "_id": {
+        "$oid": "65a9bfb00fbe678bdd120961"
+      }
+    },
+    {
+      "id": "GUy5a9",
+      "quantity": 43,
+      "_id": {
+        "$oid": "65a9bfb00fbe678bdd120962"
+      }
+    },
+    {
+      "id": "1Ft0tO",
+      "quantity": 22,
+      "_id": {
+        "$oid": "65a9bfb00fbe678bdd120963"
+      }
+    },
+    {
+      "id": "VwksYn",
+      "quantity": 23,
+      "_id": {
+        "$oid": "65a9bfb00fbe678bdd120964"
+      }
+    },
+    {
+      "id": "YNqHSp",
+      "quantity": 13,
+      "_id": {
+        "$oid": "65a9bfb00fbe678bdd120965"
+      }
+    },
+    {
+      "id": "DRvCGq",
+      "quantity": 39,
+      "_id": {
+        "$oid": "65a9bfb00fbe678bdd120966"
+      }
+    },
+    {
+      "id": "YNqHSp",
+      "quantity": 39,
+      "_id": {
+        "$oid": "65a9bfb00fbe678bdd120967"
+      }
+    },
+    {
+      "id": "dYiQ9i",
+      "quantity": 8,
+      "_id": {
+        "$oid": "65a9bfb00fbe678bdd120968"
+      }
+    }
+  ],
+  "status": 3,
+  "emitter": "rwcS",
+  "handler": "AHCE",
+  "latestUpdate": "Mon Oct 28 2024 20:57:48 GMT+0000 (Western European Standard Time)",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65a9bfb00fbe678bdd12096a"
+  },
+  "id": 3733,
+  "goodsId": [
+    {
+      "id": "Pp7e5M",
+      "quantity": 49,
+      "_id": {
+        "$oid": "65a9bfb00fbe678bdd12096b"
+      }
+    },
+    {
+      "id": "VwksYn",
+      "quantity": 18,
+      "_id": {
+        "$oid": "65a9bfb00fbe678bdd12096c"
+      }
+    },
+    {
+      "id": "PZRVxD",
+      "quantity": 18,
+      "_id": {
+        "$oid": "65a9bfb00fbe678bdd12096d"
+      }
+    },
+    {
+      "id": "jfx2xE",
+      "quantity": 48,
+      "_id": {
+        "$oid": "65a9bfb00fbe678bdd12096e"
+      }
+    },
+    {
+      "id": "VwksYn",
+      "quantity": 48,
+      "_id": {
+        "$oid": "65a9bfb00fbe678bdd12096f"
+      }
+    },
+    {
+      "id": "JRa7e3",
+      "quantity": 45,
+      "_id": {
+        "$oid": "65a9bfb00fbe678bdd120970"
+      }
+    },
+    {
+      "id": "hl6NGL",
+      "quantity": 39,
+      "_id": {
+        "$oid": "65a9bfb00fbe678bdd120971"
+      }
+    },
+    {
+      "id": "VESokO",
+      "quantity": 10,
+      "_id": {
+        "$oid": "65a9bfb00fbe678bdd120972"
+      }
+    }
+  ],
+  "status": 0,
+  "emitter": "q3Nr",
+  "handler": "IJP6",
+  "latestUpdate": "Wed Jun 21 2023 08:05:54 GMT+0100 (Western European Summer Time)",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65a9bfb00fbe678bdd120974"
+  },
+  "id": 2294,
+  "goodsId": [
+    {
+      "id": "GUy5a9",
+      "quantity": 29,
+      "_id": {
+        "$oid": "65a9bfb00fbe678bdd120975"
+      }
+    },
+    {
+      "id": "iOCm1M",
+      "quantity": 10,
+      "_id": {
+        "$oid": "65a9bfb00fbe678bdd120976"
+      }
+    }
+  ],
+  "status": 3,
+  "emitter": "q3Nr",
+  "handler": "AHCE",
+  "latestUpdate": "Sun Sep 17 2023 23:41:44 GMT+0100 (Western European Summer Time)",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65a9bfb00fbe678bdd120978"
+  },
+  "id": 745,
+  "goodsId": [
+    {
+      "id": "Pp7e5M",
+      "quantity": 4,
+      "_id": {
+        "$oid": "65a9bfb00fbe678bdd120979"
+      }
+    },
+    {
+      "id": "VQn8Qz",
+      "quantity": 30,
+      "_id": {
+        "$oid": "65a9bfb00fbe678bdd12097a"
+      }
+    },
+    {
+      "id": "ZzQ64u",
+      "quantity": 48,
+      "_id": {
+        "$oid": "65a9bfb00fbe678bdd12097b"
+      }
+    }
+  ],
+  "status": 1,
+  "emitter": "PUFE",
+  "handler": "Qwe1",
+  "latestUpdate": "Fri Oct 20 2023 12:10:46 GMT+0100 (Western European Summer Time)",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65a9bfb00fbe678bdd12097d"
+  },
+  "id": 2817,
+  "goodsId": [
+    {
+      "id": "ZrIPSk",
+      "quantity": 21,
+      "_id": {
+        "$oid": "65a9bfb00fbe678bdd12097e"
+      }
+    },
+    {
+      "id": "M2a2nv",
+      "quantity": 37,
+      "_id": {
+        "$oid": "65a9bfb00fbe678bdd12097f"
+      }
+    },
+    {
+      "id": "M2a2nv",
+      "quantity": 37,
+      "_id": {
+        "$oid": "65a9bfb00fbe678bdd120980"
+      }
+    },
+    {
+      "id": "jfx2xE",
+      "quantity": 25,
+      "_id": {
+        "$oid": "65a9bfb00fbe678bdd120981"
+      }
+    },
+    {
+      "id": "ZzQ64u",
+      "quantity": 5,
+      "_id": {
+        "$oid": "65a9bfb00fbe678bdd120982"
+      }
+    },
+    {
+      "id": "QsvrrK",
+      "quantity": 35,
+      "_id": {
+        "$oid": "65a9bfb00fbe678bdd120983"
+      }
+    }
+  ],
+  "status": 3,
+  "emitter": "q3Nr",
+  "handler": "RwqY",
+  "latestUpdate": "Thu Jan 18 2024 07:18:35 GMT+0000 (Western European Standard Time)",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65a9bfb00fbe678bdd120985"
+  },
+  "id": 3032,
+  "goodsId": [
+    {
+      "id": "jfx2xE",
+      "quantity": 7,
+      "_id": {
+        "$oid": "65a9bfb00fbe678bdd120986"
+      }
+    },
+    {
+      "id": "iOCm1M",
+      "quantity": 6,
+      "_id": {
+        "$oid": "65a9bfb00fbe678bdd120987"
+      }
+    },
+    {
+      "id": "M2a2nv",
+      "quantity": 32,
+      "_id": {
+        "$oid": "65a9bfb00fbe678bdd120988"
+      }
+    }
+  ],
+  "status": 1,
+  "emitter": "prNk",
+  "handler": "kge7",
+  "latestUpdate": "Mon Sep 16 2024 07:53:11 GMT+0100 (Western European Summer Time)",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65a9bfb00fbe678bdd12098a"
+  },
+  "id": 1681,
+  "goodsId": [
+    {
+      "id": "tvyk11",
+      "quantity": 50,
+      "_id": {
+        "$oid": "65a9bfb00fbe678bdd12098b"
+      }
+    },
+    {
+      "id": "kcKffW",
+      "quantity": 46,
+      "_id": {
+        "$oid": "65a9bfb00fbe678bdd12098c"
+      }
+    },
+    {
+      "id": "M2a2nv",
+      "quantity": 4,
+      "_id": {
+        "$oid": "65a9bfb00fbe678bdd12098d"
+      }
+    },
+    {
+      "id": "JRa7e3",
+      "quantity": 11,
+      "_id": {
+        "$oid": "65a9bfb00fbe678bdd12098e"
+      }
+    },
+    {
+      "id": "VwksYn",
+      "quantity": 39,
+      "_id": {
+        "$oid": "65a9bfb00fbe678bdd12098f"
+      }
+    },
+    {
+      "id": "VQn8Qz",
+      "quantity": 39,
+      "_id": {
+        "$oid": "65a9bfb00fbe678bdd120990"
+      }
+    },
+    {
+      "id": "MLAzOj",
+      "quantity": 42,
+      "_id": {
+        "$oid": "65a9bfb00fbe678bdd120991"
+      }
+    }
+  ],
+  "status": 3,
+  "emitter": "prNk",
+  "handler": "Qwe1",
+  "latestUpdate": "Sat Jul 20 2024 00:43:38 GMT+0100 (Western European Summer Time)",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65a9bfb00fbe678bdd120999"
+  },
+  "id": 502,
+  "goodsId": [
+    {
+      "id": "JRa7e3",
+      "quantity": 24,
+      "_id": {
+        "$oid": "65a9bfb00fbe678bdd12099a"
+      }
+    },
+    {
+      "id": "ZrIPSk",
+      "quantity": 41,
+      "_id": {
+        "$oid": "65a9bfb00fbe678bdd12099b"
+      }
+    }
+  ],
+  "status": 2,
+  "emitter": "rwcS",
+  "handler": "AHCE",
+  "latestUpdate": "Sun Apr 23 2023 17:52:33 GMT+0100 (Western European Summer Time)",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65a9bfb00fbe678bdd12099d"
+  },
+  "id": 4587,
+  "goodsId": [
+    {
+      "id": "hl6NGL",
+      "quantity": 27,
+      "_id": {
+        "$oid": "65a9bfb00fbe678bdd12099e"
+      }
+    },
+    {
+      "id": "Pp7e5M",
+      "quantity": 7,
+      "_id": {
+        "$oid": "65a9bfb00fbe678bdd12099f"
+      }
+    },
+    {
+      "id": "gp7Acc",
+      "quantity": 21,
+      "_id": {
+        "$oid": "65a9bfb00fbe678bdd1209a0"
+      }
+    },
+    {
+      "id": "Pp7e5M",
+      "quantity": 9,
+      "_id": {
+        "$oid": "65a9bfb00fbe678bdd1209a1"
+      }
+    }
+  ],
+  "status": 1,
+  "emitter": "PUFE",
+  "handler": "joao",
+  "latestUpdate": "Thu Aug 01 2024 09:38:53 GMT+0100 (Western European Summer Time)",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65a9bfb00fbe678bdd1209a3"
+  },
+  "id": 4735,
+  "goodsId": [
+    {
+      "id": "JRa7e3",
+      "quantity": 38,
+      "_id": {
+        "$oid": "65a9bfb00fbe678bdd1209a4"
+      }
+    },
+    {
+      "id": "hl6NGL",
+      "quantity": 15,
+      "_id": {
+        "$oid": "65a9bfb00fbe678bdd1209a5"
+      }
+    }
+  ],
+  "status": 0,
+  "emitter": "ffTh",
+  "handler": "RwqY",
+  "latestUpdate": "Sat Nov 25 2023 18:49:04 GMT+0000 (Western European Standard Time)",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65a9bfb00fbe678bdd1209a7"
+  },
+  "id": 3298,
+  "goodsId": [
+    {
+      "id": "DRvCGq",
+      "quantity": 44,
+      "_id": {
+        "$oid": "65a9bfb00fbe678bdd1209a8"
+      }
+    },
+    {
+      "id": "vDC2Gh",
+      "quantity": 2,
+      "_id": {
+        "$oid": "65a9bfb00fbe678bdd1209a9"
+      }
+    }
+  ],
+  "status": 0,
+  "emitter": "MLKK",
+  "handler": "IpVs",
+  "latestUpdate": "Mon Oct 21 2024 18:33:40 GMT+0100 (Western European Summer Time)",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65a9bfb00fbe678bdd1209ab"
+  },
+  "id": 4956,
+  "goodsId": [
+    {
+      "id": "MLAzOj",
+      "quantity": 25,
+      "_id": {
+        "$oid": "65a9bfb00fbe678bdd1209ac"
+      }
+    },
+    {
+      "id": "ZzQ64u",
+      "quantity": 15,
+      "_id": {
+        "$oid": "65a9bfb00fbe678bdd1209ad"
+      }
+    },
+    {
+      "id": "JRa7e3",
+      "quantity": 12,
+      "_id": {
+        "$oid": "65a9bfb00fbe678bdd1209ae"
+      }
+    },
+    {
+      "id": "VESokO",
+      "quantity": 23,
+      "_id": {
+        "$oid": "65a9bfb00fbe678bdd1209af"
+      }
+    }
+  ],
+  "status": 0,
+  "emitter": "yaqQ",
+  "handler": "64aa",
+  "latestUpdate": "Thu Jun 22 2023 10:36:33 GMT+0100 (Western European Summer Time)",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65b15ca7335b8b5c078b5920"
+  },
+  "id": 5840,
+  "goodsId": [
+    {
+      "id": "M2a2nv",
+      "quantity": 10,
+      "_id": {
+        "$oid": "65b15ca7335b8b5c078b5921"
+      }
+    },
+    {
+      "id": "Boow2S",
+      "quantity": 15,
+      "_id": {
+        "$oid": "65b15ca7335b8b5c078b5922"
+      }
+    }
+  ],
+  "status": 0,
+  "emitter": "rafa",
+  "handler": "joao",
+  "latestUpdate": "Wed Jan 24 2024 18:53:27 GMT+0000 (Western European Standard Time)",
+  "__v": 0
+}]
